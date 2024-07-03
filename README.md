@@ -38,7 +38,7 @@ coding!
 - Kseniia Riabova: [GitHub](https://github.com/KseniiaRiabova) / [LinkedIn](https://www.linkedin.com/in/kseniia--riabova/)
 - Nisha: [GitHub](https://github.com/NishaVijai) / [LinkedIn](https://www.linkedin.com/in/noorunnisha-thamizuddin-319976105/)
 - Sharaf Anees: [GitHub](https://github.com/sharafcs50) / [LinkedIn](https://linkedin.com/in/sharafrica)
-- Teammate name #5: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
+- Rigo L: [GitHub](https://github.com/r1g023) / [LinkedIn](https://www.linkedin.com/in/rigo0101/)
 - Teammate name #6: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
 - Teammate name #7: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
 - Teammate name #8: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
