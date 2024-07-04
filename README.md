@@ -40,5 +40,5 @@ coding!
 - Sharaf Anees: [GitHub](https://github.com/sharafcs50) / [LinkedIn](https://linkedin.com/in/sharafrica)
 - Rigo L: [GitHub](https://github.com/r1g023) / [LinkedIn](https://www.linkedin.com/in/rigo0101/)
 - Teammate name #6: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
-- Teammate name #7: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
+- Deepali Sangole #7: [GitHub](https://github.com/ss-deep) / [LinkedIn](https://www.linkedin.com/in/deepali-sangole-49b0841b/)
 - Teammate name #8: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
