@@ -8,11 +8,6 @@ This app is part of a shared project created by Team 28 for Voyage 50 of the Chi
 
 ## Our Team
 
-Everyone on your team should add their name along with a link to their GitHub
-& optionally their LinkedIn profiles below. Do this in Sprint #1 to validate
-your repo access and to practice PR'ing with your team _before_ you start
-coding!
-
 - Valeriy Lysenko: [GitHub](https://github.com/Valeriusdev) / [LinkedIn](https://www.linkedin.com/in/valeriylysenko/)
 - Kseniia Riabova: [GitHub](https://github.com/KseniiaRiabova) / [LinkedIn](https://www.linkedin.com/in/kseniia--riabova/)
 - Nisha: [GitHub](https://github.com/NishaVijai) / [LinkedIn](https://www.linkedin.com/in/noorunnisha-thamizuddin-319976105/)
