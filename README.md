@@ -20,4 +20,4 @@ coding!
 - Rigo L: [GitHub](https://github.com/r1g023) / [LinkedIn](https://www.linkedin.com/in/rigo0101/)
 - Andy Brockmann: [GitHub](https://github.com/PongRVA) / [LinkedIn](https://linkedin.com/in/andybrockmann)
 - Deepali Sangole: [GitHub](https://github.com/ss-deep) / [LinkedIn](https://www.linkedin.com/in/deepali-sangole-49b0841b/)
-- Teammate name #8: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
+- Corinna Bolon: [GitHub](https://github.com/corinnabolon) / [LinkedIn](https://www.linkedin.com/in/corinna-bolon-690003297/)
