@@ -6,6 +6,7 @@
 
 ## About
 
+
 This app is part of a shared project created by Team 28 for Voyage 50 of the Chingu Program. Chingu is a collaborative platform that brings together developers from around the world. You can learn more about Chingu on their [website](https://www.chingu.io/)
 
 ## Technologies Used
