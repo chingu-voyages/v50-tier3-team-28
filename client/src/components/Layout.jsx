@@ -1,34 +1,35 @@
+import { AnchorLink } from "./AnchorLink";
+
 export const Layout = () => {
-    const COLOR = {
-        GreenBackgroundColor: '#9BC25B',
-        LightGreenBackgroundColor: '#D8E5C3',
-        OrangeBackgroundColor: '#F4743B'
-    }
+    // const COLOR = {
+    //     GreenBackgroundColor: '#9BC25B',
+    //     LightGreenBackgroundColor: '#D8E5C3',
+    //     OrangeBackgroundColor: '#F4743B',
+    // }
 
     return (
         <section className="grid grid-cols-12 grid-rows-auto gap-2 h-screen">
-            <header className={`col-span-12 bg-[${COLOR.GreenBackgroundColor}]`}>
+            {/* <header className={`col-span-12 bg-[${COLOR.GreenBackgroundColor}]`}> */}
+            <header className={`col-span-12 bg-[#9BC25B]`}>
                 <section className="flex flex-wrap items-center justify-between mx-auto p-4">
-                    <a href="#" className="text-black">LOGO</a>
+                    <AnchorLink href="#" className="logo-custom font-normal text-black text-2xl" text="LOGO" />
                     <nav className="">
                         <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 md:flex-row md:space-x-8 ">
-                            {/* TODO - text color - orange */}
                             <li>
-                                <a href="#" className={`text-[${COLOR.OrangeBackgroundColor}]`}>Home</a>
+                                <AnchorLink href="#" className={`underline text-[#F4743B]`} text="Home" />
                             </li>
                             <li>
-                                <a href="#" className="text-black">About Us</a>
+                                <AnchorLink href="#" className="text-black" text="Home" />
                             </li>
                             <li>
-                                <a href="#" className="text-black">Stats</a>
+                                <AnchorLink href="#" className="text-black" text="Stats" />
                             </li>
                             <li>
-                                <a href="#">Contact</a>
+                                <AnchorLink href="#" className={`font-normal text-white bg-[#F4743B] p-2.5`} text="Contact" />
                             </li>
                         </ul>
                     </nav>
                 </section>
-
             </header>
 
             <main className="flex flex-col justify-between col-span-12 row-span-6">
