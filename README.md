@@ -1,4 +1,5 @@
 ## Table of Contents
+
 - [About](#about)
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
@@ -8,12 +9,25 @@
 
 This app is part of a shared project created by Team 28 for Voyage 50 of the Chingu Program. Chingu is a collaborative platform that brings together developers from around the world. You can learn more about Chingu on their [website](https://www.chingu.io/)
 
+Join us in saving wild bees! Our app fosters collaboration, awareness, and a sustainable future for pollinators and our planet.
+
+Every bee counts!
+
 ## Technologies Used
 
-- React.js
+- React.js + Vite
+- React Router
 - Tailwind CSS
-- JavaScript
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+- Auth0
+- JWT
+- Chart.js
+- Leaflet API
 - Git & GitHub (for version control)
+- Figma
 
 ## Installation
 
@@ -23,7 +37,7 @@ To run the app locally, follow these steps:
 2. Open the terminal and navigate to the project directory
 3. Run the command `npm install` to install the necessary dependencies
 4. Run the command `npm run dev` to start the development server
-5. Open your browser and navigate to http://localhost:3000 to view the app
+5. Open your browser and navigate to http://localhost:3003 to view the app
 
 ## Our Team
 
