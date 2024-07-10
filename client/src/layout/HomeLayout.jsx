@@ -1,11 +1,20 @@
-import { AnchorLink } from "./AnchorLink";
+import { useState } from "react";
+import { AnchorLink } from "../components/UI/AnchorLink";
+import { Form } from "../components/UI/Form";
 
-export const Layout = () => {
+export const HomeLayout = () => {
     // const COLOR = {
     //     GreenBackgroundColor: '#9BC25B',
     //     LightGreenBackgroundColor: '#D8E5C3',
     //     OrangeBackgroundColor: '#F4743B',
     // }
+
+    const [action, setAction] = useState("Sign Up");
+
+    const onClickHandler = () => {
+        console.log(action);
+        setAction("Login");
+    }
 
     return (
         <section className="grid grid-cols-12 grid-rows-auto gap-2 h-screen">
@@ -34,7 +43,8 @@ export const Layout = () => {
 
             <main className="flex flex-col justify-between col-span-12 row-span-6">
                 <section className="col-span-12 h-1/2">
-                    <h2>Problem</h2>
+                    {/* <h2>Problem</h2> */}
+                    <Form action={action} onClickHandler={onClickHandler} />
                 </section>
                 <section className="bg-gray-200 col-span-12 h-1/2">
                     <h2>Map</h2>
