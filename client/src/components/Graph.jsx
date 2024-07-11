@@ -26,13 +26,6 @@ ChartJS.register(
 export default function Graph() {
   const hiveData = {
     labels: graphData.map((row) => row.date),
-    // datasets: [
-    //   {
-    //     data: graphData.map((row) => {
-    //       return { x: row.date, y: row.hives };
-    //     }),
-    //   },
-    // ],
     datasets: [
       {
         data: graphData.map((row) => row.hives),
@@ -60,7 +53,7 @@ export default function Graph() {
       },
       date: {
         ticks: {
-          stepSize: 3,
+          stepSize: 1,
         },
         type: "linear",
         reverse: false,
