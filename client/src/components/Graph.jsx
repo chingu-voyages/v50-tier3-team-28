@@ -26,16 +26,15 @@ ChartJS.register(
 export default function Graph() {
   const hiveData = {
     labels: graphData.map((row) => row.date),
+    // datasets: [
+    //   {
+    //     data: graphData.map((row) => {
+    //       return { x: row.date, y: row.hives };
+    //     }),
+    //   },
+    // ],
     datasets: [
       {
-        data: graphData.map((row) => {
-          return { x: row.date, y: row.hives };
-        }),
-      },
-    ],
-    datasets: [
-      {
-        // label: "Bees",
         data: graphData.map((row) => row.hives),
         backgroundColor: [
           "rgba(255, 99, 132, 0.2)",
