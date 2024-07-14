@@ -22,6 +22,9 @@ const userSchema = new mongoose.Schema(
       required: true,
       unique: true,
     },
+    gravatar: {
+      type: String,
+    },
     //The location is made to be a GeoJSON object
     location: {
       type: {

@@ -14,12 +14,12 @@ const requestSchema = new mongoose.Schema(
     image: {
       type: String,
     },
-    isAccepted: {
+    isActive: {
       type: Boolean,
       required: true,
-      default: false,
+      default: true,
     },
-    isCompleted: {
+    isAccepted: {
       type: Boolean,
       required: true,
       default: false,
@@ -55,7 +55,7 @@ const requestSchema = new mongoose.Schema(
       },
     },
   },
-  { timestamps: true }
+  { timestamps: true, toJSON: { virtuals: true } }
 );
 
 requestSchema.virtual("beefinder", {
