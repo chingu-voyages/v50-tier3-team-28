@@ -1,13 +1,17 @@
-const express = require('express');
+const express = require("express");
 const app = express();
-require('dotenv').config();
-const dbConnection = require('./config/dbConnection');
-const { errorHandler } = require('./middleware/errorHandler');
+require("dotenv").config();
+const dbConnection = require("./config/dbConnection");
+const dbContext = require("./config/dbContext");
+const { errorHandler } = require("./middleware/errorHandler");
 
 dbConnection();
 
-app.get('/', function (req, res) {
-  res.send('Hello World');
+// Use the registered models from dbContext
+// const { Account, Comment, TowerEvent, Ticket, Value } = dbContext;
+
+app.get("/", function (req, res) {
+  res.send("Hello World");
 });
 
 app.use(errorHandler);
