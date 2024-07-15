@@ -39,5 +39,13 @@ body {
 
 @font-face {
   font-family: BlackOpsOneFont;
-  src: url('../src/assets/fonts/Black_Ops_One/BlackOpsOne-Regular.ttf');
+  src: url("../src/assets/fonts/Black_Ops_One/BlackOpsOne-Regular.ttf");
+}
+@font-face {
+  font-family: Blinker;
+  src: url("../src/assets/fonts/Blinker/Blinker-Regular.ttf");
+}
+@font-face {
+  font-family: BlinkerBold;
+  src: url("../src/assets/fonts/Blinker/Blinker-Bold.ttf");
 }
