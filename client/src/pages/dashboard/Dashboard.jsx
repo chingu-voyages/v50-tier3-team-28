@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import { useNavigate } from 'react-router-dom';
-import { LogoutButton } from '../../components/UI/LogoutButton';
-// import { LoginButton } from '../../components/UI/LoginButton';
+import LogoutButton from '../../components/UI/LogoutButton';
 
-export const Dashboard = () => {
+const Dashboard = () => {
   const { isAuthenticated, getAccessTokenSilently } = useAuth0();
   const [protectedData, setProtectedData] = useState('');
   const navigate = useNavigate();
