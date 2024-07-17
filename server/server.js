@@ -1,10 +1,24 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 require('dotenv').config();
 const dbConnection = require('./config/dbConnection');
 const { errorHandler } = require('./middleware/errorHandler');
+const dashboardRoute = require('./routes/dashboardRoute');
 
 dbConnection();
+
+app.use(express.json());
+app.use(
+  cors({
+    origin: 'http://localhost:5173',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
+  })
+);
+
+app.use('/api/dashboard', dashboardRoute);
+app.use(errorHandler);
 
 app.get('/', function (req, res) {
   res.send('Hello World');
