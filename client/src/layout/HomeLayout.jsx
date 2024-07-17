@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useNavigate } from "react-router-dom";
 import { Header } from "../components/UI/Header";
-import { Footer } from "../components/UI/Footer";
 import { Button } from "../components/UI/Button";
+
+import Footer from "../components/Footer/Footer";
 import Graph from "../components/Graph";
 import AnimatedNumber from "./AnimatedNumber";
 
