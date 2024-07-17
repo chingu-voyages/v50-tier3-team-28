@@ -3,10 +3,11 @@ import { Header } from "../components/UI/Header";
 import { Footer } from "../components/UI/Footer";
 import Graph from "../components/Graph";
 import AnimatedNumber from "./AnimatedNumber";
+import { Button } from "../components/UI/Button";
 
 export const HomeLayout = () => {
   const [action, setAction] = useState("Sign Up");
-  const [statHighlights, setStatHighlights] = useState({
+  const [statHighlights] = useState({
     countries: 12,
     hivesSaved: 16000,
     volunteers: 300,
@@ -18,35 +19,57 @@ export const HomeLayout = () => {
   };
 
   return (
-    <section className="grid grid-cols-12 grid-rows-auto gap-2 h-screen">
+    <section className="grid grid-cols-12 grid-rows-auto h-screen">
       <Header action={action} onClickHandler={onClickHandler} />
 
-      <main className="flex flex-col justify-between col-span-12 row-span-6 ">
-        <section className="bg-[#9BC25B] col-span-12 h-1/2">
-          <h2>Map</h2>
-          <div className="flex justify-between w-[499px] h-[68px] font-body">
-            <div>
+      <main className="flex flex-col justify-around col-span-12 row-span-6 ">
+        <section className="bg-[#9BC25B] grid grid-cols-3 gap-1 md:grid-cols-6 font-body space-x-4 md:space-y-20">
+          <img
+            src="./src/assets/imgs/bee.png"
+            alt=""
+            className="w-[190px] h-[185px] border-2 border-[#D9D9D9] rounded-full"
+          />
+          <h2 className="my-auto">
+            Its Time to Save The Bees To Save Our Future Generations
+          </h2>
+          <Button
+            className="w-[134px] h-[54px] font-normal text-white bg-[#F4743B] rounded-lg my-auto"
+            type="button"
+            text="Learn More"
+          />
+          <div className="my-10">
+            <div className="flex flex-row">
               <span className="font-bold">
-                <AnimatedNumber n={statHighlights.countries} />
+                <AnimatedNumber className="" n={statHighlights.countries} />
               </span>
-              Countries
+              <div className="font-bold">+</div>
             </div>
-            <div>
+            <p>Countries</p>
+          </div>
+          <div className="my-10">
+            <div className="flex flex-row">
               <span className="font-bold">
-                <AnimatedNumber n={statHighlights.hivesSaved} />
+                <AnimatedNumber className="" n={statHighlights.hivesSaved} />
               </span>
-              Beehives Saved
+              <div className="font-bold">+</div>
             </div>
-            <div>
+            <p>Beehives Saved</p>
+          </div>
+          <div className="my-10">
+            <div className="flex flex-row">
               <span className="font-bold">
-                <AnimatedNumber n={statHighlights.volunteers} />
+                <AnimatedNumber className="" n={statHighlights.volunteers} />
               </span>
-              Volunteers
+              <div className="font-bold">+</div>
             </div>
+            <p>Volunteers</p>
           </div>
         </section>
         <section className="col-span-12 h-1/2 ">
           <Graph />
+        </section>
+        <section className="col-span-12 h-1/2 bg-gray-200">
+          <h2>Map</h2>
         </section>
         <section className="col-span-12 h-1/2">
           <h2>Solutions</h2>
