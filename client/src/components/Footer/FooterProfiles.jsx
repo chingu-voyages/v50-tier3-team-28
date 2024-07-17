@@ -23,8 +23,9 @@ function FooterProfiles() {
               <a
                 href={profile.linkedin}
                 target="_blank"
-                rel="noopener noreferrer">
-                <i className="fab fa-linkedin text-4xl mr-4 h-8"></i>
+                rel="noopener noreferrer"
+                className="group">
+                <i className="fab fa-linkedin text-4xl mr-4 h-8 group-hover:text-[#0072B1]"></i>
               </a>
               <a
                 href={profile.github}
