@@ -28,14 +28,6 @@ export default function Graph() {
     labels: graphData.map((row) => row.date),
     datasets: [
       {
-        data: graphData.map((row) => {
-          return { x: row.date, y: row.hives };
-        }),
-      },
-    ],
-    datasets: [
-      {
-        // label: "Bees",
         data: graphData.map((row) => row.hives),
         backgroundColor: [
           "rgba(255, 99, 132, 0.2)",
@@ -61,7 +53,7 @@ export default function Graph() {
       },
       date: {
         ticks: {
-          stepSize: 3,
+          stepSize: 1,
         },
         type: "linear",
         reverse: false,
