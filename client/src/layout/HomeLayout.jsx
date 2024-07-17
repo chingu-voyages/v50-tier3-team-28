@@ -6,7 +6,7 @@ import { Footer } from '../components/UI/Footer';
 import Graph from '../components/Graph';
 import AnimatedNumber from './AnimatedNumber';
 
-export const HomeLayout = () => {
+const HomeLayout = () => {
   const { loginWithRedirect, isAuthenticated, logout } = useAuth0();
   const [action, setAction] = useState('Sign Up');
   const navigate = useNavigate();
