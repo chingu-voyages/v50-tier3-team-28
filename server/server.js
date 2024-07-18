@@ -3,6 +3,7 @@ const app = express();
 const cors = require('cors');
 require('dotenv').config();
 const dbConnection = require('./config/dbConnection');
+const dbContext = require("./config/dbContext");
 const { errorHandler } = require('./middleware/errorHandler');
 const dashboardRoute = require('./routes/dashboardRoute');
 
