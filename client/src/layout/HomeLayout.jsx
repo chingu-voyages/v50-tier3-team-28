@@ -3,6 +3,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { useNavigate } from "react-router-dom";
 import { Header } from "../components/UI/Header";
 import { Button } from "../components/UI/Button";
+import beeImage from "../assets/imgs/bee.png";
 
 import Footer from "../components/Footer/Footer";
 import Graph from "../components/Graph";
@@ -43,7 +44,7 @@ const HomeLayout = () => {
       <main className="flex flex-col justify-around col-span-12 row-span-6 ">
         <section className="bg-[#9BC25B] grid grid-cols-3 gap-1 md:grid-cols-6 font-body space-x-4 md:space-y-20">
           <img
-            src="./src/assets/imgs/bee.png"
+            src={beeImage}
             alt=""
             className="w-[190px] h-[185px] border-2 border-[#D9D9D9] rounded-full"
           />
