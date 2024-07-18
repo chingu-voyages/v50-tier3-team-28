@@ -12,7 +12,8 @@ function FooterProfiles() {
         {profiles.map((profile, index) => (
           <div
             key={index}
-            className="profile-info flex justify-between items-center mb-4">
+            className="profile-info flex justify-between items-center mb-4"
+          >
             <div className="firstNameContainer">
               <h2 className="text-2xl text-footerProfileNameColor">
                 {profile.name}
@@ -24,13 +25,15 @@ function FooterProfiles() {
                 href={profile.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group">
+                className="group"
+              >
                 <i className="fab fa-linkedin text-4xl mr-4 h-8 group-hover:text-[#0072B1]"></i>
               </a>
               <a
                 href={profile.github}
                 target="_blank"
-                rel="noopener noreferrer">
+                rel="noopener noreferrer"
+              >
                 <i className="fab fa-github text-4xl mr-2 h-8"></i>
               </a>
             </div>
@@ -81,18 +84,51 @@ function FooterProfiles() {
         </h2>
         <ul className="list-none w-full pl-8 mt-20">
           <li>
-            <a href="#" className="underline mb-2 block text-footerBoxColor">
-              Link 1
+            <a
+              href="https://www.beegirl.org/"
+              className="underline mb-2 block text-footerBoxColor"
+            >
+              Bee Regenerative
             </a>
           </li>
           <li>
-            <a href="#" className="underline mb-2 block text-footerBoxColor">
-              Link 2
+            <a
+              href="https://savethebeesusa.org/"
+              className="underline mb-2 block text-footerBoxColor"
+            >
+              Save The Bees USA
             </a>
           </li>
           <li>
-            <a href="#" className="underline mb-2 block text-footerBoxColor">
-              Link 3
+            <a
+              href="https://thebeeconservancy.org/"
+              className="underline mb-2 block text-footerBoxColor"
+            >
+              The Bees Conservancy
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://savethebees.com/"
+              className="underline mb-2 block text-footerBoxColor"
+            >
+              Save The Bees
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.newyorkbeesanctuary.org/"
+              className="underline mb-2 block text-footerBoxColor"
+            >
+              New York Bee Sanctuary
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.pollinator.org/about"
+              className="underline mb-2 block text-footerBoxColor"
+            >
+              Pollinator Partnership
             </a>
           </li>
         </ul>
