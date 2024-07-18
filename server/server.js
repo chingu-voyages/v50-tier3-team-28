@@ -1,17 +1,28 @@
-const express = require("express");
+const express = require('express');
 const app = express();
-require("dotenv").config();
-const dbConnection = require("./config/dbConnection");
+const cors = require('cors');
+require('dotenv').config();
+const dbConnection = require('./config/dbConnection');
 const dbContext = require("./config/dbContext");
-const { errorHandler } = require("./middleware/errorHandler");
+const { errorHandler } = require('./middleware/errorHandler');
+const dashboardRoute = require('./routes/dashboardRoute');
 
 dbConnection();
 
-// Use the registered models from dbContext
-// const { Account, Comment, TowerEvent, Ticket, Value } = dbContext;
+app.use(express.json());
+app.use(
+  cors({
+    origin: 'http://localhost:5173',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
+  })
+);
 
-app.get("/", function (req, res) {
-  res.send("Hello World");
+app.use('/api/dashboard', dashboardRoute);
+app.use(errorHandler);
+
+app.get('/', function (req, res) {
+  res.send('Hello World');
 });
 
 app.use(errorHandler);

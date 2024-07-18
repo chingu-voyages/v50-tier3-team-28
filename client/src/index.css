@@ -1,3 +1,4 @@
+@import "@fortawesome/fontawesome-free/css/all.min.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -30,7 +31,8 @@ a:hover {
 body {
   margin: 0;
   min-height: 100vh;
-  overflow-y: hidden;
+  height: 100%;
+  overflow-y: auto;
 }
 
 .logo-custom {
@@ -39,5 +41,13 @@ body {
 
 @font-face {
   font-family: BlackOpsOneFont;
-  src: url('../src/assets/fonts/Black_Ops_One/BlackOpsOne-Regular.ttf');
+  src: url("../src/assets/fonts/Black_Ops_One/BlackOpsOne-Regular.ttf");
+}
+@font-face {
+  font-family: Blinker;
+  src: url("../src/assets/fonts/Blinker/Blinker-Regular.ttf");
+}
+@font-face {
+  font-family: BlinkerBold;
+  src: url("../src/assets/fonts/Blinker/Blinker-Bold.ttf");
 }

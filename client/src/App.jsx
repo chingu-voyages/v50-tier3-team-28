@@ -1,9 +1,9 @@
-import { HomeLayout } from "./layout/HomeLayout";
-
+import React from 'react';
+import AppRoutes from './routes/AppRoutes';
 function App() {
   return (
     <>
-      <HomeLayout />
+      <AppRoutes />
     </>
   );
 }
