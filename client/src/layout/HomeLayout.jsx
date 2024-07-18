@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Header } from "../components/UI/Header";
 import { Button } from "../components/UI/Button";
 import beeImage from "../assets/imgs/bee.png";
+import hiveImage from "../assets/imgs/hive.png";
 
 import Footer from "../components/Footer/Footer";
 import Graph from "../components/Graph";
