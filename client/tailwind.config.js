@@ -17,6 +17,7 @@ export default {
         footerBoxColor:  "#727272",
         footerProfileNameColor: "#000000",
         footerBackgroundColor: "#f9f9f9",
+        footerLinkedinHoverColor: "#0072B1",
       },
     },
   },
