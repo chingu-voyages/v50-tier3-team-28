@@ -5,6 +5,7 @@ import { Header } from '../components/UI/Header';
 import { Footer } from '../components/UI/Footer';
 import Graph from '../components/Graph';
 import AnimatedNumber from './AnimatedNumber';
+import { Counter } from '../features/counter/Counter';
 
 const HomeLayout = () => {
   const { loginWithRedirect, isAuthenticated, logout } = useAuth0();
@@ -67,6 +68,10 @@ const HomeLayout = () => {
         </section>
         <section className='col-span-12 h-1/2'>
           <h2>Solutions</h2>
+        </section>
+        <section className='col-span-12 h-1/2 self-center'>
+          <h2 className='mb-6'>Counter Example using Redux-Toolkit</h2>
+          <Counter />
         </section>
       </main>
 
