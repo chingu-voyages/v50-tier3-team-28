@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@auth0/auth0-react": "^2.2.4",
+    "@fortawesome/fontawesome-free": "^6.5.2",
     "@reduxjs/toolkit": "^2.2.6",
     "chart.js": "^4.4.3",
     "chart.piecelabel.js": "^0.15.0",
