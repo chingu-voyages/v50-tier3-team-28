@@ -43,7 +43,7 @@ const HomeLayout = () => {
     <section className='grid grid-cols-12 grid-rows-auto h-screen'>
       <Header action={action} onClickHandler={onClickHandler} />
 
-      <main className='flex flex-col justify-around col-span-12 row-span-6 dark:bg-black'>
+      <main className='flex flex-col justify-around col-span-12 row-span-6 dark:bg-black dark:text-white'>
         <section className='bg-[#9BC25B] grid grid-cols-3 gap-1 md:grid-cols-6 font-body space-x-4 md:space-y-20'>
           <img
             src={beeImage}
