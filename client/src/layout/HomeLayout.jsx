@@ -9,6 +9,7 @@ import hiveImage from "../assets/imgs/hive.png";
 import Footer from "../components/Footer/Footer";
 import Graph from "../components/Graph";
 import AnimatedNumber from "./AnimatedNumber";
+import { DarkLightModeButton } from "../components/UI/DarkLightModeButton";
 
 const HomeLayout = () => {
   const { loginWithRedirect, isAuthenticated, logout } = useAuth0();
@@ -42,7 +43,7 @@ const HomeLayout = () => {
     <section className="grid grid-cols-12 grid-rows-auto h-screen">
       <Header action={action} onClickHandler={onClickHandler} />
 
-      <main className="flex flex-col justify-around col-span-12 row-span-6 ">
+      <main className="flex flex-col justify-around col-span-12 row-span-6 dark:bg-blue-800">
         <section className="bg-[#9BC25B] grid grid-cols-3 gap-1 md:grid-cols-6 font-body space-x-4 md:space-y-20">
           <img
             src={beeImage}
@@ -88,11 +89,15 @@ const HomeLayout = () => {
         <section className="col-span-12 h-1/2 ">
           <Graph />
         </section>
-        <section className="col-span-12 h-1/2 bg-gray-200">
+        {/* <section className="col-span-12 h-1/2 bg-gray-200"> */}
+        <section className="col-span-12 h-1/2">
           <h2>Map</h2>
         </section>
         <section className="col-span-12 h-1/2">
           <h2>Solutions</h2>
+        </section>
+        <section className="col-span-12 h-1/2">
+          <DarkLightModeButton />
         </section>
       </main>
 
