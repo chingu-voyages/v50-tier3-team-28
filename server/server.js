@@ -6,6 +6,8 @@ const dbConnection = require('./config/dbConnection');
 const dbContext = require("./config/dbContext");
 const { errorHandler } = require('./middleware/errorHandler');
 const dashboardRoute = require('./routes/dashboardRoute');
+const userRoute = require('./routes/userRoute');
+const requestRoute = require('./routes/requestRoute');
 
 dbConnection();
 
