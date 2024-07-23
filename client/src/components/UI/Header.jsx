@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import { AnchorLink } from "../UI/AnchorLink";
 import { Nav } from "../UI/Nav";
+import MainHeroLanding from "../UI/MainHeroLanding";
 
 export const Header = ({ action, onClickHandler }) => {
   return (
@@ -13,6 +14,7 @@ export const Header = ({ action, onClickHandler }) => {
         />
         <Nav action={action} onClickHandler={onClickHandler} />
       </section>
+      <MainHeroLanding />
     </header>
   );
 };
