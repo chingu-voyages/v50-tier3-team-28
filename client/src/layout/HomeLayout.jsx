@@ -10,6 +10,7 @@ import Footer from '../components/Footer/Footer';
 import Graph from '../components/Graph';
 import AnimatedNumber from './AnimatedNumber';
 import { DarkLightModeButton } from '../components/UI/DarkLightModeButton';
+// import { Counter } from '../features/counter/Counter';
 
 const HomeLayout = () => {
   const { loginWithRedirect, isAuthenticated, logout } = useAuth0();
@@ -43,7 +44,7 @@ const HomeLayout = () => {
     <section className='grid grid-cols-12 grid-rows-auto h-screen'>
       <Header action={action} onClickHandler={onClickHandler} />
 
-      <main className='flex flex-col justify-around col-span-12 row-span-6 dark:bg-black'>
+      <main className='flex flex-col justify-around col-span-12 row-span-6 dark:bg-black dark:text-white'>
         <section className='bg-[#9BC25B] grid grid-cols-3 gap-1 md:grid-cols-6 font-body space-x-4 md:space-y-20'>
           <img
             src={beeImage}
@@ -86,19 +87,28 @@ const HomeLayout = () => {
             <p>Volunteers</p>
           </div>
         </section>
+
         <section className='col-span-12 h-1/2 '>
           <Graph />
         </section>
-        {/* <section className='col-span-12 h-1/2 bg-gray-200'> */}
+
         <section className='col-span-12 h-1/2'>
           <h2>Map</h2>
         </section>
+
         <section className='col-span-12 h-1/2'>
           <h2>Solutions</h2>
         </section>
+
         <section className='col-span-12 h-1/2'>
           <DarkLightModeButton />
         </section>
+
+        {/* This below section is an example for redux-toolkit. This will be removed before our project submission */}
+        {/* <section className='col-span-12 h-1/2 self-center'>
+          <h2 className='mb-6'>Counter Example using Redux-Toolkit</h2>
+          <Counter />
+        </section> */}
       </main>
 
       <Footer />
