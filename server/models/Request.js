@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const requestSchema = new mongoose.Schema(
@@ -29,18 +29,18 @@ const requestSchema = new mongoose.Schema(
     },
     beefinderId: {
       type: Schema.Types.ObjectId,
-      ref: "User",
+      ref: 'User',
       required: true,
     },
     beekeeperId: {
       type: Schema.Types.ObjectId,
-      ref: "User",
+      ref: 'User',
     },
     //The location is made to be a GeoJSON object
     location: {
       type: {
         type: String,
-        enum: ["Point"],
+        enum: ['Point'],
         required: true,
       },
       coordinates: {
@@ -58,24 +58,24 @@ const requestSchema = new mongoose.Schema(
   { timestamps: true, toJSON: { virtuals: true } }
 );
 
-requestSchema.virtual("beefinder", {
-  ref: "User",
-  localField: "beefinderId",
-  foreignField: "_id",
+requestSchema.virtual('beefinder', {
+  ref: 'User',
+  localField: 'beefinderId',
+  foreignField: '_id',
   justOne: true,
-  options: { select: "-authID" },
+  options: { select: '-authID' },
 });
 
-requestSchema.virtual("beekeeper", {
-  ref: "User",
-  localField: "beekeeperId",
-  foreignField: "_id",
+requestSchema.virtual('beekeeper', {
+  ref: 'User',
+  localField: 'beekeeperId',
+  foreignField: '_id',
   justOne: true,
-  options: { select: "-authID" },
+  options: { select: '-authID' },
 });
 
 // Creates an index on the 'location' field for geospatial queries
-requestSchema.index({ location: "2dsphere" });
+requestSchema.index({ location: '2dsphere' });
 
-const Request = mongoose.model("Request", requestSchema);
+const Request = mongoose.model('Request', requestSchema);
 module.exports = Request;

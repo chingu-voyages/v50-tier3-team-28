@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
-const User = require("../models/User");
-const Request = require("../models/Request");
+const mongoose = require('mongoose');
+const User = require('../models/User');
+const Request = require('../models/Request');
 
 class DbContext {
   constructor() {
