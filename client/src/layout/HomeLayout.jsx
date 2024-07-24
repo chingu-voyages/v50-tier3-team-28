@@ -10,7 +10,7 @@ import Footer from '../components/Footer/Footer';
 import Graph from '../components/Graph';
 import AnimatedNumber from './AnimatedNumber';
 import { DarkLightModeButton } from '../components/UI/DarkLightModeButton';
-import { Counter } from '../features/counter/Counter';
+// import { Counter } from '../features/counter/Counter';
 
 const HomeLayout = () => {
   const { loginWithRedirect, isAuthenticated, logout } = useAuth0();
@@ -87,23 +87,28 @@ const HomeLayout = () => {
             <p>Volunteers</p>
           </div>
         </section>
+
         <section className='col-span-12 h-1/2 '>
           <Graph />
         </section>
-        {/* <section className='col-span-12 h-1/2 bg-gray-200'> */}
+
         <section className='col-span-12 h-1/2'>
           <h2>Map</h2>
         </section>
+
         <section className='col-span-12 h-1/2'>
           <h2>Solutions</h2>
         </section>
+
         <section className='col-span-12 h-1/2'>
           <DarkLightModeButton />
         </section>
-        <section className='col-span-12 h-1/2 self-center'>
+
+        {/* This below section is an example for redux-toolkit. This will be removed before our project submission */}
+        {/* <section className='col-span-12 h-1/2 self-center'>
           <h2 className='mb-6'>Counter Example using Redux-Toolkit</h2>
           <Counter />
-        </section>
+        </section> */}
       </main>
 
       <Footer />
