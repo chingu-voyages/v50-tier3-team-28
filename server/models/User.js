@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema(
   {
@@ -29,7 +29,7 @@ const userSchema = new mongoose.Schema(
     location: {
       type: {
         type: String,
-        enum: ["Point"],
+        enum: ['Point'],
         required: true,
       },
       coordinates: {
@@ -48,7 +48,7 @@ const userSchema = new mongoose.Schema(
 );
 
 // Creates an index on the 'location' field for geospatial queries
-userSchema.index({ location: "2dsphere" });
+userSchema.index({ location: '2dsphere' });
 
-const User = mongoose.model("User", userSchema);
-module.exports = mongoose.model("User", userSchema);
+const User = mongoose.model('User', userSchema);
+module.exports = mongoose.model('User', userSchema);
