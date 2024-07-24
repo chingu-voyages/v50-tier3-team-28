@@ -1,4 +1,4 @@
-import FooterProfiles from "./FooterProfiles";
+import FooterContent from "./FooterContent";
 import FooterBottom from "./FooterBottom";
 import FooterForm from "./FooterForm";
 
@@ -12,7 +12,7 @@ function Footer() {
       <div className="w-full mx-auto px-8">
         <FooterForm handleNewsletterSubmit={handleNewsletterSubmit} />
 
-        <FooterProfiles />
+        <FooterContent />
 
         <FooterBottom />
       </div>
