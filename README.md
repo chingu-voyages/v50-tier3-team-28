@@ -24,6 +24,7 @@ Every bee counts!
 - Mongoose
 - Auth0
 - JWT
+- Postman
 - Chart.js
 - Leaflet API
 - Git & GitHub (for version control)
