@@ -1,5 +1,5 @@
 import "leaflet/dist/leaflet.css";
-import { MapContainer, TileLayer, Marker } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { Icon } from "leaflet";
 import mapData from "./mapData";
 import greenBeeIconUrl from "../assets/icons/green-bee.png";
@@ -32,6 +32,13 @@ export default function Map() {
                     position={[marker.coordinates.latitude, marker.coordinates.longitude]}
                     icon={marker.status ? greenBeeIcon : redBeeIcon}
                     >
+                        <Popup>
+                            <div>
+                                <h2 className="text-center underline"> {marker.name} </h2>
+                                <div> <span className="underline">Latitude</span>: {marker.coordinates.latitude} </div>
+                                <div> <span className="underline">Longitude</span>: {marker.coordinates.longitude} </div>
+                            </div>
+                        </Popup>
                 </Marker>
             ))
             }
