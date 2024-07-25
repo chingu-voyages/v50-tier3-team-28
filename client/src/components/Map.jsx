@@ -21,6 +21,7 @@ export default function Map() {
             className="leaflet-container w-[150rem] h-[25rem]"
             center={[0, 0]}
             zoom={2}
+            minZoom = {2}
             // scrollWheelZoom={true}
             >
             <TileLayer
