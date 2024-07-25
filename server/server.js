@@ -3,11 +3,11 @@ const app = express();
 const cors = require('cors');
 require('dotenv').config();
 const dbConnection = require('./config/dbConnection');
-const dbContext = require('./config/dbContext');
+// const dbContext = require("./config/dbContext");
 const { errorHandler } = require('./middleware/errorHandler');
-const dashboardRoute = require('./routes/dashboardRoute');
-const userRoute = require('./routes/userRoute');
-const requestRoute = require('./routes/requestRoute');
+const dashboardRoutes = require('./routes/dashboardRoutes');
+const userRoutes = require('./routes/userRoutes');
+// const requestRoute = require('./routes/requestRoute');
 
 dbConnection();
 
@@ -20,13 +20,8 @@ app.use(
   })
 );
 
-app.use('/api/dashboard', dashboardRoute);
-app.use(errorHandler);
-
-app.get('/', function (req, res) {
-  res.send('Hello World');
-});
-
+app.use('/api/dashboard', dashboardRoutes);
+app.use('/api/user', userRoutes);
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 3003;
