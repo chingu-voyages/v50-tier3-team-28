@@ -29,6 +29,7 @@ export default function Map() {
             />
             {mapData.map(marker => (
                 <Marker
+                    key = {marker.name}
                     position={[marker.coordinates.latitude, marker.coordinates.longitude]}
                     icon={marker.status ? greenBeeIcon : redBeeIcon}
                     >
