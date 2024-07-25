@@ -1,6 +1,13 @@
-import "leaflet/dist/leaflet.css"
-import { MapContainer, TileLayer, Marker } from "react-leaflet"
+import "leaflet/dist/leaflet.css";
+import { MapContainer, TileLayer, Marker } from "react-leaflet";
+import { Icon } from "leaflet";
 import mapData from "./mapData";
+import greenBeeIconUrl from "../assets/icons/green-bee.png";
+
+const customIcon = new Icon({
+    iconUrl: greenBeeIconUrl,
+    iconSize: [35, 35]
+});
 
 export default function Map() {
     return (
@@ -15,7 +22,10 @@ export default function Map() {
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"           
             />
             {mapData.map(marker => (
-                <Marker position={[marker.coordinates.latitude, marker.coordinates.longitude]}>
+                <Marker
+                    position={[marker.coordinates.latitude, marker.coordinates.longitude]}
+                    icon={customIcon}
+                    >
                 </Marker>
             ))
             }
