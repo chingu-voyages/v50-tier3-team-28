@@ -1,54 +1,32 @@
-// const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
-// const userSchema = new mongoose.Schema(
-//   {
-//     authID: {
-//       type: String,
-//       required: true,
-//       unique: true,
-//     },
-//     phoneNumber: {
-//       type: String,
-//       unique: true,
-//       sparse: true,
-//     },
-//     nickname: {
-//       type: String,
-//       required: true,
-//       unique: true,
-//     },
-//     email: {
-//       type: String,
-//       required: true,
-//       unique: true,
-//     },
-//     gravatar: {
-//       type: String,
-//     },
-//     //The location is made to be a GeoJSON object
-//     location: {
-//       type: {
-//         type: String,
-//         enum: ["Point"],
-//         required: true,
-//       },
-//       coordinates: {
-//         type: [Number], // Array of [longitude, latitude]
-//         required: true,
-//       },
-//       city: {
-//         type: String,
-//       },
-//       country: {
-//         type: String,
-//       },
-//     },
-//   },
-//   { timestamps: true }
-// );
+const userSchema = new mongoose.Schema(
+  {
+    userId: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+    name: {
+      type: String,
+    },
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+    userName: {
+      type: String,
+    },
+    contactNumber: {
+      type: String,
+    },
+    emailVerified: {
+      type: Boolean,
+    },
+  },
+  { timestamps: true }
+);
 
-// // Creates an index on the 'location' field for geospatial queries
-// userSchema.index({ location: "2dsphere" });
-
-// const User = mongoose.model("User", userSchema);
-// module.exports = mongoose.model("User", userSchema);
+const User = mongoose.model('User', userSchema);
+module.exports = User;
