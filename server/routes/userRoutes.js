@@ -1,11 +1,14 @@
 const express = require('express');
 const { updateOrDeleteMetadata } = require('../controllers/userController');
 const router = express.Router();
+const { jwtCheck } = require('../middleware/jwtMiddleware');
 
-router.patch('/metadata', updateOrDeleteMetadata);
+router.patch('/metadata', jwtCheck, updateOrDeleteMetadata);
 // router.delete('/metadata', deleteMetadata);
 
 module.exports = router;
+
+//ROUTES TO DELETE USER INCOMING
 
 // // routes/userRoutes.js
 // const express = require("express");

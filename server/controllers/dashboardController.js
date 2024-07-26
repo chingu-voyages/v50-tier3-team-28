@@ -7,11 +7,19 @@ exports.getUserDashboardInfo = async (req, res) => {
 
   try {
     const userInfo = await userService.getUserInfo(userId, token);
+    if (!userInfo.email_verified) {
+      return res.status(403).json({ message: 'Email not verified' });
+    }
     res.json({
       user: {
         name: userInfo.name,
         email: userInfo.email,
         userId: userInfo.user_id,
+        emailVerified: userInfo.email_verified,
+        metadata: {
+          userName: userInfo.user_metadata?.userName || null,
+          contactNumber: userInfo.user_metadata?.contactNumber || null,
+        },
       },
     });
   } catch (error) {

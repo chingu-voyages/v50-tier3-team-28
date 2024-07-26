@@ -1,16 +1,22 @@
-// // routes/userRoutes.js
-// const express = require("express");
-// const router = express.Router();
-// const { validateRequest } = require("../validation/validation");
-// const Request = require("../models/Request");
+const express = require('express');
+const router = express.Router();
+const {
+  createRequest,
+  updateRequest,
+  deleteRequest,
+  listAllRequests,
+  acceptRequest,
+  completeRequest,
+  cancelAcceptedRequest,
+} = require('../controllers/requestController');
+const { jwtCheck } = require('../middleware/jwtMiddleware');
 
-// router.post("/request", async (req, res) => {
+router.post('/', jwtCheck, createRequest);
+router.put('/:id', jwtCheck, updateRequest);
+router.delete('/:id', jwtCheck, deleteRequest);
+router.post('/:id/accept', jwtCheck, acceptRequest);
+router.patch('/:id/cancel', jwtCheck, cancelAcceptedRequest);
+router.post('/:id/complete', jwtCheck, completeRequest);
+router.get('/', jwtCheck, listAllRequests);
 
-//     const { error } = validateRequest(req.body);
-//     if (error) return res.status(400).send(error.details[0].message);
-//     const request = new Request(req.body);
-//     await request.save();
-//     res.send(request);
-//   });
-
-// module.exports = router;
+module.exports = router;
