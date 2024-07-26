@@ -1,4 +1,5 @@
-import { animated, useSpring } from "react-spring";
+// import { animated, useSpring } from "react-spring/web";
+import { animated, useSpring } from "@react-spring/web";
 
 export default function AnimatedNumber({ n }) {
   const { number } = useSpring({

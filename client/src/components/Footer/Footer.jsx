@@ -8,13 +8,16 @@ function Footer() {
   };
 
   return (
-    <footer className="bg-footerBackgroundColor rounded-lg col-span-12 pt-10">
-      <div className="w-full mx-auto px-8">
-        <FooterForm handleNewsletterSubmit={handleNewsletterSubmit} />
+    <footer className="dark:bg-black">
+      {/* <footer className="mx-auto bg-footerBackgroundColor rounded-lg col-span-12 pt-10"> */}
+      <div className="max-w-7xl mx-auto rounded-lg col-span-12 pt-10">
+        <div className="w-full mx-auto px-8">
+          <FooterForm handleNewsletterSubmit={handleNewsletterSubmit} />
 
-        <FooterContent />
+          <FooterContent />
 
-        <FooterBottom />
+          <FooterBottom />
+        </div>
       </div>
     </footer>
   );
