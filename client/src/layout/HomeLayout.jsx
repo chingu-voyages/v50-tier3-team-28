@@ -8,6 +8,7 @@ import hiveImage from '../assets/imgs/hive.png';
 
 import Footer from '../components/Footer/Footer';
 import Graph from '../components/Graph';
+import Map from "../components/Map";
 import AnimatedNumber from './AnimatedNumber';
 import { DarkLightModeButton } from '../components/UI/DarkLightModeButton';
 // import { Counter } from '../features/counter/Counter';
@@ -91,9 +92,8 @@ const HomeLayout = () => {
         <section className='col-span-12 h-1/2 '>
           <Graph />
         </section>
-
-        <section className='col-span-12 h-1/2'>
-          <h2>Map</h2>
+        <section className="col-span-12 h-1/2 bg-gray-200">
+          <Map />
         </section>
 
         <section className='col-span-12 h-1/2'>
