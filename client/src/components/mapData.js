@@ -21,7 +21,6 @@ export default [
     { "name": "Dubai", "coordinates": { "latitude": 25.276987, "longitude": 55.296249 }, "status": true },
     { "name": "Seoul", "coordinates": { "latitude": 37.5665, "longitude": 126.9780 }, "status": false },
     { "name": "Johannesburg", "coordinates": { "latitude": -26.2041, "longitude": 28.0473 }, "status": true },
-    { "name": "Lagos", "coordinates": { "latitude": 6.5244, "longitude": 3.3792 }, "status": false },
     { "name": "Mexico City", "coordinates": { "latitude": 19.4326, "longitude": -99.1332 }, "status": true },
     { "name": "Karachi", "coordinates": { "latitude": 24.8607, "longitude": 67.0011 }, "status": false },
     { "name": "Lima", "coordinates": { "latitude": -12.0464, "longitude": -77.0428 }, "status": true },
