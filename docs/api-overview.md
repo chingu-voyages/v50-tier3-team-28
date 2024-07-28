@@ -280,6 +280,7 @@ All endpoints require JWT authentication. Include the token in the `Authorizatio
   - **country**: String
 - **title**: String
 - **description**: String
+- **contactNumber**: String
 - **image**: String (URL)
 - **isActive**: Boolean
 - **isAccepted**: Boolean
