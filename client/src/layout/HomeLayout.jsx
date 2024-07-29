@@ -4,8 +4,9 @@ import { useNavigate } from "react-router-dom";
 import { Header } from "../components/UI/Header";
 import Footer from "../components/Footer/Footer";
 import { ProblemContainter } from "../components/UI/ProblemContainer";
+import { SolutionsHeader } from "../components/UI/SolutionsHeader";
 import { SolutionsContainer } from "../components/UI/SolutionsContainer";
-import { Map } from "../components/UI/Map";
+import { Map } from "../components/Map";
 
 const HomeLayout = () => {
   const { loginWithRedirect, isAuthenticated, logout } = useAuth0();
@@ -41,10 +42,13 @@ const HomeLayout = () => {
       <main className="dark:bg-black dark:text-white">
         <section className="max-w-7xl mx-auto">
           <ProblemContainter />
-          <SolutionsContainer />
+          <SolutionsHeader />
         </section>
-        <section className="col-span-12 h-1/2 bg-gray-200">
+        <section className="flex justify-center m-2">
           <Map />
+        </section>
+        <section className="max-w-7xl mx-auto">
+          <SolutionsContainer />
         </section>
       </main >
 

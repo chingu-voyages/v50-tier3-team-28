@@ -30,20 +30,10 @@ export const Nav = ({ action, onClickHandler }) => {
           <li>
             <AnchorLink href="#" className="text-black p-2.5 dark:text-white" text="About Us" />
           </li>
-          <li>
-            <AnchorLink href="#" className="text-black p-2.5 dark:text-white" text="Stats" />
-          </li>
-          <li className="text-center border-b footerBoxColor md:border-none">
+          <li className="text-center">
             <Link to="/solutions" className="text-black p-2.5 dark:text-white">
               Solutions
             </Link>
-          </li>
-          <li>
-            <AnchorLink
-              href="#"
-              className={`font-normal text-white bg-[#F4743B] rounded-lg p-2.5 dark:text-black`}
-              text="Contact"
-            />
           </li>
           <li>
             <Button className="font-normal text-white bg-[#F4743B] hover:bg-green-300 rounded-lg p-2 -mt-4 dark:text-black" type="button" text={action} onClick={onClickHandler} />

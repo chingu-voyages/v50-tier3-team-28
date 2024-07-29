@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+// import { useState } from 'react';
 import { AnchorLink } from '../UI/AnchorLink';
 import { Nav } from '../UI/Nav';
 import MainHeroLanding from '../UI/MainHeroLanding';
@@ -7,11 +7,11 @@ import { MainHeroLandingSurvey } from "../UI/MainHeroLandingSurvey";
 import navBeeLogo from '../../assets/imgs/nav_bee_logo.png';
 
 export const Header = ({ action, onClickHandler }) => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const handleMenuToggle = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  // const handleMenuToggle = () => {
+  //   setIsMenuOpen(!isMenuOpen);
+  // };
 
   return (
     <header className='col-span-12 bg-[#9BC25B]'>
@@ -25,8 +25,9 @@ export const Header = ({ action, onClickHandler }) => {
             className='h-36 md:h-48 md:ml-4'
           />
         </AnchorLink>
+        <Nav action={action} onClickHandler={onClickHandler} />
 
-        <div className='md:hidden'>
+        {/* <div className='md:hidden'>
           <button
             onClick={handleMenuToggle}
             className='text-white focus:outline-none'>
@@ -38,14 +39,14 @@ export const Header = ({ action, onClickHandler }) => {
 
         <div className={`hidden md:flex md:items-center`}>
           <Nav action={action} onClickHandler={onClickHandler} />
-        </div>
+        </div> */}
       </section>
 
-      {isMenuOpen && (
+      {/* {isMenuOpen && (
         <div className='md:hidden'>
           <Nav action={action} onClickHandler={onClickHandler} />
         </div>
-      )}
+      )} */}
 
       <MainHeroLanding />
       <MainHeroLandingSurvey />
