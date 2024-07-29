@@ -35,7 +35,7 @@ dbConnection();
 
 app.use(
   cors({
-    origin: 'https://v50-tier3-team-28.onrender.com/',
+    origin: 'https://v50-tier3-team-28.onrender.com',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
     allowedHeaders:
