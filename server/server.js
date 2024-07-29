@@ -13,7 +13,7 @@ dbConnection();
 
 app.use(express.json());
 const allowedOrigins = [
-  'http://localhost:5173',
+  'http://localhost:5173/',
   'https://v50-tier3-team-28.onrender.com/',
 ];
 
