@@ -1,4 +1,4 @@
-export const profiles = [
+export const solutions = [
     {
       topic: "Plant Bee-Friendly Flowers",
       description: "Planting bee-friendly flowers and native plants is a simple yet effective way to support bee populations. Flowers like sunflowers, lavender, and daisies provide essential nectar and pollen. Ensuring a variety of plants that bloom at different times of the year helps maintain a steady food supply for bees. Native plants are especially beneficial, as they are adapted to local bee species. Creating colorful, flower-rich gardens can significantly contribute to the well-being of bees.",
