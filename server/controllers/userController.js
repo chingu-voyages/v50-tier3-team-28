@@ -3,8 +3,9 @@ const { validateMetadata } = require('../validators/metadataValidator');
 
 exports.updateOrDeleteMetadata = async (req, res) => {
   //To ensure metadata is an object and not undefined
-  const { userId, metadata = {} } = req.body;
+  const { metadata = {} } = req.body;
   const token = req.headers.authorization;
+  const userId = req.auth.sub;
 
   if (!token) {
     return res.status(401).json({ message: 'Authorization token is required' });
@@ -21,7 +22,10 @@ exports.updateOrDeleteMetadata = async (req, res) => {
       token,
       validMetadata // metadata || {}
     );
-    res.json(updatedUser);
+    res.json({
+      message: 'Metadata updated successfully',
+      user: updatedUser,
+    });
   } catch (error) {
     if (error.status === 400) {
       // Joi validation error

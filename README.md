@@ -30,6 +30,10 @@ Every bee counts!
 - Git & GitHub (for version control)
 - Figma
 
+## API Documentation
+
+For a detailed overview of the API, please refer to the [API Overview](docs/api-overview.md) file.
+
 ## Installation
 
 To run the app locally, follow these steps:

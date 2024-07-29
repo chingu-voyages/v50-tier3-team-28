@@ -9,7 +9,7 @@ const metadataSchema = Joi.object({
       'string.pattern.base': 'Invalid phone number format',
     }),
 
-  name: Joi.string()
+  userName: Joi.string()
     .pattern(/^[a-zA-Z0-9]+(?: [a-zA-Z0-9]+)*$/) // Allows only letters, numbers, and spaces, but not leading or trailing spaces
     .min(1)
     .max(100)

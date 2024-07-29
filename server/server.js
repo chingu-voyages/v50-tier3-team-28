@@ -7,7 +7,7 @@ const dbConnection = require('./config/dbConnection');
 const { errorHandler } = require('./middleware/errorHandler');
 const dashboardRoutes = require('./routes/dashboardRoutes');
 const userRoutes = require('./routes/userRoutes');
-// const requestRoute = require('./routes/requestRoute');
+const requestRoutes = require('./routes/requestRoutes');
 
 dbConnection();
 
@@ -22,6 +22,7 @@ app.use(
 
 app.use('/api/dashboard', dashboardRoutes);
 app.use('/api/user', userRoutes);
+app.use('/api/requests', requestRoutes);
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 3003;
