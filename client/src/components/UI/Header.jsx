@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { AnchorLink } from '../UI/AnchorLink';
 import { Nav } from '../UI/Nav';
 import MainHeroLanding from '../UI/MainHeroLanding';
+import { MainHeroLandingSurvey } from "../UI/MainHeroLandingSurvey";
 import navBeeLogo from '../../assets/imgs/nav_bee_logo.png';
 
 export const Header = ({ action, onClickHandler }) => {

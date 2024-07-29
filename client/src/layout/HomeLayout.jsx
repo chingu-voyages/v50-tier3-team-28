@@ -5,6 +5,7 @@ import { Header } from "../components/UI/Header";
 import Footer from "../components/Footer/Footer";
 import { ProblemContainter } from "../components/UI/ProblemContainer";
 import { SolutionsContainer } from "../components/UI/SolutionsContainer";
+import { Map } from "../components/UI/Map";
 
 const HomeLayout = () => {
   const { loginWithRedirect, isAuthenticated, logout } = useAuth0();
@@ -41,6 +42,9 @@ const HomeLayout = () => {
         <section className="max-w-7xl mx-auto">
           <ProblemContainter />
           <SolutionsContainer />
+        </section>
+        <section className="col-span-12 h-1/2 bg-gray-200">
+          <Map />
         </section>
       </main >
 

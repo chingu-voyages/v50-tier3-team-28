@@ -4,6 +4,7 @@ import { AnchorLink } from "../UI/AnchorLink";
 import { Button } from "../UI/Button";
 import { DarkLightModeButton } from "../UI/DarkLightModeButton";
 import { BurgerMenu } from "./BurgerMenu";
+import { Link } from "react-router-dom";
 
 export const Nav = ({ action, onClickHandler }) => {
   const [openNavMenu, setOpenNavMenu] = useState(false);
@@ -31,6 +32,11 @@ export const Nav = ({ action, onClickHandler }) => {
           </li>
           <li>
             <AnchorLink href="#" className="text-black p-2.5 dark:text-white" text="Stats" />
+          </li>
+          <li className="text-center border-b footerBoxColor md:border-none">
+            <Link to="/solutions" className="text-black p-2.5 dark:text-white">
+              Solutions
+            </Link>
           </li>
           <li>
             <AnchorLink
