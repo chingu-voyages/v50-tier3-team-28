@@ -5,7 +5,7 @@ export default [
     { "id": 4, "city": "Los Angeles", "country": "USA", "coordinates": { "latitude": 34.0522, "longitude": -118.2437 }, "status": false },
     { "id": 5, "city": "Cairo", "country": "Egypt", "coordinates": { "latitude": 30.0444, "longitude": 31.2357 }, "status": true },
     { "id": 6, "city": "Yinchuan", "country": "China", "coordinates": { "latitude": 38.4872, "longitude": 106.2309 }, "status": true },
-    { "id": 7, "city": "Novosibirsk", "country": "Russia", "coordinates": { "latitude": 55.0084, "longitude": 82.9357 }, "status": true },
+    { "id": 7, "city": "Athens", "country": "Greece", "coordinates": { "latitude": 37.9838, "longitude": 23.7275 }, "status": false },
     { "id": 8, "city": "Toledo", "country": "Spain", "coordinates": { "latitude": 39.8628, "longitude": -4.0273 }, "status": true },
     { "id": 9, "city": "Bangkok", "country": "Thailand", "coordinates": { "latitude": 13.7563, "longitude": 100.5018 }, "status": false },
     { "id": 10, "city": "Dubai", "country": "UAE", "coordinates": { "latitude": 25.276987, "longitude": 55.296249 }, "status": false },
@@ -18,6 +18,5 @@ export default [
     { "id": 17, "city": "Jakarta", "country": "Indonesia", "coordinates": { "latitude": -6.2088, "longitude": 106.8456 }, "status": true },
     { "id": 18, "city": "Berlin", "country": "Germany", "coordinates": { "latitude": 52.5200, "longitude": 13.4050 }, "status": false },
     { "id": 19, "city": "Manila", "country": "Philippines", "coordinates": { "latitude": 14.5995, "longitude": 120.9842 }, "status": true },
-    { "id": 20, "city": "Katherine", "country": "Australia", "coordinates": { "latitude": -14.4652, "longitude": 132.2635 }, "status": false },
-    { "id": 21, "city": "Athens", "country": "Greece", "coordinates": { "latitude": 37.9838, "longitude": 23.7275 }, "status": false }
+    { "id": 20, "city": "Katherine", "country": "Australia", "coordinates": { "latitude": -14.4652, "longitude": 132.2635 }, "status": false }
 ];
