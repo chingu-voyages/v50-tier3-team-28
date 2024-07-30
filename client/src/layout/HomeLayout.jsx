@@ -11,6 +11,8 @@ import Graph from '../components/Graph';
 import Map from "../components/Map";
 import AnimatedNumber from './AnimatedNumber';
 import { DarkLightModeButton } from '../components/UI/DarkLightModeButton';
+import { UserRequestButton } from '../components/UI/UserRequestButton';
+
 // import { Counter } from '../features/counter/Counter';
 
 const HomeLayout = () => {
@@ -102,6 +104,10 @@ const HomeLayout = () => {
 
         <section className='col-span-12 h-1/2'>
           <DarkLightModeButton />
+        </section>
+
+        <section className='col-span-12 h-1/2'>
+          <UserRequestButton />
         </section>
 
         {/* This below section is an example for redux-toolkit. This will be removed before our project submission */}
