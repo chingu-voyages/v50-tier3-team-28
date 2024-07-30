@@ -9,7 +9,7 @@ function FooterResources() {
   };
   return (
     <div className="box3 px-8 w-full md:w-1/3 border border-footerBoxColor flex flex-col items-center rounded-3xl">
-      <h2 className="text-xl font-bold my-4 text-footerProfileNameColor text-center">
+      <h2 className="text-xl font-bold my-4 text-footerProfileNameColor text-center dark:text-white">
         Resources
       </h2>
       <ul className="list-none w-full pl-8 mt-20">
