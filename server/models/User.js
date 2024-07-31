@@ -24,6 +24,9 @@ const userSchema = new mongoose.Schema(
     emailVerified: {
       type: Boolean,
     },
+    gravatar: {
+      type: String,
+    },
   },
   { timestamps: true }
 );

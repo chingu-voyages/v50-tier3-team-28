@@ -19,6 +19,9 @@ export default {
         footerBackgroundColor: '#f9f9f9',
         footerLinkedinHoverColor: '#0072B1',
       },
+      fontSize: {
+        '18px': '18px',
+      },
     },
   },
   darkMode: 'class',

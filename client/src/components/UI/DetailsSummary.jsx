@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
 
-export const DetailsSummary = ({ title, description }) => {
+export const DetailsSummary = ({ title, description, ...attrs }) => {
   return (
-    <details>
+    <details {...attrs}>
       <summary>{title}</summary>
       <p>{description}</p>
     </details>
