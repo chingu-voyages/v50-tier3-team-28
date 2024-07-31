@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import { useNavigate } from 'react-router-dom';
 import LogoutButton from '../../components/UI/LogoutButton';
+// import { RequestFormModal } from '../components/UI/RequestFormModal';
+import { UserRequestButton } from '../../components/UI/UserRequestButton';
 
 const Dashboard = () => {
   const { isAuthenticated, getAccessTokenSilently } = useAuth0();
@@ -22,8 +24,10 @@ const Dashboard = () => {
             Authorization: `Bearer ${accessToken}`,
           },
         });
+        console.log(response);
         const data = await response.json();
         setProtectedData(data.message);
+        console.log(data);
       } catch (e) {
         console.log(e);
       }
@@ -37,6 +41,11 @@ const Dashboard = () => {
       <LogoutButton />
       <h2>You are successfully authenticated to Dashboard</h2>
       <p>{protectedData}</p>
+      <section className='col-span-12 h-1/2'>
+          {/* <RequestFormModal /> */}
+          <UserRequestButton />
+        </section>
+
     </div>
   );
 };

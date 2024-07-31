@@ -7,7 +7,6 @@ import { ProblemContainter } from "../components/UI/ProblemContainer";
 import { SolutionsHeader } from "../components/UI/SolutionsHeader";
 import { SolutionsContainer } from "../components/UI/SolutionsContainer";
 import { Map } from "../components/Map";
-import { UserRequestButton } from '../components/UI/UserRequestButton';
 
 const HomeLayout = () => {
   const { loginWithRedirect, isAuthenticated, logout } = useAuth0();
@@ -52,9 +51,6 @@ const HomeLayout = () => {
           <SolutionsContainer />
         </section>
       </main >
-      <section className='col-span-12 h-1/2'>
-          <UserRequestButton />
-        </section>
       <Footer />
     </section >
   );
