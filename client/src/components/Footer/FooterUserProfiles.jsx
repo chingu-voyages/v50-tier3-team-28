@@ -1,4 +1,14 @@
+import { useState } from "react";
+import ModalResourceLink from "./ModalResourceLink";
+
 function FooterUserProfiles({ profiles }) {
+  const [modalIndex, setModalIndex] = useState(null);
+
+  const handleClick = (e, url) => {
+    e.preventDefault();
+    setModalIndex(url);
+  };
+
   return (
     <div className="box1 px-8 w-full md:w-1/3 border border-footerBoxColor rounded-3xl pt-8 pb-8 dark:bg-black dark:text-white">
       {profiles.map((profile, index) => (
@@ -13,18 +23,23 @@ function FooterUserProfiles({ profiles }) {
           </div>
           <div className="icon-containers flex items-center">
             <a
-              href={profile.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#"
+              onClick={(e) => handleClick(e, profile.linkedin)}
               className="group">
-              <i className="fab fa-linkedin text-4xl mr-4 h-8 group-hover:text-[#0072B1]"></i>
+              <i className="fab fa-linkedin text-4xl mr-4 h-8 group-hover:text-footerLinkedinHoverColor" />
             </a>
-            <a href={profile.github} target="_blank" rel="noopener noreferrer">
-              <i className="fab fa-github text-4xl mr-2 h-8"></i>
+            <a
+              href="#"
+              onClick={(e) => handleClick(e, profile.github)}
+              className="group">
+              <i className="fab fa-github text-4xl mr-2 h-8 group-hover:text-footerProfileNameColor" />
             </a>
           </div>
         </div>
       ))}
+      {modalIndex && (
+        <ModalResourceLink url={modalIndex} handleClick={setModalIndex} />
+      )}
     </div>
   );
 }
