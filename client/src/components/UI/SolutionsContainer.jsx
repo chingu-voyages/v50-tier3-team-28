@@ -1,7 +1,7 @@
 import { DetailsSummary } from "./DetailsSummary";
 
 export const SolutionsContainer = () => {
-  const customStyles = "text-[#101828] font-bold";
+  const customStyles = "text-[#101828] text-18px font-bold";
 
   return (
     <section className="flex flex-col">
