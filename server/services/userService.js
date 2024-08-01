@@ -10,16 +10,16 @@ exports.getUserInfo = async (userId, token) => {
       },
     });
     const userInfo = response.data;
-    await User.findOneAndUpdate(
-      { userId: userInfo.user_id },
-      {
-        name: userInfo.name,
-        email: userInfo.email,
-        userName: userInfo.user_metadata?.userName || null,
-        contactNumber: userInfo.user_metadata?.contactNumber || null,
-      },
-      { upsert: true, new: true }
-    );
+    // await User.findOneAndUpdate(
+    //   { userId: userInfo.user_id },
+    //   {
+    //     name: userInfo.name,
+    //     email: userInfo.email,
+    //     userName: userInfo.user_metadata?.userName || null,
+    //     contactNumber: userInfo.user_metadata?.contactNumber || null,
+    //   },
+    //   { upsert: true, new: true }
+    // );
     return userInfo;
   } catch (error) {
     console.error('Error fetching user info:', error);
