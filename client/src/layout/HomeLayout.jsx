@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useNavigate } from "react-router-dom";
 import { Header } from "../components/UI/Header";
+import MainHeroLanding from "../components/UI/MainHeroLanding";
+import { MainHeroLandingSurvey } from "../components/UI/MainHeroLandingSurvey";
 import Footer from "../components/Footer/Footer";
 import { ProblemContainter } from "../components/UI/ProblemContainer";
 import { SolutionsHeader } from "../components/UI/SolutionsHeader";
@@ -36,6 +38,8 @@ const HomeLayout = () => {
       <section className="bg-[#9BC25B]">
         <section className="max-w-7xl mx-auto">
           <Header action={action} onClickHandler={onClickHandler} />
+          <MainHeroLanding />
+          <MainHeroLandingSurvey />
         </section>
       </section>
 
