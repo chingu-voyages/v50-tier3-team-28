@@ -36,9 +36,11 @@ export const Map = () => {
         >
           <Popup>
             <div>
-              <h2 className="text-center underline"> {marker.name} </h2>
+              <h2 className="text-center underline mb-1"> {marker.country} </h2>
+              <div> <span className="underline">City</span>: {marker.city} </div>
               <div> <span className="underline">Latitude</span>: {marker.coordinates.latitude} </div>
               <div> <span className="underline">Longitude</span>: {marker.coordinates.longitude} </div>
+              <div> <span className="underline">Status</span>: {marker.status ? "Saved" : "Found"} </div>
             </div>
           </Popup>
         </Marker>
