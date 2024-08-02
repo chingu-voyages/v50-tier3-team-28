@@ -30,7 +30,7 @@ const HomeLayout = () => {
   };
 
   useEffect(() => {
-    setAction(isAuthenticated ? "Log Out" : "Sign Up");
+    setAction(isAuthenticated ? "Log Out" : "Sign In/Up");
   }, [isAuthenticated]);
 
   return (
@@ -54,10 +54,10 @@ const HomeLayout = () => {
         <section className="max-w-7xl mx-auto">
           <SolutionsContainer />
         </section>
-      </main >
+      </main>
 
       <Footer />
-    </section >
+    </section>
   );
 };
 

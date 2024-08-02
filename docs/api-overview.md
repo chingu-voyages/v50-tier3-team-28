@@ -26,7 +26,7 @@ All endpoints require JWT authentication. Include the token in the `Authorizatio
 
 ### 1. Create Request
 
-- **URL**: `/requests/`
+- **URL**: `api/requests/`
 - **Method**: `POST`
 - **Authentication Required**: Yes
 
@@ -60,7 +60,7 @@ All endpoints require JWT authentication. Include the token in the `Authorizatio
 
 ### 2. Update Request
 
-- **URL**: `/requests/:id`
+- **URL**: `api/requests/:id`
 - **Method**: `PUT`
 - **Authentication Required**: Yes
 
@@ -109,7 +109,7 @@ All endpoints require JWT authentication. Include the token in the `Authorizatio
 
 ### 3. Delete Request
 
-- **URL**: `/requests/:id`
+- **URL**: `api/requests/:id`
 - **Method**: `DELETE`
 - **Authentication Required**: Yes
 
@@ -126,7 +126,7 @@ All endpoints require JWT authentication. Include the token in the `Authorizatio
 
 ### 4. Accept Request
 
-- **URL**: `/requests/:id`
+- **URL**: `api/requests/:id`
 - **Method**: `POST`
 - **Authentication Required**: Yes
 
@@ -142,7 +142,7 @@ All endpoints require JWT authentication. Include the token in the `Authorizatio
 
 ### 5. Complete Request
 
-- **URL**: `/requests/:id/complete`
+- **URL**: `api/requests/:id/complete`
 - **Method**: `POST`
 - **Authentication Required**: Yes
 
@@ -158,7 +158,7 @@ All endpoints require JWT authentication. Include the token in the `Authorizatio
 
 ### 6. Cancel Accepted Request
 
-- **URL**: `/requests/:id/cancel`
+- **URL**: `api/requests/:id/cancel`
 - **Method**: `PATCH`
 - **Authentication Required**: Yes
 
@@ -174,7 +174,7 @@ All endpoints require JWT authentication. Include the token in the `Authorizatio
 
 ### 7. List All Request
 
-- **URL**: `/requests/`
+- **URL**: `api/requests/`
 - **Method**: `GET`
 - **Authentication Required**: Yes
 
@@ -214,7 +214,7 @@ All endpoints require JWT authentication. Include the token in the `Authorizatio
 
 ### Update or Delete User Metadata
 
-- **URL**: `/user/metadata`
+- **URL**: `api/user/metadata`
 - **Method**: `PATCH`
 - **Authentication Required**: Yes
 
@@ -248,7 +248,7 @@ All endpoints require JWT authentication. Include the token in the `Authorizatio
 
 ### Get User Dashboard Info
 
-- **URL**: `/dashboard/`
+- **URL**: `api/dashboard/`
 - **Method**: `GET`
 - **Authentication Required**: Yes
 

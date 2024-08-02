@@ -19,7 +19,11 @@ export const Nav = ({ action, onClickHandler }) => {
     <>
       <BurgerMenu onChangeHandler={() => onChangeToggleClassHandler()} />
       <nav className={`${isNavMenuOpen ? "" : "hidden md:block"}`}>
-        <ul className={`${isNavMenuOpen ? "flex flex-col items-center justify-center gap-6 absolute top-0 left-0 w-full h-full bg-neutral-500 z-40" : "font-medium flex flex-col space-y-6 p-4 md:p-0 mt-4 md:flex-row md:space-x-8 md:space-y-0"}`}>
+        <ul
+          className={`${isNavMenuOpen
+              ? "flex flex-col items-center justify-center gap-6 absolute top-0 left-0 w-full h-full bg-neutral-500 z-40"
+              : "font-medium flex flex-col space-y-6 p-4 md:p-0 mt-4 md:flex-row md:items-center md:space-x-8 md:space-y-0"
+            }`}>
           <li>
             <AnchorLink
               href="#"
@@ -28,17 +32,26 @@ export const Nav = ({ action, onClickHandler }) => {
             />
           </li>
           <li>
-            <AnchorLink href="#" className="text-black p-2.5 dark:text-white" text="About Us" />
+            <AnchorLink
+              href="#footer"
+              className="text-black p-2.5 dark:text-white"
+              text="About Us"
+            />
           </li>
           <li className="text-center">
             <Link to="/solutions" className="text-black p-2.5 dark:text-white">
               Solutions
             </Link>
           </li>
-          <li>
-            <Button className="font-normal text-white bg-[#F4743B] hover:bg-green-300 rounded-lg p-2 -mt-4 dark:text-black" type="button" text={action} onClick={onClickHandler} />
+          <li className="flex items-center">
+            <Button
+              className="bg-navSignupButton text-navSignupButtonWhite font-normal px-3 py-2 text-center"
+              type="button"
+              text={action}
+              onClickHandler={onClickHandler}
+            />
           </li>
-          <li>
+          <li className="flex items-center pt-1">
             <DarkLightModeButton />
           </li>
         </ul>
