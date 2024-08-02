@@ -5,8 +5,10 @@ const { validateRequest } = require('../validators/requestValidator');
 exports.createRequest = async (req, res) => {
   try {
     validateRequest(req.body);
+    console.log("req.body===========", req.body);
+    console.log("req.auth.sub===========", req.auth.sub);
     const user = await User.findOne({ userId: req.auth.sub });
-
+    console.log('user-------------------', user);
     if (!user) {
       return res.status(404).send({ error: 'User not found' });
     }

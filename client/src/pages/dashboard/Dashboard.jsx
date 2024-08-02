@@ -37,10 +37,10 @@ const Dashboard = () => {
             Authorization: `Bearer ${accessToken}`,
           },
         });
-        console.log(response);
+        // console.log(response);
         const data = await response.json();
         setProtectedData(data.message);
-        console.log(data);
+        // console.log(data);
       } catch (e) {
         console.log(e);
       }
