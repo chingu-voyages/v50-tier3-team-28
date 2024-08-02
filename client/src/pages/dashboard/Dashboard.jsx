@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import { useNavigate } from 'react-router-dom';
-// import LogoutButton from '../../components/UI/LogoutButton';
 import { Header } from "../../components/UI/Header";
 import { UserProfileContainer } from "../../components/UserProfile/UserProfileContainer";
 import { Map } from "../../components/Map";
@@ -48,11 +47,6 @@ const Dashboard = () => {
   }, [isAuthenticated, getAccessTokenSilently, navigate]);
 
   return (
-    // <div>
-    //   <LogoutButton />
-    //   <h2>You are successfully authenticated to Dashboard</h2>
-    //   <p>{protectedData}</p>
-    // </div>
     <section>
       <section className="bg-[#9BC25B]">
         <section className="max-w-7xl mx-auto">
@@ -62,9 +56,6 @@ const Dashboard = () => {
 
       <main className="dark:bg-black dark:text-white">
         <section className="max-w-7xl mx-auto">
-          {/* TODO: do we need the following Logout Button, Logout on navbar is working */}
-          {/* <LogoutButton /> */}
-          {/* TODO: Should we modify/update design of the following text */}
           <h2 className="font-bold text-red-600">You are successfully authenticated to Dashboard</h2>
           <p>{protectedData}</p>
         </section>

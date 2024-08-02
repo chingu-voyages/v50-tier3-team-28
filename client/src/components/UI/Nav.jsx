@@ -7,24 +7,23 @@ import { BurgerMenu } from "./BurgerMenu";
 import { Link } from "react-router-dom";
 
 export const Nav = ({ action, onClickHandler }) => {
-  const [openNavMenu, setOpenNavMenu] = useState(false);
+  const [isNavMenuOpen, setIsNavMenuOpen] = useState(false);
   const burgerMenuContainer = document.querySelector(".burger-menu-container");
 
   const onChangeToggleClassHandler = () => {
-    setOpenNavMenu(!openNavMenu);
+    setIsNavMenuOpen(!isNavMenuOpen);
     burgerMenuContainer?.classList.toggle("change");
   };
 
   return (
     <>
       <BurgerMenu onChangeHandler={() => onChangeToggleClassHandler()} />
-      <nav className={`${openNavMenu ? "" : "hidden md:block"}`}>
+      <nav className={`${isNavMenuOpen ? "" : "hidden md:block"}`}>
         <ul
-          className={`${
-            openNavMenu
+          className={`${isNavMenuOpen
               ? "flex flex-col items-center justify-center gap-6 absolute top-0 left-0 w-full h-full bg-neutral-500 z-40"
               : "font-medium flex flex-col space-y-6 p-4 md:p-0 mt-4 md:flex-row md:items-center md:space-x-8 md:space-y-0"
-          }`}>
+            }`}>
           <li>
             <AnchorLink
               href="#"

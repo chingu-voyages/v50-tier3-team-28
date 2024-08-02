@@ -2,7 +2,7 @@ import { Button } from "../UI/Button";
 
 export const UserRequest = () => {
   return (
-    <section className="flex flex-col justify-around items-center border border-gray-400 rounded-lg h-64 md:w-1/2 md:items-start md:pl-6">
+    <section className="flex flex-col justify-around items-center border border-gray-400 rounded-lg h-64 w-full md:items-start md:pl-6">
       <section>
         <h3 className="uppercase">all active requests</h3>
       </section>
