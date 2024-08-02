@@ -16,9 +16,8 @@ function FooterResources() {
         {resourcesData.map((resource, index) => (
           <li key={index}>
             <a
-              className="underline mb-2 block text-footerBoxColor"
-              onClick={() => handleClick(index)}
-            >
+              className="underline mb-2 block text-footerBoxColor cursor-pointer"
+              onClick={() => handleClick(index)}>
               {resource.name}
             </a>
             {modalIndex === index && (
