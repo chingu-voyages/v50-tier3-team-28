@@ -9,53 +9,52 @@ export const RequestFormModal = ({ showModal, setShowModal }) => {
   const [formData, setFormData] = useState({
     title: "",
     description: "",
-      // coordinates: [0,0],
-      latitude: "",
-      longitude: "",
-    // type: 'Point',
+    latitude: "",
+    longitude: "",
     city: "",
     country: "",
     contactNumber: "",
-      image: "",
-      isActive: true,
-      isAccepted: false,
+    image: "",
+    isActive: true,
+    isAccepted: false,
   });
 
   useEffect(() => {
-    const fetchUserData = async () => {
-      try {
-        const accessToken = await getAccessTokenSilently();
-        const response = await fetch('http://localhost:3003/api/dashboard', {
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-          },
-        });
-        const data = await response.json();
-        // console.log('data-------------------------', data);
-        setFormData(prevState => ({
-          ...prevState,
-          contactNumber: data.user.user_metadata?.contactNumber || "",
+        const fetchUserData = async () => {
+        try {
+            const accessToken = await getAccessTokenSilently();
+            const response = await fetch('http://localhost:3003/api/dashboard', {
+            headers: {
+                Authorization: `Bearer ${accessToken}`,
+            },
+            });
+            const data = await response.json();
+            // console.log('data-------------------------', data);
+            setFormData(prevData => ({
+            ...prevData,
+            contactNumber: data.user.user_metadata?.contactNumber || "",
+            }));
+
+        } catch (e) {
+            console.log(e);
+        }
+        };
+        if (showModal) {
+            fetchUserData();
+        }
+    }, [getAccessTokenSilently, showModal]);
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData((prevData) => ({
+        ...prevData,
+        [name]: value,
         }));
-
-      } catch (e) {
-        console.log(e);
-      }
     };
-
-    fetchUserData();
-  }, [getAccessTokenSilently]);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const { longitude, latitude,city, country, ...restFormData } = formData;
+        const { longitude, latitude, city, country, ...restFormData } = formData;
 
         console.log("formData ............", formData);
     const validationData = {
@@ -68,26 +67,25 @@ export const RequestFormModal = ({ showModal, setShowModal }) => {
         },
         }
     
-try {
-      const accessToken = await getAccessTokenSilently();
-      const response = await axios.post('http://localhost:3003/api/requests', validationData, {
-        headers: {
-          Authorization: `Bearer ${accessToken}`
-        }
-      });
-        console.log("response", response);
-      setShowModal(false);
-    } catch (error) {
-        // console.log("error-----", error.response.data.error.details);
-
-      let validationErrors = {};
-        if (error) {
-            validationErrors = error.response.data.error.details;
-          }
-        // console.log("validationErrors", validationErrors);
-      setErrors(validationErrors);
-    }
-  };
+        try {
+            const accessToken = await getAccessTokenSilently();
+            const response = await axios.post('http://localhost:3003/api/requests', validationData, {
+                headers: {
+                Authorization: `Bearer ${accessToken}`
+                }
+            });
+            console.log("response", response);
+            setShowModal(false);
+            } catch (error) {
+                // console.log("error-----", error.response.data.error.details);
+                let validationErrors = {};
+                    if (error) {
+                        validationErrors = error.response.data.error.details;
+                    }
+                    // console.log("validationErrors", validationErrors);
+                setErrors(validationErrors);
+            }
+    };
 
   return (
     <>
@@ -217,7 +215,7 @@ try {
                         Contact Number *
                       </label>
                       <div className="mt-2">
-                        <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                        {/* <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md"> */}
                           <input
                             id="contactNumber"
                             name="contactNumber"
@@ -226,7 +224,7 @@ try {
                             onChange={handleChange}
                             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                           />
-                        </div>
+                        {/* </div> */}
                         {errors.contactNumber && <p className="text-red-500 text-sm">{errors.contactNumber}</p>}
                       </div>
                     </div>
