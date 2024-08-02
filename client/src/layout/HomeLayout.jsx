@@ -48,7 +48,7 @@ const HomeLayout = () => {
           <ProblemContainter />
           <SolutionsHeader />
         </section>
-        <section className="flex justify-center m-2">
+        <section className="flex justify-center p-2">
           <Map />
         </section>
         <section className="max-w-7xl mx-auto">
