@@ -2,10 +2,10 @@ const Joi = require('joi');
 
 const requestValidateSchema = Joi.object({
   title: Joi.string()
-    .min(5)
+    // .min(5)
     .max(100)
     .required()
-    .regex(/^(?!\s*$)[\w\s]+$/, 'valid title')
+    // .regex(/^(?!\s*$)[\w\s]+$/, 'valid title')
     .messages({
       'any.required': 'Title is required.',
       'string.min': 'Title should be at least 5 characters long',
@@ -13,10 +13,10 @@ const requestValidateSchema = Joi.object({
         'Title must contain valid characters and not be empty or just spaces.',
     }),
   description: Joi.string()
-    .min(10)
+    // .min(10)
     .max(750)
     .required()
-    .regex(/^(?!\s*$)[\w\s]+$/, 'valid description')
+    // .regex(/^(?!\s*$)[\w\s]+$/, 'valid description')
     .messages({
       'any.required': 'Description is required',
       'string.min': 'Please enter more details.',
