@@ -30,7 +30,7 @@ export const Map = () => {
       />
       {mapData.map(marker => (
         <Marker
-          key={marker.name}
+          key={marker.id}
           position={[marker.coordinates.latitude, marker.coordinates.longitude]}
           icon={marker.status ? greenBeeIcon : redBeeIcon}
         >
