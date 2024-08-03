@@ -2,7 +2,7 @@ import Graph from "../Graph";
 import { DetailsSummary } from "./DetailsSummary";
 
 export const ProblemContainter = () => {
-  const customStyles = "text-[#101828] text-18px font-semibold";
+  const customStyles = "pt-4 pl-4 text-[#101828] text-18px font-semibold";
 
   return (
     <section className="flex flex-col">
