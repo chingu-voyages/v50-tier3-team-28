@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { Button } from "../UI/Button";
 import { useState } from "react";
-import { RequestFormModal } from "../UI/RequestFormModal";
+// import { RequestFormModal } from "../UI/RequestFormModal";
 
 export const UserInfo = ({ onClickHandler }) => {
 
@@ -38,9 +38,9 @@ export const UserInfo = ({ onClickHandler }) => {
         <Button className="font-normal text-white bg-[#F4743B] hover:bg-green-300 rounded-lg p-2 -mt-4 dark:text-black" type="button" text="Edit" onClick={() => setShowModal(true)}/>
         <Button className="font-normal text-white bg-[#F4743B] hover:bg-green-300 rounded-lg p-2 -mt-4 dark:text-black" type="button" text="Update" />
 
-        {showModal && (
+        {/* {showModal && (
           <RequestFormModal  showModal={showModal} setShowModal={setShowModal} />
-        )}
+        )} */}
       </section>
     </section>
   );

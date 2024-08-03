@@ -5,10 +5,10 @@ const requestValidateSchema = Joi.object({
     // .min(5)
     .max(100)
     .required()
-    // .regex(/^(?!\s*$)[\w\s]+$/, 'valid title')
+    .regex(/^(?!\s*$)[\w\s]+$/, 'valid title')
     .messages({
-      'any.required': 'Title is required.',
-      'string.min': 'Title should be at least 5 characters long',
+      "string.empty": `Title cannot be empty`,
+      // 'string.min': 'Title should be at least 5 characters long',
       'string.pattern.name':
         'Title must contain valid characters and not be empty or just spaces.',
     }),
@@ -16,23 +16,24 @@ const requestValidateSchema = Joi.object({
     // .min(10)
     .max(750)
     .required()
-    // .regex(/^(?!\s*$)[\w\s]+$/, 'valid description')
+    .regex(/^(?!\s*$)[\w\s]+$/, 'valid description')
     .messages({
-      'any.required': 'Description is required',
-      'string.min': 'Please enter more details.',
+      "string.empty": `Description cannot be empty`,
       'string.pattern.name':
         'Description must contain valid characters and not be empty or just spaces.',
+      // 'string.min': 'Please enter more details.',
     }),
   image: Joi.string().uri().optional().allow(null, '')
     .messages({
     'string.uri': 'Enter valid URL',
   }),
   contactNumber: Joi.string()
-    .pattern(/^\+?[1-9]\d{1,14}$/,)
+    .pattern(/^\+?[1-9]\d{1,14}$/,  'valid contact number')
     .required()
     .messages({
-      'string.pattern.base': 'Enter valid contact number.',
-      'any.required': 'Contact number is required.'
+      "string.empty": `Contact number cannot be empty`,
+      'string.pattern.name': 'Enter valid contact number.',
+      // 'any.required': 'Contact number is required.'
     }),
   isActive: Joi.boolean().required(),
   isAccepted: Joi.boolean().required(),
@@ -41,14 +42,16 @@ const requestValidateSchema = Joi.object({
   completedAt: Joi.date().optional().allow(null, ''),
   beefinderId: Joi.string().optional(),
   beekeeperId: Joi.string().optional().allow(null, ''),
+
   location: Joi.object({
     type: Joi.string().valid('Point').required(),
     coordinates: Joi.array().items(Joi.number()).length(2).required(),
     city: Joi.string().optional().allow(null, ''),
     country: Joi.string().optional().allow(null, ''),
   }).required()
-  .messages({
-    'any.required': 'Coordinates numbers are required.'
+    .messages({
+      "string.empty": `Contact number cannot be empty`,
+      'any.required': 'Coordinates numbers are required.'
   }),
 });
 const validateRequest = (request) => {

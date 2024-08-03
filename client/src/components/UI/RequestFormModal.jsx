@@ -23,26 +23,26 @@ export const RequestFormModal = ({ showModal, setShowModal }) => {
         const fetchUserData = async () => {
         try {
             const accessToken = await getAccessTokenSilently();
-            const response = await fetch('http://localhost:3003/api/dashboard', {
+            const response = await axios.get('http://localhost:3003/api/dashboard', {
             headers: {
                 Authorization: `Bearer ${accessToken}`,
             },
             });
-            const data = await response.json();
+            const data = response.data;
             // console.log('data-------------------------', data);
             setFormData(prevData => ({
             ...prevData,
             contactNumber: data.user.user_metadata?.contactNumber || "",
             }));
 
-        } catch (e) {
-            console.log(e);
-        }
-        };
-        if (showModal) {
-            fetchUserData();
-        }
-    }, [getAccessTokenSilently, showModal]);
+            } catch (e) {
+                console.log(e);
+            }
+            };
+            if (showModal) {
+                fetchUserData();
+            }
+        }, [getAccessTokenSilently, showModal]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -57,14 +57,14 @@ export const RequestFormModal = ({ showModal, setShowModal }) => {
         const { longitude, latitude, city, country, ...restFormData } = formData;
 
         console.log("formData ............", formData);
-    const validationData = {
-        ...restFormData,
-        location:{
-            type: 'Point',
-            coordinates: [parseFloat(latitude), parseFloat(longitude)],
-            city: city,
-            country:country,
-        },
+        const validationData = {
+            ...restFormData,
+            location:{
+                type: 'Point',
+                coordinates: [parseFloat(latitude), parseFloat(longitude)],
+                city: city,
+                country:country,
+            },
         }
     
         try {
