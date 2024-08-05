@@ -6,13 +6,13 @@ export const SolutionsContainer = () => {
   return (
     <section className="flex flex-col">
       <section className="flex flex-col justify-between gap-4 md:flex-row">
-        <section className="bg-[#D8E5C3] h-64 md:w-1/2 dark:bg-[#3D4D22]">
+        <section className="bg-[#D8E5C3] dark:bg-[#3D4D22] h-64 md:w-1/2 rounded-xl">
           <DetailsSummary className={customStyles} title="Plant Bee-Friendly Flowers" description="Grow a variety of plants that flower at different times of the year to provide bees with a constant source of food." />
           <DetailsSummary className={customStyles} title="Avoid Peticides" description="Grow a variety of plants that flower at different times of the year to provide bees with a constant source of food." />
           <DetailsSummary className={customStyles} title="Create Habitats" description="Grow a variety of plants that flower at different times of the year to provide bees with a constant source of food." />
         </section>
 
-        <section className="bg-[#D8E5C3] h-64 md:w-1/2 dark:bg-[#3D4D22]">
+        <section className="bg-[#D8E5C3] dark:bg-[#3D4D22] h-64 md:w-1/2 rounded-xl">
           <DetailsSummary className={customStyles} title="Provide Water" description="Leave a shallow water source with landing spots, like pebbles or twigs, so bees can hydrate without drowning." />
           <DetailsSummary className={customStyles} title="Support Local Beekeepers" description="Leave a shallow water source with landing spots, like pebbles or twigs, so bees can hydrate without drowning." />
           <DetailsSummary className={customStyles} title="Create a Bee Bath" description="Leave a shallow water source with landing spots, like pebbles or twigs, so bees can hydrate without drowning." />
