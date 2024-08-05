@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 export const DetailsSummary = ({ title, description, ...attrs }) => {
   return (
     <details {...attrs}>
-      <summary style={{ listStyle: 'none', cursor: 'pointer' }}>{title}</summary>
+      <summary className="list-none cursor-pointer font-bold">{title}</summary>
       <p>{description}</p>
     </details>
   );
