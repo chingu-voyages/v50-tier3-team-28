@@ -78,12 +78,10 @@ export const RequestFormModal = ({ showModal, setShowModal }) => {
             console.log("response", response);
             setShowModal(false);
             } catch (error) {
-                // console.log("error-----", error.response.data.error.details);
                 let validationErrors = {};
                     if (error) {
                         validationErrors = error.response.data.error.details;
                     }
-                    // console.log("validationErrors", validationErrors);
                 setErrors(validationErrors);
             }
     };
