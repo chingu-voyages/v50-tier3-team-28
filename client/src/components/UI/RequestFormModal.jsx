@@ -4,6 +4,9 @@ import axios from "axios";
 import { useAuth0 } from '@auth0/auth0-react';
 
 export const RequestFormModal = ({ showModal, setShowModal }) => {
+  const customLabelStyles = "block mb-2 text-sm font-medium text-gray-900 dark:text-white";
+  const customInputStyles = "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500";
+
   const { getAccessTokenSilently } = useAuth0();
   const [errors, setErrors] = useState({});
   const [formData, setFormData] = useState({
@@ -13,7 +16,7 @@ export const RequestFormModal = ({ showModal, setShowModal }) => {
     longitude: "",
     city: "",
     country: "",
-    contactNumber: "",
+    // contactNumber: "",
     image: "",
     isActive: true,
     isAccepted: false,
@@ -22,17 +25,16 @@ export const RequestFormModal = ({ showModal, setShowModal }) => {
   useEffect(() => {
         const fetchUserData = async () => {
         try {
-            const accessToken = await getAccessTokenSilently();
-            const response = await fetch('http://localhost:3003/api/dashboard', {
+          const accessToken = await getAccessTokenSilently();
+          const response = await axios.get('http://localhost:3003/api/dashboard', {
             headers: {
-                Authorization: `Bearer ${accessToken}`,
+              Authorization: `Bearer ${accessToken}`,
             },
-            });
-            const data = await response.json();
-            // console.log('data-------------------------', data);
-            setFormData(prevData => ({
+          });
+          const data = response.data;
+                  setFormData(prevData => ({
             ...prevData,
-            contactNumber: data.user.user_metadata?.contactNumber || "",
+            contactNumber: data.user.metadata?.contactNumber || "",
             }));
 
         } catch (e) {
@@ -56,7 +58,6 @@ export const RequestFormModal = ({ showModal, setShowModal }) => {
         e.preventDefault();
         const { longitude, latitude, city, country, ...restFormData } = formData;
 
-        console.log("formData ............", formData);
     const validationData = {
         ...restFormData,
         location:{
@@ -106,7 +107,7 @@ export const RequestFormModal = ({ showModal, setShowModal }) => {
                 <form className="p-4 mx-4 md:p-5">
                   <div className="grid gap-3 grid-cols-2">
                     <div className="col-span-12">
-                      <label htmlFor="title" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                      <label htmlFor="title" className={customLabelStyles}>
                         Title *
                       </label>
                       <div className="mt-2">
@@ -117,14 +118,14 @@ export const RequestFormModal = ({ showModal, setShowModal }) => {
                             type="text"
                             value={formData.title}
                             onChange={handleChange}
-                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                          />
+                            className={customInputStyles}
+                            />
                         </div>
                         {errors.title && <p className="text-red-500 text-sm">{errors.title}</p>}
                       </div>
                     </div>
                     <div className="col-span-12">
-                      <label htmlFor="description" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                      <label htmlFor="description" className={customLabelStyles}>
                         Description *
                       </label>
                       <div className="mt-2">
@@ -142,7 +143,7 @@ export const RequestFormModal = ({ showModal, setShowModal }) => {
                     <div className="col-span-12">
                       <div className="grid grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-6">
                         <div className="sm:col-span-3">
-                        <label htmlFor="latitude" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                        <label htmlFor="latitude" className={customLabelStyles}>
                             Latitude *
                           </label>
                           <div className="mt-2">
@@ -152,12 +153,12 @@ export const RequestFormModal = ({ showModal, setShowModal }) => {
                               type="text"
                               value={formData.latitude}
                               onChange={handleChange}
-                              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                            />
+                              className={customInputStyles}
+                              />
                           </div>
                         </div>
                         <div className="sm:col-span-3">
-                            <label htmlFor="longitude" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                            <label htmlFor="longitude" className={customLabelStyles}>
                             Longitude *
                           </label>
                           <div className="mt-2">
@@ -167,15 +168,15 @@ export const RequestFormModal = ({ showModal, setShowModal }) => {
                               type="text"
                               value={formData.longitude}
                               onChange={handleChange}
-                              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                            />
+                              className={customInputStyles}
+                              />
                           </div>
                         </div>
                         </div>
                         {errors.location && <p className="text-red-500 text-sm">{errors.location}</p>}                      
                       <div className="grid grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-6 mt-2">
                         <div className="sm:col-span-3">
-                          <label htmlFor="city" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                          <label htmlFor="city" className={customLabelStyles}>
                             City
                           </label>
                           <div className="mt-2">
@@ -185,14 +186,12 @@ export const RequestFormModal = ({ showModal, setShowModal }) => {
                               type="text"
                               value={formData.city}
                               onChange={handleChange}
-                              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                            />
-                                                  </div>
-                       {/* {errors.city && <p className="text-red-500 text-sm">{errors.city}</p>} */}
-
+                              className={customInputStyles}
+                              />
+                          </div>
                         </div>
                         <div className="sm:col-span-3">
-                          <label htmlFor="country" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                          <label htmlFor="country" className={customLabelStyles}>
                             Country
                           </label>
                           <div className="mt-2">
@@ -202,16 +201,14 @@ export const RequestFormModal = ({ showModal, setShowModal }) => {
                               type="text"
                               value={formData.country}
                               onChange={handleChange}
-                              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                            />
-                                                  </div>
-                         {/* {errors.country && <p className="text-red-500 text-sm">{errors.country}</p>} */}
-
+                              className={customInputStyles}
+                              />
+                          </div>
                         </div>
                       </div>
                     </div>
                     <div className="col-span-12">
-                      <label htmlFor="contactNumber" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                      <label htmlFor="contactNumber" className={customLabelStyles}>
                         Contact Number *
                       </label>
                       <div className="mt-2">
@@ -222,14 +219,14 @@ export const RequestFormModal = ({ showModal, setShowModal }) => {
                             type="text"
                             value={formData.contactNumber}
                             onChange={handleChange}
-                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                          />
+                            className={customInputStyles}
+                            />
                         {/* </div> */}
                         {errors.contactNumber && <p className="text-red-500 text-sm">{errors.contactNumber}</p>}
                       </div>
                     </div>
                     <div className="col-span-12">
-                      <label htmlFor="image" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                      <label htmlFor="image" className={customLabelStyles}>
                         Image URL
                       </label>
                       <div className="mt-2">
@@ -239,7 +236,7 @@ export const RequestFormModal = ({ showModal, setShowModal }) => {
                           type="text"
                           value={formData.image}
                           onChange={handleChange}
-                          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                          className={customInputStyles}
                         />
                         {errors.image && <p className="text-red-500 text-sm">{errors.image}</p>}
                       </div>

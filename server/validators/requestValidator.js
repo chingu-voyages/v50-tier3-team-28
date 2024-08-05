@@ -5,7 +5,7 @@ const requestValidateSchema = Joi.object({
     // .min(5)
     .max(100)
     .required()
-    .regex(/^(?!\s*$)[\w\s]+$/, 'valid title')
+    .regex(/^(?!\s*$)[A-Za-z][\w\s.,!'’-]*$/, 'valid title')
     .messages({
       "string.empty": `Title cannot be empty`,
       // 'string.min': 'Title should be at least 5 characters long',
@@ -16,7 +16,7 @@ const requestValidateSchema = Joi.object({
     // .min(10)
     .max(750)
     .required()
-    .regex(/^(?!\s*$)[\w\s]+$/, 'valid description')
+    .regex(/^(?!\s*$)[A-Za-z][\w\s.,?!"'’-]*$/, 'valid title')
     .messages({
       "string.empty": `Description cannot be empty`,
       'string.pattern.name':
