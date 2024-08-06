@@ -243,6 +243,19 @@ All endpoints require JWT authentication. Include the token in the `Authorizatio
   }
 }
 ```
+### Delete User
+
+- **URL**: `api/user/:userId`
+- **Method**: `DELETE`
+- **Authentication Required**: Yes
+  
+**Success Response**:
+
+```json
+{
+  message: 'User deleted successfully'
+}
+```
 
 ## Dashboard API / Endpoints
 

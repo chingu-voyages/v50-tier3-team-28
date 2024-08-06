@@ -44,7 +44,7 @@ exports.updateOrDeleteUserMetadata = async (userId, token, metadata) => {
       { user_metadata: updatedMetadata },
       {
         headers: {
-          Authorization: `${token}`,
+          Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json',
         },
       }
@@ -58,5 +58,22 @@ exports.updateOrDeleteUserMetadata = async (userId, token, metadata) => {
     throw new Error(
       error.response ? error.response.data.message : error.message
     );
+  }
+};
+
+exports.deleteUser = async (userId, token) => {
+  const url = `https://${process.env.VITE_AUTH0_DOMAIN}/api/v2/users/${userId}`;
+  try {
+    const response = await axios.delete(url, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    await User.findOneAndDelete({ userId: userId });
+
+    return response.data;
+  } catch (error) {
+    console.error('Error deleting user:', error);
+    throw error;
   }
 };

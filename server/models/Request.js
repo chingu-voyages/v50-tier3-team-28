@@ -19,12 +19,17 @@ const requestSchema = new mongoose.Schema(
     },
     isActive: {
       type: Boolean,
-      required: true,
+      // required: true,
       default: true,
     },
     isAccepted: {
       type: Boolean,
-      required: true,
+      // required: true,
+      default: false,
+    },
+    isCompleted: {
+      type: Boolean,
+      // required: true,
       default: false,
     },
     acceptedAt: {

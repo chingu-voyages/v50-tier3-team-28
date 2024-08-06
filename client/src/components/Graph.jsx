@@ -1,4 +1,6 @@
+import { useRef } from "react";
 import graphData from "./graphData";
+import GraphInteract from "./GraphInteract";
 
 import {
   Chart as ChartJS,
@@ -24,6 +26,9 @@ ChartJS.register(
 );
 
 export default function Graph() {
+  const chartRef = useRef(null);
+  GraphInteract(chartRef);
+
   const hiveData = {
     labels: graphData.map((row) => row.date),
     datasets: [
@@ -46,6 +51,7 @@ export default function Graph() {
       },
     ],
   };
+
   const graphOptions = {
     scales: {
       x: {
@@ -103,6 +109,13 @@ export default function Graph() {
         // position: "right",
       },
     },
+    responsive: true,
+    maintainAspectRatio: false,
   };
-  return <Line data={hiveData} options={graphOptions} />;
+
+  return (
+    <div className="w-full max-w-screen-lg mx-auto p-4 h-96">
+      <Line ref={chartRef} data={hiveData} options={graphOptions} />
+    </div>
+  );
 }
