@@ -10,9 +10,10 @@ const requestValidateSchema = Joi.object({
         'Title must contain valid characters and not be empty or just spaces.',
     }),
   description: Joi.string()
+    .min(5)
     .max(750)
     .required()
-    .regex(/^(?!\s*$)[\w\s]+$/, 'valid description')
+    .regex(/^(?!\s*$).+$/, 'valid description')
     .messages({
       'string.pattern.name':
         'Description must contain valid characters and not be empty or just spaces.',
@@ -21,8 +22,8 @@ const requestValidateSchema = Joi.object({
   contactNumber: Joi.string()
     .pattern(/^\+?[1-9]\d{1,14}$/)
     .required(),
-  isActive: Joi.boolean().required(),
-  isAccepted: Joi.boolean().required(),
+  isActive: Joi.boolean(),
+  isAccepted: Joi.boolean(),
   acceptedAt: Joi.date().optional().allow(null, ''),
   canceledAcceptedAt: Joi.date().optional().allow(null, ''),
   completedAt: Joi.date().optional().allow(null, ''),

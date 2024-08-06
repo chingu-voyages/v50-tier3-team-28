@@ -175,7 +175,7 @@ exports.completeRequest = async (req, res) => {
     if (!request) {
       return res.status(404).send();
     }
-
+    request.isCompleted = true;
     request.completedAt = new Date();
 
     await request.save();
