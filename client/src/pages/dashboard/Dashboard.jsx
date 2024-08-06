@@ -37,7 +37,7 @@ const Dashboard = () => {
           },
         });
         const data = await response.json();
-        setProtectedData(data.message);
+        setProtectedData(data?.user);
       } catch (e) {
         console.log(e);
       }
@@ -57,14 +57,13 @@ const Dashboard = () => {
       <main className="dark:bg-black dark:text-white">
         <section className="max-w-7xl mx-auto">
           <h2 className="font-bold text-red-600">You are successfully authenticated to Dashboard</h2>
-          <p>{protectedData}</p>
         </section>
 
         <section className="max-w-7xl mx-auto">
-          <UserProfileContainer />
+          <UserProfileContainer data={protectedData} />
         </section>
 
-        <section className="flex justify-center m-2">
+        <section className="flex justify-center p-2">
           <Map />
         </section>
       </main >
