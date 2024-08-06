@@ -1,7 +1,13 @@
 import PropTypes from "prop-types";
 import { Button } from "../UI/Button";
+import { useState } from "react";
+// import { RequestFormModal } from "../UI/RequestFormModal";
 
 export const UserInfo = ({ onClickHandler }) => {
+
+  const [showModal, setShowModal] = useState(false);
+
+
   return (
     <section className="flex flex-col justify-around items-start h-64 md:items-start md:pl-6">
       <section className="fixed top-[20rem] right-[2rem] md:top-[20rem] md:right-[8vw] xl:right-[26vw]">
@@ -29,8 +35,12 @@ export const UserInfo = ({ onClickHandler }) => {
 
       <section className="flex self-center gap-4 md:gap-6 md:justify-around">
         <Button className="font-normal text-white bg-[#F4743B] hover:bg-green-300 rounded-lg p-2 -mt-4 dark:text-black" type="button" text="Delete Account" />
-        <Button className="font-normal text-white bg-[#F4743B] hover:bg-green-300 rounded-lg p-2 -mt-4 dark:text-black" type="button" text="Edit" />
+        <Button className="font-normal text-white bg-[#F4743B] hover:bg-green-300 rounded-lg p-2 -mt-4 dark:text-black" type="button" text="Edit" onClick={() => setShowModal(true)}/>
         <Button className="font-normal text-white bg-[#F4743B] hover:bg-green-300 rounded-lg p-2 -mt-4 dark:text-black" type="button" text="Update" />
+
+        {/* {showModal && (
+          <RequestFormModal  showModal={showModal} setShowModal={setShowModal} />
+        )} */}
       </section>
     </section>
   );
