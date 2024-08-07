@@ -1,13 +1,13 @@
+import PropTypes from "prop-types";
 import { User } from "./User";
 import { UserRequest } from "./UserRequest";
-import userImage1 from "../../assets/images/userProfile/userImages/userImage1.jpg";
 
-export const UserProfileContainer = () => {
+export const UserProfileContainer = ({ data }) => {
   return (
     <section className="flex flex-col gap-4 m-4 md:m-0 md:my-4">
       <section className="flex flex-col items-center gap-4 md:flex-row md:justify-between">
         <h3 className="font-semibold text-xl">Dashboard</h3>
-        <User userEmail="test@test.com" userImage={userImage1} />
+        <User data={data} />
       </section>
 
       <section className="flex flex-col gap-4 md:flex-row">
@@ -15,4 +15,8 @@ export const UserProfileContainer = () => {
       </section>
     </section>
   );
+};
+
+UserProfileContainer.propTypes = {
+  data: PropTypes.object,
 };
