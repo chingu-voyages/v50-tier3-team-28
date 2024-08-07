@@ -29,7 +29,6 @@ export const UserInfo = ({ data, onClickHandler }) => {
   return (
     <section className="flex flex-col justify-around items-start h-64 md:items-start md:pl-6">
       <section className="absolute top-[2rem] right-[2rem]">
-        {/* <section className="absolute top-[2rem] right-[2rem] md:top-[2rem] md:right-[8vw] xl:right-[2vw]"> */}
         <Button onClickHandler={onClickHandler}>
           <svg className="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
             <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
