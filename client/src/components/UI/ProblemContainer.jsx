@@ -2,12 +2,12 @@ import Graph from "../Graph";
 import { DetailsSummary } from "./DetailsSummary";
 
 export const ProblemContainter = () => {
-  const customStyles = "pt-4 pl-4 text-[#101828] text-18px font-semibold";
+  const customStyles = "pt-5 pl-5 text-[#101828] text-18px font-semibold";
 
   return (
     <section className="flex flex-col">
-      <section className="text-center">
-        <h2 className="underline">Problem</h2>
+      <section className="mt-4 pt-4 mb-4 pb-4 text-center">
+        <h2 className="text-[#101828] text-22px font-bold underline">Problem</h2>
       </section>
 
       <section className="flex flex-col justify-between gap-4 md:flex-row">
