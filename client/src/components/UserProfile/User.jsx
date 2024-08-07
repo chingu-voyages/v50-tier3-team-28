@@ -35,7 +35,7 @@ export const User = ({ data }) => {
 
       {showUserGravatar}
 
-      {isUserInfoModalOpen && <section className={`${isUserInfoModalOpen ? "bg-gray-300 border border-gray-200 rounded-lg fixed top-[18rem] right-0 w-full md:top-[19rem] md:right-[5vw] xl:right-[25vw] md:w-2/4 xl:w-1/4 dark:bg-black dark:border-white" : "hidden"}`}><section className="relative p-4"><UserInfo data={data} onClickHandler={() => onChangeToggleUserInfoModalHandler(false)} /></section></section>}
+      {isUserInfoModalOpen && <section className={`${isUserInfoModalOpen ? "bg-gray-300 border border-gray-200 rounded-lg absolute top-[19rem] right-0 w-full md:max-w-lg xl:right-[25%] dark:bg-black dark:border-white" : "hidden"}`}><section className="relative p-4"><UserInfo data={data} onClickHandler={() => onChangeToggleUserInfoModalHandler(false)} /></section></section>}
     </section>
   );
 };
