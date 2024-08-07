@@ -4,7 +4,7 @@ export const DetailsSummary = ({ title, description, ...attrs }) => {
   return (
     <details {...attrs}>
       <summary className="list-none cursor-pointer font-bold">{title}</summary>
-      <p>{description}</p>
+      <p className="text-[#4b4f57]">{description}</p>
     </details>
   );
 };

@@ -6,7 +6,6 @@ exports.createRequest = async (req, res) => {
   try {
     validateRequest(req.body);
     const user = await User.findOne({ userId: req.auth.sub });
-
     if (!user) {
       return res.status(404).send({ error: 'User not found' });
     }

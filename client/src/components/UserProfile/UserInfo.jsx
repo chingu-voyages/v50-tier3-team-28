@@ -1,9 +1,15 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
 import { Button } from "../UI/Button";
+import { useState } from "react";
+// import { RequestFormModal } from "../UI/RequestFormModal";
 import { Input } from "../UI/Input";
 
 export const UserInfo = ({ data, onClickHandler }) => {
+
+  const [showModal, setShowModal] = useState(false);
+
+
   const [isEditable, setIsEditable] = useState(false);
   // const [updateUserContactNumber, setUpdateUserContactNumber] = useState('');
 
@@ -56,8 +62,12 @@ export const UserInfo = ({ data, onClickHandler }) => {
 
       <section className="flex self-center gap-4 md:gap-6 md:justify-around">
         <Button className="font-normal text-white bg-[#F4743B] hover:bg-green-300 rounded-lg p-2 -mt-4 dark:text-black" type="button" text="Delete Account" />
+        <Button className="font-normal text-white bg-[#F4743B] hover:bg-green-300 rounded-lg p-2 -mt-4 dark:text-black" type="button" text="Edit" onClick={() => setShowModal(true)} />
+        <Button className="font-normal text-white bg-[#F4743B] hover:bg-green-300 rounded-lg p-2 -mt-4 dark:text-black" type="button" text="Update" />
 
-        <Button className="font-normal text-white w-32 bg-[#F4743B] hover:bg-green-300 rounded-lg p-2 -mt-4 dark:text-black" type="button" text={!isEditable ? "Edit" : "Update"} onClickHandler={onClickEditUserEmailHandler} />
+        {/* {showModal && (
+          <RequestFormModal  showModal={showModal} setShowModal={setShowModal} />
+        )} */}
       </section>
     </section>
   );
