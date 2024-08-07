@@ -1,4 +1,4 @@
-### The Bee Saving Project
+## The Bee Saving Project
 
 It's no secret that the declining bee population is causing an environmental crisis. A future without bees is bleak, but did you know there are things you can do to make a big impact?
 
@@ -23,12 +23,12 @@ This app is part of a shared project created by Team 28 for Voyage 50 of the Chi
 ## Features
 
 ![Interactive Map Screenshot](./docs/bees-map.png)
--Interactive map for reporting bees in need and finding bees to help
--Personalized dashboard for the logged-in user
--Visualizations and insights on bee population decline
--Actionable tips for individual bee rescue
--Resource links and related organizations
--Toggle between Dark Mode and Light Mode
+- Interactive map for reporting bees in need and finding bees to help
+- Personalized dashboard for the logged-in user
+- Visualizations and insights on bee population decline
+- Actionable tips for individual bee rescue
+- Resource links and related organizations
+- Toggle between Dark Mode and Light Mode
 
 
 ## Technologies Used
