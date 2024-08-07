@@ -4,26 +4,37 @@ import { Button } from "../UI/Button";
 // import { RequestFormModal } from "../UI/RequestFormModal";
 import { Input } from "../UI/Input";
 
-export const UserInfo = ({ data, onClickHandler }) => {
+export const UserInfo = ({ email, contactNumber, onClickHandler }) => {
   const [showModal, setShowModal] = useState(false);
   const [isEditable, setIsEditable] = useState(false);
-  // const [updateUserContactNumber, setUpdateUserContactNumber] = useState('');
+  const [updateUserContactNumber, setUpdateUserContactNumber] = useState(contactNumber ? contactNumber : '');
+  const [isNumber, setIsNumber] = useState(true);
 
-  const userEmail = [];
-  const userContactNumber = [];
-
-  for (let o in data) {
-    if ([o] == "email") {
-      userEmail.push(data[o]);
+  // TODO: logic to delete user from database
+  const onClickDeleteUserAccount = () => {
+    if (confirm('Are you sure you want to delete your account from the database?')) {
+      console.log('User would liket to delete the account from the database.');
+    } else {
+      console.log('User do not want to delete the account.');
     }
-    if ([o] == "contactNumber") {
-      userContactNumber.push(data[o]);
-    }
-  }
+  };
 
-  const onClickEditUserEmailHandler = () => {
+  const onClickEditUserContactNumberHandler = () => {
     setShowModal(true);
     setIsEditable(!isEditable);
+
+    if (isNaN(updateUserContactNumber)) {
+      alert("Please enter a contact number.");
+      setUpdateUserContactNumber("");
+    }
+    else {
+      setIsNumber(!isNumber);
+      setUpdateUserContactNumber(updateUserContactNumber);
+    }
+  };
+
+  const onChangeUserContactNumberHandler = (e) => {
+    setUpdateUserContactNumber(e.target.value);
   };
 
   return (
@@ -41,14 +52,15 @@ export const UserInfo = ({ data, onClickHandler }) => {
       </section>
 
       <section>
-        <p>Email: {userEmail} </p>
+        <p>Email: {email} </p>
 
-        {!isEditable && <p>Contact number: {userContactNumber}</p>}
-        {isEditable && <Input
+        {(isNumber && !isEditable) ? <p>Contact number: {updateUserContactNumber}</p> : <Input
           className="border-2 border-blue-300 w-56"
           type="text"
           label="Contact number"
           placeholder="update contact number..."
+          value={updateUserContactNumber}
+          onChange={onChangeUserContactNumberHandler}
         />}
       </section>
 
@@ -58,9 +70,9 @@ export const UserInfo = ({ data, onClickHandler }) => {
       </section>
 
       <section className="flex self-center gap-4 md:gap-6 md:justify-around">
-        <Button className="font-normal text-white bg-[#F4743B] hover:bg-green-300 rounded-lg p-2 -mt-4 dark:text-black" type="button" text="Delete Account" />
+        <Button className="font-normal text-white bg-[#F4743B] hover:bg-green-300 rounded-lg p-2 -mt-4 dark:text-black" type="button" text="Delete Account" onClickHandler={onClickDeleteUserAccount} />
         {/* <Button className="font-normal text-white bg-[#F4743B] hover:bg-green-300 rounded-lg p-2 -mt-4 dark:text-black" type="button" text="Edit" onClick={() => setShowModal(true)} /> */}
-        <Button className="font-normal text-white w-32 bg-[#F4743B] hover:bg-green-300 rounded-lg p-2 -mt-4 dark:text-black" type="button" text={!isEditable ? "Edit" : "Update"} onClickHandler={onClickEditUserEmailHandler} />
+        <Button className="font-normal text-white w-32 bg-[#F4743B] hover:bg-green-300 rounded-lg p-2 -mt-4 dark:text-black" type="button" text={(isNumber && !isEditable) ? "Edit" : "Update"} onClickHandler={onClickEditUserContactNumberHandler} />
         {/* {showModal && (
           <RequestFormModal  showModal={showModal} setShowModal={setShowModal} />
         )} */}
@@ -70,6 +82,7 @@ export const UserInfo = ({ data, onClickHandler }) => {
 };
 
 UserInfo.propTypes = {
-  data: PropTypes.object,
+  email: PropTypes.string,
+  contactNumber: PropTypes.string,
   onClickHandler: PropTypes.func,
 };

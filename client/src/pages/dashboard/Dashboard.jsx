@@ -36,7 +36,6 @@ const Dashboard = () => {
             Authorization: `Bearer ${accessToken}`,
           },
         });
-        // console.log(response);
         const data = await response.json();
         setProtectedData(data?.user);
       } catch (e) {
@@ -58,6 +57,7 @@ const Dashboard = () => {
       <main className="dark:bg-black dark:text-white">
         <section className="max-w-7xl mx-auto">
           <h2 className="font-bold text-red-600">You are successfully authenticated to Dashboard</h2>
+          {/* {JSON.stringify(protectedData)} */}
         </section>
 
         <section className="max-w-7xl mx-auto">
