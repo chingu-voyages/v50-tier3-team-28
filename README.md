@@ -1,6 +1,17 @@
+### The Bee Saving Project
+
+It's no secret that the declining bee population is causing an environmental crisis. A future without bees is bleak, but did you know there are things you can do to make a big impact?
+
+Join us in saving wild bees! Our app fosters collaboration, awareness, and a sustainable future for pollinators and our planet.
+
+You can view the live site [here](https://thesavingbeeproject.netlify.app/).
+
+Every bee counts!
+
 ## Table of Contents
 
 - [About](#about)
+- [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
 - [Our Team](#our-team)
@@ -9,9 +20,16 @@
 
 This app is part of a shared project created by Team 28 for Voyage 50 of the Chingu Program. Chingu is a collaborative platform that brings together developers from around the world. You can learn more about Chingu on their [website](https://www.chingu.io/)
 
-Join us in saving wild bees! Our app fosters collaboration, awareness, and a sustainable future for pollinators and our planet.
+## Features
 
-Every bee counts!
+![Interactive Map Screenshot](./docs/bees-map.png)
+-Interactive map for reporting bees in need and finding bees to help
+-Personalized dashboard for the logged-in user
+-Visualizations and insights on bee population decline
+-Actionable tips for individual bee rescue
+-Resource links and related organizations
+-Toggle between Dark Mode and Light Mode
+
 
 ## Technologies Used
 
