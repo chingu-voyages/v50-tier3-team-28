@@ -2,7 +2,7 @@ import { DetailsSummary } from "./DetailsSummary";
 import beekeepersImage from "../../assets/imgs/beekeepers.png";
 
 export const SolutionsContainer = () => {
-  const customStyles = "pt-8 pl-5 text-[#101828] text-18px font-semibold";
+  const customStyles = "pt-8 pr-8 pl-8 text-[#101828] text-18px font-semibold";
 
   return (
     <section className="flex flex-col">
