@@ -1,4 +1,5 @@
 import { DetailsSummary } from "./DetailsSummary";
+import beekeepersImage from "../../assets/imgs/beekeepers.png";
 
 export const SolutionsContainer = () => {
   const customStyles = "pt-8 pl-5 text-[#101828] text-18px font-semibold";
@@ -20,7 +21,7 @@ export const SolutionsContainer = () => {
 
         {/* TODO - when we add an image, we can add (md:h-auto) */}
         <section className="h-64 md:w-1/2">
-          <p className="text-[#F4743B]">Third image container with top right corner curved design</p>
+          <img src={beekeepersImage} alt="beekeepers"/>
         </section>
       </section>
     </section>
