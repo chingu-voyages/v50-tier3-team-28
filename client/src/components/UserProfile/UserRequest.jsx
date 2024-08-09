@@ -19,16 +19,17 @@ export const UserRequest = () => {
         <p>Location</p>
         <p>Dropdown</p>
       </section> */}
-
+<section className="w-full md:mt-10">
 <RequestComponent fixedHeader
   fixedHeaderScrollHeight="300px"
-/>
+      />
+      </section>
       
       <section className="flex gap-4 md:gap-6 md:justify-around">
         {/* <Button className="font-normal text-white bg-[#F4743B] hover:bg-green-300 rounded-lg p-2 dark:text-black" type="button" text="Completed" /> */}
       </section>
       {showModal && (
-          <RequestFormModal  showModal={showModal} setShowModal={setShowModal} />
+          <RequestFormModal  showModal={showModal} setShowModal={setShowModal}  />
         )}
 
     </section>

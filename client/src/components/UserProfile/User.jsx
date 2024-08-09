@@ -23,7 +23,11 @@ export const User = ({ email, gravatar, contactNumber }) => {
         </AnchorLink>
       </section>
 
-      {isUserInfoModalOpen && <section className={`${isUserInfoModalOpen ? "bg-gray-300 border border-gray-200 rounded-lg absolute top-[19rem] right-0 w-full md:max-w-lg xl:right-[25%] dark:bg-black dark:border-white z-50 " : "hidden"}`}><section className="relative p-4"><UserInfo email={email} contactNumber={contactNumber} onClickHandler={() => onChangeToggleUserInfoModalHandler(false)} /></section></section>}
+      {isUserInfoModalOpen && <section className={`${isUserInfoModalOpen ? "bg-gray-300 border border-gray-200 rounded-lg absolute top-[19rem] right-0 w-full md:max-w-lg xl:right-[25%] dark:bg-black dark:border-white z-50 " : "hidden"}`}>
+        <section className="relative p-4">
+          <UserInfo email={email} contactNumber={contactNumber} onClickHandler={() => onChangeToggleUserInfoModalHandler(false)} />
+        </section>
+      </section>}
     </section>
   );
 };
