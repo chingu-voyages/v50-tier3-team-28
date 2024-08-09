@@ -4,9 +4,10 @@ It's no secret that the declining bee population is causing an environmental cri
 
 Join us in saving wild bees! Our app fosters collaboration, awareness, and a sustainable future for pollinators and our planet.
 
+Every bee counts!
+
 You can view the live site [here](https://v50-tier3-team-28.onrender.com/).
 ![Hero Page image](./client/src/assets/imgs/bees-hero.png)
-Every bee counts!
 
 ## Table of Contents
 
