@@ -1,12 +1,13 @@
-## The Bee Saving Project
+## [**The Bee Saving Project**](https://v50-tier3-team-28.onrender.com/)
 
 It's no secret that the declining bee population is causing an environmental crisis. A future without bees is bleak, but did you know there are things you can do to make a big impact?
 
 Join us in saving wild bees! Our app fosters collaboration, awareness, and a sustainable future for pollinators and our planet.
 
-You can view the live site [here](https://thesavingbeeproject.netlify.app/).
-
 Every bee counts!
+
+You can view the live site [here](https://v50-tier3-team-28.onrender.com/).
+![Hero Page image](./client/src/assets/imgs/bees-hero.png)
 
 ## Table of Contents
 
@@ -23,6 +24,7 @@ This app is part of a shared project created by Team 28 for Voyage 50 of the Chi
 ## Features
 
 ![Interactive Map Screenshot](./docs/bees-map.png)
+
 - Interactive map for reporting bees in need and finding bees to help
 - Personalized dashboard for the logged-in user
 - Visualizations and insights on bee population decline
@@ -30,23 +32,35 @@ This app is part of a shared project created by Team 28 for Voyage 50 of the Chi
 - Resource links and related organizations
 - Toggle between Dark Mode and Light Mode
 
-
 ## Technologies Used
 
-- React.js + Vite
-- React Router
+**Frontend:**
+
+- React.js + Vite / React Router
+- Redux Toolkit
 - Tailwind CSS
-- Node.js
-- Express.js
-- MongoDB
-- Mongoose
-- Auth0
-- JWT
-- Postman
 - Chart.js
 - Leaflet API
-- Git & GitHub (for version control)
+
+**Backend:**
+
+- Node.js / Express.js
+
+**Database:**
+
+- MongoDB / Mongoose
+
+**Authentication:**
+
+- Auth0 / JWT
+
+**Tools:**
+
+- Postman
+- Git & GitHub
 - Figma
+- Render.com
+- Jira board
 
 ## API Documentation
 
