@@ -36,7 +36,7 @@ const HomeLayout = () => {
   return (
     <section>
       <section className="bg-[#9BC25B]">
-        <section className="max-w-7xl mx-auto max-h-screen">
+        <section className="max-w-7xl mx-auto">
           <Header action={action} onClickHandler={onClickHandler} />
           <MainHeroLanding />
           <MainHeroLandingSurvey />
