@@ -10,19 +10,19 @@ function MainLandingHero() {
           <img
             src={saveTextLogo}
             alt="Save"
-            className="z-10 mb-[-25px] md:mb-0 md:absolute md:top-[81px] md:left-[36%] lg:left-[32%] xl:left-[23%] md:translate-x-[-50%] w-1/2 md:w-auto dark:grayscale dark:invert"
+            className="z-10 mb-[-25px] md:mb-0 md:absolute md:top-[70px] md:left-[32%] lg:left-[28%] xl:left-[19%] md:translate-x-[-50%] w-1/2 md:w-auto dark:grayscale dark:invert"
           />
 
           <img
             src={hiveLogo}
             alt="Hive"
-            className="relative z-20 scale-125 md:scale-100 w-1/2 md:w-auto xl:ml-[-80px] h-[42.5rem]"
+            className="relative z-20 scale-125 md:scale-100 w-1/2 md:w-auto xl:ml-[-80px] h-[42.5rem] xl:h-[36.8rem]"
           />
 
           <img
             src={beesTextLogo}
             alt="Bees"
-            className="relative z-30 mt-[-20px] md:mt-0 md:absolute md:bottom-[190px] md:left-[60%] lg:left-[70%] xl:left-[79%] md:translate-x-[-50%] w-1/2 md:w-auto dark:grayscale dark:invert"
+            className="relative z-30 mt-[-20px] md:mt-0 md:absolute md:bottom-[150px] md:left-[65%] lg:left-[75%] xl:left-[84%] md:translate-x-[-50%] w-1/2 md:w-auto dark:grayscale dark:invert"
           />
         </div>
       </div>
