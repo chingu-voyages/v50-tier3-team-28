@@ -16,7 +16,7 @@ function MainLandingHero() {
           <img
             src={hiveLogo}
             alt="Hive"
-            className="relative z-20 scale-125 md:scale-100 w-1/2 md:w-auto xl:ml-[-80px] h-[42.5rem] xl:h-[36.8rem]"
+            className="relative z-20 scale-125 md:scale-100 w-1/2 md:w-auto xl:ml-[-80px] h-[24rem] md:h-[29rem] lg:h-[31.5rem] xl:h-[34rem]"
           />
 
           <img
