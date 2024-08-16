@@ -5,15 +5,16 @@ import navBeeLogo from "../../assets/imgs/nav_bee_logo.png";
 
 export const Header = ({ action, onClickHandler }) => {
   return (
-    <header className="col-span-12 bg-[#9BC25B]">
-      <section className="flex items-center justify-between mx-auto px-4 py-2 md:px-10">
+    <header className="col-span-12 max-w-[80rem] bg-[#9BC25B]">
+      <section className="flex items-start justify-between mx-auto">
         <AnchorLink
           href="#"
-          className="flex items-center justify-center text-white text-2xl font-bold">
+          className="flex items-center justify-center -ml-8 text-white text-2xl font-bold">
           <img
             src={navBeeLogo}
             alt="Bee Logo"
-            className="h-36 md:h-48 md:ml-4"
+            className="h-[10rem]"
+            // className="h-36 md:h-48 md:ml-4"
           />
         </AnchorLink>
         <Nav action={action} onClickHandler={onClickHandler} />
