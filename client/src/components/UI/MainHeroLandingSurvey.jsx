@@ -16,7 +16,7 @@ export const MainHeroLandingSurvey = () => {
       <section className="flex flex-col items-center md:gap-2 md:flex-row">
         <Image src={beeImage} alt="Bee image" className="border-2 border-[#D9D9D9] rounded-full h-40 w-40 dark:border-black" />
 
-        <h2 className="text-md text-center font-bold text-black leading-8 m-2 md:max-w-40 md:text-start dark:text-white">
+        <h2 className="text-lg text-center font-bold text-black leading-8 m-8 md:max-w-40 md:text-start dark:text-white">
           Its Time to Save The Bees To Save Our Future Generations
         </h2>
 

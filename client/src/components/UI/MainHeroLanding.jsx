@@ -10,7 +10,7 @@ function MainLandingHero() {
           <img
             src={saveTextLogo}
             alt="Save"
-            className="z-10 mb-[-25px] md:mb-0 md:absolute md:top-[70px] md:left-[32%] lg:left-[28%] xl:left-[19%] md:translate-x-[-50%] w-1/2 md:w-auto dark:grayscale dark:invert"
+            className="z-10 mb-[-25px] md:mb-0 md:absolute md:top-[58px] md:left-[28%] lg:left-[24%] xl:left-[15%] md:translate-x-[-50%] w-1/2 md:w-auto dark:grayscale dark:invert"
           />
 
           <img
@@ -22,7 +22,7 @@ function MainLandingHero() {
           <img
             src={beesTextLogo}
             alt="Bees"
-            className="relative z-30 mt-[-20px] md:mt-0 md:absolute md:bottom-[150px] md:left-[65%] lg:left-[75%] xl:left-[84%] md:translate-x-[-50%] w-1/2 md:w-auto dark:grayscale dark:invert"
+            className="relative z-30 mt-[-20px] md:mt-0 md:absolute md:bottom-[120px] md:left-[63%] lg:left-[73%] xl:left-[82%] md:translate-x-[-50%] w-1/2 md:w-auto dark:grayscale dark:invert"
           />
         </div>
       </div>
