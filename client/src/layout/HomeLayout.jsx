@@ -30,7 +30,7 @@ const HomeLayout = () => {
   };
 
   useEffect(() => {
-    setAction(isAuthenticated ? "Log Out" : "Sign In/Up");
+    setAction(isAuthenticated ? "Log Out" : "Sign In / Up");
   }, [isAuthenticated]);
 
   return (

@@ -21,7 +21,7 @@ export const MainHeroLandingSurvey = () => {
         </h2>
 
         <Button
-          className="font-normal text-white bg-[#F4743B] rounded-sm p-1.5 md:mt-10 dark:text-black"
+          className="font-normal text-white bg-[#F4743B] px-5 py-2 rounded-lg md:mt-10 dark:text-black"
           type="button"
           text="Learn More"
         />
