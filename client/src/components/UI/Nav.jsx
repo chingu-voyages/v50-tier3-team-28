@@ -27,25 +27,25 @@ export const Nav = ({ action, onClickHandler }) => {
           <li>
             <AnchorLink
               href="#"
-              className={`underline text-[#F4743B] p-2.5`}
+              className= "text-xl underline text-[#F4743B] p-2.5"
               text="Home"
             />
           </li>
           <li>
             <AnchorLink
               href="#footer"
-              className="text-black p-2.5 dark:text-white"
+              className="text-xl text-black p-2.5 dark:text-white"
               text="About Us"
             />
           </li>
           <li className="text-center">
-            <Link to="/solutions" className="text-black p-2.5 dark:text-white">
+            <Link to="/solutions" className="text-xl text-black p-2.5 dark:text-white">
               Solutions
             </Link>
           </li>
           <li className="flex items-center">
             <Button
-              className="bg-navSignupButton text-navSignupButtonWhite font-normal px-3 py-2 text-center"
+              className="bg-navSignupButton text-navSignupButtonWhite text-lg font-normal px-5 py-2 rounded-lg text-center"
               type="button"
               text={action}
               onClickHandler={onClickHandler}
