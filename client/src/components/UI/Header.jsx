@@ -14,7 +14,6 @@ export const Header = ({ action, onClickHandler }) => {
             src={navBeeLogo}
             alt="Bee Logo"
             className="h-[10rem]"
-            // className="h-36 md:h-48 md:ml-4"
           />
         </AnchorLink>
         <Nav action={action} onClickHandler={onClickHandler} />
