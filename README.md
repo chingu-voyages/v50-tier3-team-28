@@ -88,3 +88,4 @@ To run the app locally, follow these steps:
 - Andy Brockmann: [GitHub](https://github.com/PongRVA) / [LinkedIn](https://linkedin.com/in/andybrockmann)
 - Deepali Sangole: [GitHub](https://github.com/ss-deep) / [LinkedIn](https://www.linkedin.com/in/deepali-sangole-49b0841b/)
 - Corinna Bolon: [GitHub](https://github.com/corinnabolon) / [LinkedIn](https://www.linkedin.com/in/corinna-bolon-690003297/)
+- Jennifer Urias: [GitHub](https://github.com/eatwanderexplore) / [LinkedIn](https://www.linkedin.com/in/jennyurias/)
