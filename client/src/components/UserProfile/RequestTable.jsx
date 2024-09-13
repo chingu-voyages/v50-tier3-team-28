@@ -88,14 +88,11 @@ export const RequestComponent = ({ fixedHeader, fixedHeaderScrollHeight }) => {
     const fetchUserData = async () => {
       try {
         const accessToken = await getAccessTokenSilently();
-        const response = await axios.get(
-          'https://be-v50-tier3-team-28.onrender.com/api/requests',
-          {
-            headers: {
-              Authorization: `Bearer ${accessToken}`,
-            },
-          }
-        );
+        const response = await axios.get('http://localhost:3003/api/requests', {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
         const data = response.data.requests;
         setRequestData(data);
         setLoading(false);

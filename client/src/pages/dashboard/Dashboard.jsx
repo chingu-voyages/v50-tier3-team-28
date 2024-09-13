@@ -30,14 +30,11 @@ const Dashboard = () => {
     const fetchProtectedData = async () => {
       try {
         const accessToken = await getAccessTokenSilently();
-        const response = await fetch(
-          'https://be-v50-tier3-team-28.onrender.com/api/dashboard',
-          {
-            headers: {
-              Authorization: `Bearer ${accessToken}`,
-            },
-          }
-        );
+        const response = await fetch('http://localhost:3003/api/dashboard', {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
         const data = await response.json();
         setProtectedData(data?.user);
       } catch (e) {
