@@ -10,6 +10,10 @@ import { ProblemContainter } from "../components/UI/ProblemContainer";
 import { SolutionsHeader } from "../components/UI/SolutionsHeader";
 import { SolutionsContainer } from "../components/UI/SolutionsContainer";
 import { Map } from "../components/Map";
+import { TestRTKqueryDummyDataSpecificProduct } from "../components/TestRTKqueryDummyDataSpecificProduct";
+import { TestRTKqueryDummyDataAddNewProduct } from "../components/TestRTKqueryDummyDataAddNewProduct";
+import { TestRTKqueryDummyDataUpdateProduct } from "../components/TestRTKqueryDummyDataUpdateProduct";
+import { TestRTKqueryDummyDataDeleteProduct } from "../components/TestRTKqueryDummyDataDeleteProduct";
 
 const HomeLayout = () => {
   const { isAuthenticated, isLoading } = useSelector(state => state.auth);
@@ -54,6 +58,13 @@ const HomeLayout = () => {
       </section>
 
       <main className="dark:bg-black dark:text-white">
+        {/* The following section is to test RTK Query implementation with DummyJSON data */}
+        <section className="max-w-7xl mx-auto">
+          <TestRTKqueryDummyDataSpecificProduct productId={4} />
+          <TestRTKqueryDummyDataAddNewProduct />
+          <TestRTKqueryDummyDataUpdateProduct productId={2} />
+          <TestRTKqueryDummyDataDeleteProduct productId={194} />
+        </section>
         <section className="max-w-7xl mx-auto">
           <ProblemContainter />
           <SolutionsHeader />
