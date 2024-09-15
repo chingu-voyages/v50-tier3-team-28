@@ -13,23 +13,23 @@ dbConnection();
 
 app.use(express.json());
 
-app.use(
-  cors({
-    origin: 'https://v50-tier3-team-28.onrender.com',
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true,
-    allowedHeaders:
-      'Origin,X-Requested-With,Content-Type,Accept,Authorization, Set-Cookie, Cookie',
-  })
-);
-
 // app.use(
 //   cors({
-//     origin: 'http://localhost:5173',
+//     origin: 'https://v50-tier3-team-28.onrender.com',
 //     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
 //     credentials: true,
+//     allowedHeaders:
+//       'Origin,X-Requested-With,Content-Type,Accept,Authorization, Set-Cookie, Cookie',
 //   })
 // );
+
+app.use(
+  cors({
+    origin: 'http://localhost:5173',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
+  })
+);
 
 app.use('/api/dashboard', dashboardRoutes);
 app.use('/api/user', userRoutes);

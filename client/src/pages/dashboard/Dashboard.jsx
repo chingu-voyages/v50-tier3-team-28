@@ -5,18 +5,20 @@ import { Header } from '../../components/UI/Header';
 import { UserProfileContainer } from '../../components/UserProfile/UserProfileContainer';
 import { Map } from '../../components/Map';
 import Footer from '../../components/Footer/Footer';
-import { useSelector } from "react-redux";
+import { useSelector } from 'react-redux';
 
 const Dashboard = () => {
   // IMP: user data from BE comes from state (from one place).
-  const { isAuthenticated, isLoading, user } = useSelector(state => state.auth);
+  const { isAuthenticated, isLoading, user } = useSelector(
+    (state) => state.auth
+  );
   // const { isAuthenticated, getAccessTokenSilently } = useAuth0();
   // const [protectedData, setProtectedData] = useState('');
   // const [action, setAction] = useState('Sign Up');
   // const navigate = useNavigate();
   const { logout } = useAuth0();
 
-  const [action, setAction] = useState("");
+  const [action, setAction] = useState('');
 
   const returnToUri = import.meta.env.VITE_AUTH0_RETURN_TO_URI;
 
@@ -26,7 +28,7 @@ const Dashboard = () => {
   };
 
   useEffect(() => {
-    setAction(isAuthenticated ? "Log Out" : "Sign In/Up");
+    setAction(isAuthenticated ? 'Log Out' : 'Sign In/Up');
   }, [isAuthenticated]);
 
   // useEffect(() => {
