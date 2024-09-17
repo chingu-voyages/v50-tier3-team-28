@@ -1,6 +1,8 @@
 import { useRef } from "react";
 import graphData from "./graphData";
 import GraphInteract from "./GraphInteract";
+import { ToastContainer, toast } from "react-toastify"
+import 'react-toastify/dist/ReactToastify.css';
 
 import {
   Chart as ChartJS,
@@ -27,8 +29,15 @@ ChartJS.register(
 
 export default function Graph() {
   const chartRef = useRef(null);
-  GraphInteract(chartRef);
 
+  GraphInteract(chartRef, () => {
+    toast.info('You are about to visit an external website.', {
+      onClose: () => window.open(
+        "https://muse.union.edu/mth-063-01-f18/2018/10/06/decline-of-honeybees/",
+        "_blank"
+      ),
+    })
+  })
   const hiveData = {
     labels: graphData.map((row) => row.date),
     datasets: [
@@ -66,6 +75,9 @@ export default function Graph() {
         title: {
           display: true,
           text: "Years",
+          font: {
+            size: 24
+          }
         },
       },
       hives: {
@@ -73,6 +85,9 @@ export default function Graph() {
         title: {
           display: true,
           text: "Millions of hives",
+          font: { 
+          size: 24
+          }
         },
         beginAtZero: false,
       },
@@ -117,6 +132,9 @@ export default function Graph() {
   return (
     <div className="w-full max-w-screen-lg mx-auto p-4 h-96">
       <Line ref={chartRef} data={hiveData} options={graphOptions} />
+      <ToastContainer 
+      position="top-left"
+      />
     </div>
   );
 }
