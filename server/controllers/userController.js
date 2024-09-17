@@ -6,7 +6,7 @@ const { validateMetadata } = require('../validators/metadataValidator');
 const User = require('../models/User');
 
 exports.updateOrDeleteMetadata = async (req, res) => {
-  //To ensure metadata is an object and not undefined
+  const userId = req.auth.sub;
   const { metadata = {} } = req.body;
   const token = req.headers.authorization.split(' ')[1];
 
