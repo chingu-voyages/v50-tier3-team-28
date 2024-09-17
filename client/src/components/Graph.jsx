@@ -89,6 +89,7 @@ export default function Graph() {
       title: {
         display: true,
         text: "Millions of hives in the U.S.",
+        color: 'black',
         padding: {
           top: 10,
           bottom: 10,
@@ -96,7 +97,7 @@ export default function Graph() {
         font: {
           size: 24,
           // style: "italic",
-          family: "Helvetica Neue",
+          family: "font-mono",
         },
       },
       datalabels: {
