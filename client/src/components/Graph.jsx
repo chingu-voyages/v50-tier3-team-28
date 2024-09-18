@@ -4,6 +4,7 @@ import GraphInteract from "./GraphInteract";
 import { ToastContainer, toast } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
 
+
 import {
   Chart as ChartJS,
   LineElement,
@@ -15,7 +16,7 @@ import {
   Legend,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
-// import { Chart } from "chart.js";
+import { Chart } from "chart.js";
 
 ChartJS.register(
   CategoryScale,
@@ -38,7 +39,8 @@ export default function Graph() {
       ),
     })
   })
-  const hiveData = {
+
+    const hiveData = {
     labels: graphData.map((row) => row.date),
     datasets: [
       {
@@ -49,9 +51,9 @@ export default function Graph() {
           "rgba(255, 206, 86, 0.2)",
         ],
         borderColor: [
-          "rgba(255, 99, 132, 1)",
-          "rgba(54, 162, 235, 1)",
-          "rgba(255, 206, 86, 1)",
+          "rgba(255, 99, 132)",
+          "rgba(54, 162, 235)",
+          "rgba(255, 206, 86)",
         ],
         borderWidth: 1,
         tension: 0.4,
@@ -75,8 +77,11 @@ export default function Graph() {
         title: {
           display: true,
           text: "Years",
+          color: "black",
           font: {
-            size: 24
+            size: 24,
+            weight: 500,
+            family: "blinker",
           }
         },
       },
@@ -85,8 +90,11 @@ export default function Graph() {
         title: {
           display: true,
           text: "Millions of hives",
+          color: "black",
           font: { 
-          size: 24
+          size: 24,
+          weight: 500,
+          family: "blinker",
           }
         },
         beginAtZero: false,
@@ -110,10 +118,10 @@ export default function Graph() {
           bottom: 10,
         },
         font: {
-          size: 24,
+          size: 32,
+          family: "blinkerbold",
           // style: "italic",
-          family: "font-mono",
-        },
+       },
       },
       datalabels: {
         anchor: "right",

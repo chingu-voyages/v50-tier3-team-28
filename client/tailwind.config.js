@@ -9,6 +9,7 @@ export default {
       display: ["Oswald"],
       body: ["Blinker"],
       bold: ["BlinkerBold"],
+      blinker: ["BlinkerBold"],
     },
     extend: {
       colors: {
