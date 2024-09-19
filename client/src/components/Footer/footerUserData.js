@@ -42,6 +42,18 @@ export const profiles = [
     linkedin: "https://www.linkedin.com/in/corinna-bolon-690003297/",
   },
   {
+    name: "Jennifer",
+    role: "Web Developer",
+    github: "https://github.com/eatwanderexplore",
+    linkedin: "https://www.linkedin.com/in/jennyurias/",
+  },
+  {
+    name: "Shimin",
+    role: "Web Developer",
+    github: "https://github.com/Natkuma01",
+    linkedin: "https://www.linkedin.com/in/natalie-chan-shimin/",
+  },
+  {
     name: "Sharaf",
     role: "UI/UX Designer",
     github: "https://github.com/sharafcs50",
