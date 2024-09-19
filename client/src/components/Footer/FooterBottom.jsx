@@ -13,7 +13,7 @@ function FooterBottom() {
       <div className="relative w-full flex flex-col items-center content-center sm:flex-row sm:items-start justify-center mt-12 rounded-3xl bg-[#9BC25B]">
         <div className="px-8 py-8 flex flex-col space-y-6 content-center">
           <div>
-            Disclaimer: This website and its associated services are provided for demonstrative and educational purposes only. The content and features, including the ability to report bee swarms, are part of a web developement project and may not be fully functional or accurate. The information presented about bees is intended solely for informational purposes and should not be relied upon for professional advice or real-world applications.
+            Disclaimer: This website and its associated services are provided for demonstrative and educational purposes only. The content and features, including the ability to report bee swarms, are part of a demonstrative project and may not be fully functional or accurate. The information presented about bees is intended solely for informational purposes and should not be relied upon for professional advice or real-world applications.
           </div>
           <div>
             Please note that this site is not monitored, and any reports submitted regarding bee swarms will not be acted upon. For assistance with bee-related concerns, please contact a licensed professional or your local authorities.
