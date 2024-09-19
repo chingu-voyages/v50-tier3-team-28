@@ -19,9 +19,7 @@ You can view the live site [here](https://v50-tier3-team-28.onrender.com/).
 
 ## About
 
-
 This Full-Stack MERN app is part of a shared project created by Team 28 for Voyage 50 of the Chingu Program. Chingu is a collaborative platform that brings together developers from around the world. You can learn more about Chingu on their [website](https://www.chingu.io/)
-
 
 ## Features
 
@@ -66,7 +64,7 @@ This Full-Stack MERN app is part of a shared project created by Team 28 for Voya
 
 ## API Documentation
 
-For a detailed overview of the API, please refer to the [API Overview](docs/api-overview.md) file.
+For a detailed overview of the API, please refer to the [API Overview](https://documenter.getpostman.com/view/27360921/2sAXjDfG1j#5339af85-944c-488c-a7b2-18820fb281a0) page.
 
 ## Installation
 
@@ -89,4 +87,4 @@ To run the app locally, follow these steps:
 - Deepali Sangole: [GitHub](https://github.com/ss-deep) / [LinkedIn](https://www.linkedin.com/in/deepali-sangole-49b0841b/)
 - Corinna Bolon: [GitHub](https://github.com/corinnabolon) / [LinkedIn](https://www.linkedin.com/in/corinna-bolon-690003297/)
 - Jennifer Urias: [GitHub](https://github.com/eatwanderexplore) / [LinkedIn](https://www.linkedin.com/in/jennyurias/)
-- Shimin Chan: [GitHub](https://github.com/Natkuma01) / [LinkedIn](https://www.linkedin.com/in/natalie-chan-shimin/) 
+- Shimin Chan: [GitHub](https://github.com/Natkuma01) / [LinkedIn](https://www.linkedin.com/in/natalie-chan-shimin/)
