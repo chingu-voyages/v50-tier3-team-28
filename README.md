@@ -39,20 +39,19 @@ This Full-Stack MERN app is part of a shared project created by Team 28 for Voya
 
 **Frontend:**
 
-- React.js + Vite / React Router
-* [![React][React.js]][React-url]
-- Redux Toolkit
-- Tailwind CSS
-- Chart.js
+* [![React][React.js]][React-url] + [![Vite][vitejs]][Vite-url] / [![React Router][react-router]][reactrouter-url]
+* [![Redux][redux]][redux-url] Toolkit
+* [![TailwindCSS][tailwindcss]][tailwind-url]
+- [![Chart.js][chart.js]][chart-url]
 - Leaflet API
 
 **Backend:**
 
-- Node.js / Express.js
+- [![NodeJS][node.js]][nodejs-url] / [![Express.js][express.js]][expressjs-url]
 
 **Database:**
 
-- MongoDB / Mongoose
+* [![MongoDB][MongoDB]][mongo-url] / Mongoose
 
 **Authentication:**
 
@@ -119,3 +118,19 @@ Password:
 
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/
+[MongoDB]: https://img.shields.io/badge/MongoDB-%234ea94b.svg?logo=mongodb&logoColor=white
+[mongo-url]: https://www.mongodb.com/
+[vitejs]: https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=fff
+[Vite-url]: https://vitejs.dev/
+[React-router]: https://img.shields.io/badge/React_Router-CA4245?logo=react-router&logoColor=white
+[reactrouter-url]: https://reactrouter.com/en/main
+[redux]: https://img.shields.io/badge/Redux-764ABC?logo=redux&logoColor=fff
+[redux-url]: https://redux-toolkit.js.org/
+[tailwindcss]: https://img.shields.io/badge/Tailwind%20CSS-%2338B2AC.svg?logo=tailwind-css&logoColor=white
+[tailwind-url]: https://tailwindcss.com/
+[chart.js]: https://img.shields.io/badge/Chart.js-FF6384?logo=chartdotjs&logoColor=fff
+[chart-url]: https://www.chartjs.org/
+[node.js]: https://img.shields.io/badge/Node.js-6DA55F?logo=node.js&logoColor=white
+[nodejs-url]: https://nodejs.org
+[express.js]: https://img.shields.io/badge/Express.js-%23404d59.svg?logo=express&logoColor=%2361DAFB
+[expressjs-url]: https://expressjs.com/
