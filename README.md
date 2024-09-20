@@ -15,6 +15,7 @@ You can view the live site [here](https://v50-tier3-team-28.onrender.com/).
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
+- [Sample Credentials](#sample-credentials)
 - [Our Team](#our-team)
 
 ## About
@@ -39,6 +40,7 @@ This Full-Stack MERN app is part of a shared project created by Team 28 for Voya
 **Frontend:**
 
 - React.js + Vite / React Router
+* [![React][React.js]][React-url]
 - Redux Toolkit
 - Tailwind CSS
 - Chart.js
@@ -73,10 +75,33 @@ For a detailed overview of the API, please refer to the [API Overview](docs/api-
 To run the app locally, follow these steps:
 
 1. Clone the repository to your local machine
+    ```sh
+    git clone https://github.com/chingu-voyages/v50-tier3-team-28.git
+    ```
 2. Open the terminal and navigate to the project directory
 3. Run the command `npm install` to install the necessary dependencies
+    ```sh
+    npm install
+    ```
 4. Run the command `npm run dev` to start the development server
+    ```sh
+    npm run dev
+    ```
 5. Open your browser and navigate to http://localhost:3003 to view the app
+
+## Sample Credentials
+
+To help you get started, you can use the following sample credentials:
+
+Email Address:  
+    ```
+        thesavingbeeproject@gmail.com
+    ```
+
+Password:  
+    ```
+    ThesavingbeeProject30.06.2024
+    ```
 
 ## Our Team
 
@@ -90,3 +115,7 @@ To run the app locally, follow these steps:
 - Corinna Bolon: [GitHub](https://github.com/corinnabolon) / [LinkedIn](https://www.linkedin.com/in/corinna-bolon-690003297/)
 - Jennifer Urias: [GitHub](https://github.com/eatwanderexplore) / [LinkedIn](https://www.linkedin.com/in/jennyurias/)
 - Shimin Chan: [GitHub](https://github.com/Natkuma01) / [LinkedIn](https://www.linkedin.com/in/natalie-chan-shimin/) 
+
+
+[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[React-url]: https://reactjs.org/
