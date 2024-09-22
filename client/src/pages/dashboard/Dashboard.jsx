@@ -6,6 +6,7 @@ import { UserProfileContainer } from '../../components/UserProfile/UserProfileCo
 import { Map } from '../../components/Map';
 import Footer from '../../components/Footer/Footer';
 import { useSelector } from "react-redux";
+import { useGetUserDataQuery } from "../../app/service/apiSlice";
 
 const Dashboard = () => {
   // IMP: user data from BE comes from state (from one place).
@@ -15,6 +16,7 @@ const Dashboard = () => {
   // const [action, setAction] = useState('Sign Up');
   // const navigate = useNavigate();
   const { logout } = useAuth0();
+  const { data, error } = useGetUserDataQuery();
 
   const [action, setAction] = useState("");
 
@@ -28,6 +30,10 @@ const Dashboard = () => {
   useEffect(() => {
     setAction(isAuthenticated ? "Log Out" : "Sign In/Up");
   }, [isAuthenticated]);
+
+  // Data from ./../app/service/apiSlice - useGetUserDataQuery()
+  // WORKING - data is from dummyjson baseurl - /products
+  console.log("DATA: ", data);
 
   // useEffect(() => {
   //   if (!isAuthenticated) {

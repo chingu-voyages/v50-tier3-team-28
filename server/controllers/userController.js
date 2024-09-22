@@ -6,10 +6,10 @@ const { validateMetadata } = require('../validators/metadataValidator');
 const User = require('../models/User');
 
 exports.updateOrDeleteMetadata = async (req, res) => {
+  const userId = req.auth.sub;
   //To ensure metadata is an object and not undefined
   const { metadata = {} } = req.body;
   const token = req.headers.authorization.split(' ')[1];
-  const userId = req.auth.sub;
 
   if (!token) {
     return res.status(401).json({ message: 'Authorization token is required' });
