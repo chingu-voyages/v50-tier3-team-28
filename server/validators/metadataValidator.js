@@ -8,19 +8,6 @@ const metadataSchema = Joi.object({
     .messages({
       'string.pattern.base': 'Invalid phone number format',
     }),
-
-  userName: Joi.string()
-    .pattern(/^[a-zA-Z0-9]+(?: [a-zA-Z0-9]+)*$/) // Allows only letters, numbers, and spaces, but not leading or trailing spaces
-    .min(1)
-    .max(100)
-    .allow(null)
-    .optional()
-    .messages({
-      'string.pattern.base':
-        'Name can only contain letters, numbers, and spaces, and cannot be just spaces',
-      'string.min': 'Name must be at least 1 character long',
-      'string.max': 'Name must be less than or equal to 100 characters',
-    }),
 });
 
 const validateMetadata = (metadata) => {

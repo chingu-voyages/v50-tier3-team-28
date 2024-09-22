@@ -18,7 +18,6 @@ exports.getUserDashboardInfo = async (req, res) => {
         emailVerified: userInfo.email_verified,
         gravatar: userInfo.picture,
         metadata: {
-          userName: userInfo.user_metadata?.userName || null,
           contactNumber: userInfo.user_metadata?.contactNumber || null,
         },
       },

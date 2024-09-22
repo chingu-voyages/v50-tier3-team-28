@@ -29,7 +29,7 @@ export const RequestFormModal = ({ showModal, setShowModal }) => {
       try {
         const accessToken = await getAccessTokenSilently();
         const response = await axios.get(
-          'https://be-v50-tier3-team-28.onrender.com/api/dashboard',
+          'http://localhost:3003/api/dashboard',
           {
             headers: {
               Authorization: `Bearer ${accessToken}`,
@@ -75,7 +75,7 @@ export const RequestFormModal = ({ showModal, setShowModal }) => {
     try {
       const accessToken = await getAccessTokenSilently();
       const response = await axios.post(
-        'https://be-v50-tier3-team-28.onrender.com/api/requests',
+        'http://localhost:3003/api/requests',
         validationData,
         {
           headers: {
