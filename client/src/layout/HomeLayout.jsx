@@ -44,8 +44,7 @@ const HomeLayout = () => {
   return (
     <section>
       {/* The following section tailwind class - margin-bottom is not changing properly, when dark mode applies on the app */}
-      {/* <section className="bg-[#9BC25B] mb-[22rem] sm:mb-[24rem] md:mb-[6rem] lg:mb-[6rem] xl:mb-[1rem]"> */}
-      <section className="bg-[#9BC25B]">
+      <section className="bg-[#9BC25B] mb-[32rem] sm:mb-[16rem] md:mb-[6rem] lg:mb-[6rem] xl:mb-[1rem]">
         <section className="max-w-7xl mx-auto max-h-screen">
           <Header action={action} onClickHandler={onClickHandler} />
           <MainHeroLanding />
