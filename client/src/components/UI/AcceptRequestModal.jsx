@@ -4,8 +4,7 @@ const Button = ({ className, onClick, children }) => (
   <button
     className={`font-bold uppercase text-sm px-6 py-2 rounded shadow hover:shadow-lg outline-none focus:outline-none ease-linear transition-all duration-150 ${className}`}
     type="button"
-    onClick={onClick}
-  >
+    onClick={onClick}>
     {children}
   </button>
 );
@@ -25,8 +24,7 @@ function AcceptRequestModal({ request, onClose }) {
             <h3 className="text-xl font-semibold">Request Details</h3>
             <button
               className="bg-transparent border-0 text-black float-right"
-              onClick={onClose}
-            >
+              onClick={onClose}>
               <span className="text-black h-6 w-6 block bg-gray-400 rounded-full">
                 X
               </span>
@@ -38,8 +36,8 @@ function AcceptRequestModal({ request, onClose }) {
               Title: {request?.title} <br />
               Location: {request?.location?.city}, {request?.location?.country}
               <br />
-              Latitude: {request?.location?.lat || "N/A"} <br />
-              Longitude: {request?.location?.lng || "N/A"} <br />
+              Latitude: {request?.location?.coordinates} <br />
+              Longitude: {request?.location?.coordinates} <br />
               Email: (Upon Accept) <br />
               Contact No.: (Upon Accept)
             </p>
@@ -58,8 +56,7 @@ function AcceptRequestModal({ request, onClose }) {
 
                 <Button
                   className="bg-white text-gray-900 border border-[#F4743B]"
-                  onClick={onClose}
-                >
+                  onClick={onClose}>
                   Cancel
                 </Button>
               </div>
