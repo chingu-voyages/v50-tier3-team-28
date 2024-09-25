@@ -84,12 +84,15 @@ export const RequestComponent = ({ fixedHeader, fixedHeaderScrollHeight }) => {
   const [requestData, setRequestData] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const isDevelopment = process.env.NODE_ENV==='development';
+  const apiUrl = isDevelopment ? 'http://localhost:5173/api':'https://be-v50-tier3-team-28.onrender.com/api';
+
   useEffect(() => {
     const fetchUserData = async () => {
       try {
         const accessToken = await getAccessTokenSilently();
         const response = await axios.get(
-          'https://be-v50-tier3-team-28.onrender.com/api/requests',
+          `${apiUrl}/requests`,
           {
             headers: {
               Authorization: `Bearer ${accessToken}`,
