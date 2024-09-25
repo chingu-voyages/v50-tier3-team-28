@@ -12,12 +12,13 @@ function FooterResources() {
       <h2 className="text-xl font-bold my-4 text-footerProfileNameColor text-center dark:text-white">
         Resources
       </h2>
-      <ul className="list-none w-full pl-8 mt-20">
+      <ul className="list-none w-full text-center mb-4">
         {resourcesData.map((resource, index) => (
           <li key={index}>
             <a
               className="underline mb-2 block text-footerBoxColor cursor-pointer"
-              onClick={() => handleClick(index)}>
+              onClick={() => handleClick(index)}
+            >
               {resource.name}
             </a>
             {modalIndex === index && (
