@@ -4,6 +4,11 @@ Welcome to the API documentation. Below you will find details about the availabl
 
 This API provides endpoints to manage requests and user information. Users can create, update, delete, accept, complete, and cancel accepted requests. Each request can be managed by users with appropriate permissions. Additionally, users are able to change, add, and delete their username and contact number
 
+## Base URL
+
+- **Main branch (Deployment)**: `https://be-v50-tier3-team-28.onrender.com/api`
+- **Development branch (Local)**: `http://localhost:3003/api`
+
 ## Requests API
 
 This API provides endpoints to manage requests. Users can create, update, delete, accept, complete, and cancel accepted requests. Each request can be managed by users with appropriate permissions.
@@ -26,7 +31,7 @@ All endpoints require JWT authentication. Include the token in the `Authorizatio
 
 ### 1. Create Request
 
-- **URL**: `api/requests/`
+- **URL**: `/requests/`
 - **Method**: `POST`
 - **Authentication Required**: Yes
 
@@ -60,7 +65,7 @@ All endpoints require JWT authentication. Include the token in the `Authorizatio
 
 ### 2. Update Request
 
-- **URL**: `api/requests/:id`
+- **URL**: `/requests/:id`
 - **Method**: `PUT`
 - **Authentication Required**: Yes
 
@@ -109,7 +114,7 @@ All endpoints require JWT authentication. Include the token in the `Authorizatio
 
 ### 3. Delete Request
 
-- **URL**: `api/requests/:id`
+- **URL**: `/requests/:id`
 - **Method**: `DELETE`
 - **Authentication Required**: Yes
 
@@ -126,7 +131,7 @@ All endpoints require JWT authentication. Include the token in the `Authorizatio
 
 ### 4. Accept Request
 
-- **URL**: `api/requests/:id`
+- **URL**: `/requests/:id`
 - **Method**: `POST`
 - **Authentication Required**: Yes
 
@@ -142,7 +147,7 @@ All endpoints require JWT authentication. Include the token in the `Authorizatio
 
 ### 5. Complete Request
 
-- **URL**: `api/requests/:id/complete`
+- **URL**: `/requests/:id/complete`
 - **Method**: `POST`
 - **Authentication Required**: Yes
 
@@ -158,7 +163,7 @@ All endpoints require JWT authentication. Include the token in the `Authorizatio
 
 ### 6. Cancel Accepted Request
 
-- **URL**: `api/requests/:id/cancel`
+- **URL**: `/requests/:id/cancel`
 - **Method**: `PATCH`
 - **Authentication Required**: Yes
 
@@ -174,7 +179,7 @@ All endpoints require JWT authentication. Include the token in the `Authorizatio
 
 ### 7. List All Request
 
-- **URL**: `api/requests/`
+- **URL**: `/requests/`
 - **Method**: `GET`
 - **Authentication Required**: Yes
 
@@ -214,7 +219,7 @@ All endpoints require JWT authentication. Include the token in the `Authorizatio
 
 ### Update or Delete User Metadata
 
-- **URL**: `api/user/metadata`
+- **URL**: `/user/metadata`
 - **Method**: `PATCH`
 - **Authentication Required**: Yes
 
@@ -243,17 +248,18 @@ All endpoints require JWT authentication. Include the token in the `Authorizatio
   }
 }
 ```
+
 ### Delete User
 
-- **URL**: `api/user/:userId`
+- **URL**: `/user/:userId`
 - **Method**: `DELETE`
 - **Authentication Required**: Yes
-  
+
 **Success Response**:
 
 ```json
 {
-  message: 'User deleted successfully'
+  "message": "User deleted successfully"
 }
 ```
 
@@ -261,7 +267,7 @@ All endpoints require JWT authentication. Include the token in the `Authorizatio
 
 ### Get User Dashboard Info
 
-- **URL**: `api/dashboard/`
+- **URL**: `/dashboard/`
 - **Method**: `GET`
 - **Authentication Required**: Yes
 
