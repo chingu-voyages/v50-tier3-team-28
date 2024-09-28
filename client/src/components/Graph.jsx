@@ -1,8 +1,6 @@
 import { useRef } from "react";
 import graphData from "./graphData";
 import GraphInteract from "./GraphInteract";
-import { ToastContainer, toast } from "react-toastify"
-import 'react-toastify/dist/ReactToastify.css';
 
 
 import {
@@ -140,9 +138,6 @@ export default function Graph() {
   return (
     <div className="w-full max-w-screen-lg mx-auto p-4 h-96">
       <Line ref={chartRef} data={hiveData} options={graphOptions} />
-      <ToastContainer 
-      position="top-left"
-      />
     </div>
   );
 }
