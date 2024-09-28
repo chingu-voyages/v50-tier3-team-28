@@ -44,7 +44,7 @@ const ModalResourceLink = ({ url, handleClick }) => {
                     <p className="text-sm text-gray-500 mb-2">
                       This link is taking you to the following website
                     </p>
-                    <p className="text-sm text-gray-500 border-2 rounded-md text-center py-2">
+                    <p className="text-sm text-gray-500 border-2 rounded-md text-wrap text-center py-2">
                       {url}
                     </p>
                   </div>

@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import graphData from "./graphData";
 import GraphInteract from "./GraphInteract";
 
@@ -15,6 +15,7 @@ import {
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 import { Chart } from "chart.js";
+import ModalResourceLink from "./Footer/ModalResourceLink";
 
 ChartJS.register(
   CategoryScale,
@@ -28,15 +29,7 @@ ChartJS.register(
 
 export default function Graph() {
   const chartRef = useRef(null);
-
-  GraphInteract(chartRef, () => {
-    toast.info('You are about to visit an external website.', {
-      onClose: () => window.open(
-        "https://muse.union.edu/mth-063-01-f18/2018/10/06/decline-of-honeybees/",
-        "_blank"
-      ),
-    })
-  })
+  const [showModal, setShowModal] = useState(null)
 
     const hiveData = {
     labels: graphData.map((row) => row.date),
@@ -137,7 +130,15 @@ export default function Graph() {
 
   return (
     <div className="w-full max-w-screen-lg mx-auto p-4 h-96">
-      <Line ref={chartRef} data={hiveData} options={graphOptions} />
+      <Line ref={chartRef} 
+        data={hiveData} 
+        options={graphOptions} 
+        onClick={()=> setShowModal(true)}
+        className='hover:cursor-pointer'
+        />
+      {showModal && <ModalResourceLink 
+        url="https://muse.union.edu/mth-063-01-f18/2018/10/06/decline-of-honeybees/"
+        handleClick={setShowModal} />}
     </div>
   );
 }
