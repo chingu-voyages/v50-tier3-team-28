@@ -4,10 +4,15 @@ export const SolutionsHeader = () => {
   return (
     <section className="flex flex-col mt-4 pt-4 mb-4 pb-4">
       <h2 className="mb-2 pb-2 text-center text-[#101828] text-22px font-bold underline">Solutions</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, maiores! Alias qui officiis impedit nemo iure. Libero architecto optio mollitia debitis dolores, nostrum sit illo, corrupti maxime blanditiis quos eius.
-        Veritatis, labore nostrum? Iusto laboriosam tenetur facilis, vel possimus at accusantium. Perspiciatis natus officia voluptatibus dicta quasi sint aspernatur error dolorem nam ducimus quaerat doloribus, facere ad qui optio quam!
-        <AnchorLink href="#" text="Login to send request" className="text-[#F4743B] uppercase underline ml-1" />
-      </p>
+      <p className="text-center">Bees play a crucial role in our ecosystems, yet their populations are dwindling at an alarming rate. 
+        To help save the bees, there are several simple steps everyone can take. By creating bee-friendly 
+        environments, we can provide essential resources like food, water, and shelter. 
+        Small changes in our daily habits can make a big impact. 
+        Whether you have a large garden or a small balcony, these efforts contribute to the overall 
+        health of bee populations. Let's take action to protect these crucial pollinators and 
+        ensure a balanced environment for future generations.</p>
+        <AnchorLink href="#" text="Login to send request" className="text-[#F4743B] text-center uppercase underline ml-1 mt-3" />
+      
     </section>
   );
 };
