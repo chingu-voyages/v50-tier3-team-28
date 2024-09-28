@@ -1,6 +1,5 @@
 import { useRef, useState } from "react";
 import graphData from "./graphData";
-import GraphInteract from "./GraphInteract";
 
 
 import {
