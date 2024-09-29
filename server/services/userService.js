@@ -15,7 +15,6 @@ exports.getUserInfo = async (userId, token) => {
       {
         name: userInfo.name,
         email: userInfo.email,
-        userName: userInfo.user_metadata?.userName || null,
         contactNumber: userInfo.user_metadata?.contactNumber || null,
       },
       { upsert: true, new: true }
