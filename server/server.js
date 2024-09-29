@@ -12,9 +12,23 @@ const requestRoutes = require('./routes/requestRoutes');
 dbConnection();
 app.use(express.json());
 
+const determineOrigin = () => {
+  const allowedOrigins = [
+    'https://v50-tier3-team-28.onrender.com',
+    'http://localhost:5173',
+  ];
+  return (origin, callback) => {
+    if (allowedOrigins.includes(origin) || !origin) {
+      callback(null, origin);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  };
+};
+
 app.use(
   cors({
-    origin: 'https://v50-tier3-team-28.onrender.com',
+    origin: determineOrigin(),
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
     allowedHeaders:
@@ -22,14 +36,6 @@ app.use(
   })
 );
 // app.use(express.json());
-// app.use(
-//   cors({
-//     origin: 'http://localhost:5173',
-//     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-//     credentials: true,
-//   })
-// );
-
 // app.use(
 //   cors({
 //     origin: 'http://localhost:5173',
