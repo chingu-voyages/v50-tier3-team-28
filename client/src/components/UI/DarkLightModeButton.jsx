@@ -13,7 +13,7 @@ export const DarkLightModeButton = () => {
     <>
       {
         dark && <Button
-          className="bg-neutral-800 text-neutral-200 p-2 -mt-2 uppercase rounded-lg hover:bg-neutral-600 focus:bg-neutral-600 flex items-center justify-center whitespace-nowrap"
+          className="bg-neutral-800 text-neutral-200 px-5 py-2 -mt-2 uppercase rounded-lg hover:bg-neutral-600 focus:bg-neutral-600 flex items-center justify-center whitespace-nowrap"
           type="button"
           text="Light Mode"
           onClick={() => darkModeHandler()}
@@ -31,7 +31,7 @@ export const DarkLightModeButton = () => {
 
       {
         !dark && <Button
-          className="bg-neutral-200 text-neutral-800 p-2 -mt-2 uppercase rounded-lg hover:bg-neutral-300 focus:bg-neutral-300 flex items-center justify-center whitespace-nowrap"
+          className="bg-neutral-200 text-neutral-800 px-5 py-2 -mt-2 uppercase rounded-lg hover:bg-neutral-300 focus:bg-neutral-300 flex items-center justify-center whitespace-nowrap"
           type="button"
           text="Dark Mode"
           onClick={() => darkModeHandler()}

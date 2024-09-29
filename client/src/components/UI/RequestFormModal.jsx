@@ -24,12 +24,15 @@ export const RequestFormModal = ({ showModal, setShowModal }) => {
     isAccepted: false,
   });
 
+  const isDevelopment = process.env.NODE_ENV==='development';
+  const apiUrl = isDevelopment ? 'http://localhost:3003/api':'https://be-v50-tier3-team-28.onrender.com/api';
+
   useEffect(() => {
     const fetchUserData = async () => {
       try {
         const accessToken = await getAccessTokenSilently();
         const response = await axios.get(
-          'https://be-v50-tier3-team-28.onrender.com/api/dashboard',
+          `${apiUrl}/dashboard`,
           {
             headers: {
               Authorization: `Bearer ${accessToken}`,
@@ -75,7 +78,7 @@ export const RequestFormModal = ({ showModal, setShowModal }) => {
     try {
       const accessToken = await getAccessTokenSilently();
       const response = await axios.post(
-        'https://be-v50-tier3-team-28.onrender.com/api/requests',
+        `${apiUrl}/requests`,
         validationData,
         {
           headers: {

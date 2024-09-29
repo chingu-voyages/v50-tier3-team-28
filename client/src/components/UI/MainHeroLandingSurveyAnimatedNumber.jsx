@@ -3,7 +3,7 @@ import AnimatedNumber from "../../layout/AnimatedNumber";
 
 export const MainHeroLandingSurveyAnimatedNumber = ({ statHighlights, text }) => {
   return (
-    <div className="flex flex-col items-center md:items-start gap-0.5">
+    <div className="flex flex-col items-center md:items-start gap-2">
       <div className="flex flex-row">
         <span className="text-xl text-black font-bold dark:text-white">
           <AnimatedNumber className="" n={statHighlights} />

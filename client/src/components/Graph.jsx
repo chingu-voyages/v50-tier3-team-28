@@ -1,6 +1,9 @@
 import { useRef } from "react";
 import graphData from "./graphData";
 import GraphInteract from "./GraphInteract";
+import { ToastContainer, toast } from "react-toastify"
+import 'react-toastify/dist/ReactToastify.css';
+
 
 import {
   Chart as ChartJS,
@@ -13,7 +16,7 @@ import {
   Legend,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
-// import { Chart } from "chart.js";
+import { Chart } from "chart.js";
 
 ChartJS.register(
   CategoryScale,
@@ -27,9 +30,17 @@ ChartJS.register(
 
 export default function Graph() {
   const chartRef = useRef(null);
-  GraphInteract(chartRef);
 
-  const hiveData = {
+  GraphInteract(chartRef, () => {
+    toast.info('You are about to visit an external website.', {
+      onClose: () => window.open(
+        "https://muse.union.edu/mth-063-01-f18/2018/10/06/decline-of-honeybees/",
+        "_blank"
+      ),
+    })
+  })
+
+    const hiveData = {
     labels: graphData.map((row) => row.date),
     datasets: [
       {
@@ -40,9 +51,9 @@ export default function Graph() {
           "rgba(255, 206, 86, 0.2)",
         ],
         borderColor: [
-          "rgba(255, 99, 132, 1)",
-          "rgba(54, 162, 235, 1)",
-          "rgba(255, 206, 86, 1)",
+          "rgba(255, 99, 132)",
+          "rgba(54, 162, 235)",
+          "rgba(255, 206, 86)",
         ],
         borderWidth: 1,
         tension: 0.4,
@@ -66,6 +77,12 @@ export default function Graph() {
         title: {
           display: true,
           text: "Years",
+          color: "black",
+          font: {
+            size: 24,
+            weight: 500,
+            family: "blinker",
+          }
         },
       },
       hives: {
@@ -73,6 +90,12 @@ export default function Graph() {
         title: {
           display: true,
           text: "Millions of hives",
+          color: "black",
+          font: { 
+          size: 24,
+          weight: 500,
+          family: "blinker",
+          }
         },
         beginAtZero: false,
       },
@@ -89,15 +112,16 @@ export default function Graph() {
       title: {
         display: true,
         text: "Millions of hives in the U.S.",
+        color: 'black',
         padding: {
           top: 10,
           bottom: 10,
         },
         font: {
-          size: 24,
+          size: 32,
+          family: "blinkerbold",
           // style: "italic",
-          family: "Helvetica Neue",
-        },
+       },
       },
       datalabels: {
         anchor: "right",
@@ -116,6 +140,9 @@ export default function Graph() {
   return (
     <div className="w-full max-w-screen-lg mx-auto p-4 h-96">
       <Line ref={chartRef} data={hiveData} options={graphOptions} />
+      <ToastContainer 
+      position="top-left"
+      />
     </div>
   );
 }
