@@ -33,9 +33,8 @@ export const useAuthListener = () => {
         dispatch(setAuthState({ isAuthenticated, user, isLoading }));
       }
     };
-
+ 
     fetchAccessToken();
-              console.log("setAuthState in useAuthListener index.js",store.getState().auth.token  );
 
   }, [dispatch, isAuthenticated, user, isLoading, getAccessTokenSilently]);
 

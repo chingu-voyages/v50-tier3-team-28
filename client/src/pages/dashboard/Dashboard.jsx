@@ -62,23 +62,25 @@ const Dashboard = () => {
 	//   fetchProtectedData();
 	// }, [isAuthenticated, getAccessTokenSilently, navigate]);
 
-	useEffect(() => {
-		const fetchAccessToken = async () => {
-			if (isAuthenticated) {
-				try {
-					const token = await getAccessTokenSilently();
-					dispatch(setAuthState({ isAuthenticated, user, isLoading, token }));
-				} catch (error) {
-					console.error('Error fetching access token: ', error);
-				}
-			} else {
-				dispatch(setAuthState({ isAuthenticated, user, isLoading }));
-			}
-		};
+	// useEffect(() => {
+	// 	const fetchAccessToken = async () => {
+	// 		if (isAuthenticated) {
+	// 			try {
+	// 				const token = await getAccessTokenSilently();
+	// 				console.log('token in dashboard', token);
 
-		fetchAccessToken();
-		console.log('token in dashboard', store.getState().auth.token);
-	}, [dispatch, isAuthenticated, user, isLoading, getAccessTokenSilently]);
+	// 				dispatch(setAuthState({ isAuthenticated, user, isLoading, token }));
+	// 			} catch (error) {
+	// 				console.error('Error fetching access token: ', error);
+	// 			}
+	// 		} else {
+	// 			dispatch(setAuthState({ isAuthenticated, user, isLoading }));
+	// 		}
+	// 	};
+
+	// 	fetchAccessToken();
+	// 	console.log('token in dashboard', store.getState().auth.token);
+	// }, [dispatch, isAuthenticated, user, isLoading, getAccessTokenSilently]);
 
 	return (
 		<section>

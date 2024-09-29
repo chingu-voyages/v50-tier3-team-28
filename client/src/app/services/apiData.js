@@ -1,16 +1,11 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 // import { useSelector } from 'react-redux';
 
-
-
-
-
 const baseQuery= fetchBaseQuery({
     baseUrl: "http://localhost:3003/api/",
     prepareHeaders:  (headers, { getState }) => {
         const token =  getState().auth.token;
  // Assuming token is stored in auth.token state
-        console.log("token in api", getState());
         
         if (token) {
           headers.set('Authorization', `Bearer ${token}`);
