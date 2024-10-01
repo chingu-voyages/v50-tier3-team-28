@@ -42,31 +42,33 @@ const HomeLayout = () => {
   }, [isAuthenticated]);
 
   return (
-    <section>
-      {/* The following section tailwind class - margin-bottom is not changing properly, when dark mode applies on the app */}
-      <section className="bg-[#9BC25B] mb-[32rem] sm:mb-[16rem] md:mb-[6rem] lg:mb-[6rem] xl:mb-[1rem]">
-        <section className="max-w-7xl mx-auto max-h-screen">
+    <>
+      <section className="bg-[#9BC25B]">
+        <section className="bg-[#9BC25B] h-screen flex flex-col justify-between md:max-w-7xl md:mx-auto">
           <Header action={action} onClickHandler={onClickHandler} />
-          <MainHeroLanding />
+          {/* The following component (absolute/relative positions) is causing a design issue */}
+          {/* TODO: Fix the positioning issue in the following component */}
+          {/* <MainHeroLanding /> */}
           <MainHeroLandingSurvey />
         </section>
       </section>
 
-      <main className="dark:bg-black dark:text-white">
-        <section className="max-w-7xl mx-auto">
+      {/* TODO: Test and remove pt-[25vh], if it is not needed, before submitting the project */}
+      <main className="flex flex-col justify-between pt-[25vh] md:pt-[2vh] dark:bg-black dark:text-white">
+        <section className="md:max-w-7xl md:mx-auto">
           <ProblemContainter />
           <SolutionsHeader />
         </section>
         <section className="flex justify-center p-2">
           <Map />
         </section>
-        <section className="max-w-7xl mx-auto">
+        <section className="md:max-w-7xl md:mx-auto">
           <SolutionsContainer />
         </section>
       </main>
 
       <Footer />
-    </section>
+    </>
   );
 };
 
