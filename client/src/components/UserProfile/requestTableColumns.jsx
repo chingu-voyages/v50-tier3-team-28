@@ -47,12 +47,11 @@ export default function requestColumns({
 			),
 		},
 		{
-			id: 'edit',
+			id: 'cancel',
 			cell: (row) =>
 				selectedRequest?.id === row.id ? (
 					<i className="fas fa-edit mr-1 text-lg"></i>
 				) : (
-					// No typo here, it's a Button component
 					<Button
 						className="font-normal border border-[#F4743B] hover:bg-[#F4743B] hover:text-white rounded-lg p-1 dark:text-white"
 						type="button"

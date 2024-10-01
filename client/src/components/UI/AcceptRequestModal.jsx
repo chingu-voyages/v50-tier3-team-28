@@ -21,11 +21,10 @@ Button.propTypes = {
 const customInputStyles =
 	'my-0.5 ms-3 grow bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 p-2 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500';
 
-function AcceptRequestModal({ request, onClose }) {
+function AcceptRequestModal({ request, onClose, showEditButton }) {
 	const [isEditable, setIsEditable] = useState(false);
 	const [errors, setErrors] = useState({});
-	const { user, getAccessTokenSilently } = useAuth0();
-	// const [showEditButton, setShowEditButton] = useState(false);
+	const { getAccessTokenSilently } = useAuth0();
 
 	const [formData, setFormData] = useState({
 		title: request?.title || '',
@@ -49,48 +48,41 @@ function AcceptRequestModal({ request, onClose }) {
 			[name]: value,
 		});
 	};
-	const handleEdit = async (e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
+		setIsEditable(!isEditable);
+		setErrors({});
 
 		// Validation
-		const { longitude, latitude, location, ...restFormData } = formData;
-		const validationData = {
-			...restFormData,
-			location: {
-				type: 'Point',
-				coordinates: [parseFloat(latitude), parseFloat(longitude)],
-				city: location,
-				country: request?.location?.country,
-			},
-		};
 
-		if (user.sub.split('|')[1] === request.beefinderId.split('|')[1]) {
-			console.log('beefinderId', request.beefinderId.split('|')[1]);
-			console.log('user', user.sub.split('|')[1]);
-
-			setIsEditable(!isEditable);
-			try {
-				const accessToken = await getAccessTokenSilently();
-				const response = await axios.put(
-					`${apiUrl}/requests/${request.id}`,
-					validationData,
-					{
-						headers: {
-							Authorization: `Bearer ${accessToken}`,
-						},
-					}
-				);
-				console.log('response', response);
-				// setIsEditable(!isEditable);
-				// onClose();
-			} catch (error) {
-				let validationErrors = {};
-				if (error) {
-					validationErrors = error.response.data.error.details;
+		try {
+			const { longitude, latitude, location, ...restFormData } = formData;
+			const validationData = {
+				...restFormData,
+				location: {
+					type: 'Point',
+					coordinates: [parseFloat(latitude), parseFloat(longitude)],
+					city: location,
+					country: request?.location?.country,
+				},
+			};
+			const accessToken = await getAccessTokenSilently();
+			const response = await axios.put(
+				`${apiUrl}/requests/${request.id}`,
+				validationData,
+				{
+					headers: {
+						Authorization: `Bearer ${accessToken}`,
+					},
 				}
-				setErrors(validationErrors);
+			);
+		} catch (error) {
+			let validationErrors = {};
+			if (error) {
+				validationErrors = error.response.data.error.details;
+				setIsEditable(isEditable);
 			}
-			console.log(formData);
+			setErrors(validationErrors);
 		}
 	};
 
@@ -109,7 +101,6 @@ function AcceptRequestModal({ request, onClose }) {
 							</span>
 						</button>
 					</div>
-
 					<div className="p-8 flex flex-col ">
 						<div className="text-gray-700 text-lg mb-6 text-left">
 							<div className=" flex  justify-between items-center">
@@ -127,7 +118,9 @@ function AcceptRequestModal({ request, onClose }) {
 								)}
 							</div>
 							{errors.title && (
-								<p className="text-red-500 text-sm">{errors.title}</p>
+								<p className="text-red-500 text-sm text-center">
+									{errors.title}
+								</p>
 							)}
 							<div className=" flex  justify-between items-center">
 								Location :{' '}
@@ -143,9 +136,6 @@ function AcceptRequestModal({ request, onClose }) {
 									`${formData.location}`
 								)}
 							</div>
-							{errors.location && (
-								<p className="text-red-500 text-sm">{errors.location}</p>
-							)}
 							<div className=" flex  justify-between items-center">
 								Latitude :{' '}
 								{isEditable ? (
@@ -160,6 +150,11 @@ function AcceptRequestModal({ request, onClose }) {
 									formData.latitude
 								)}
 							</div>
+							{errors[0] && (
+								<p className="text-red-500 text-sm text-center">
+									Enter valid latitude
+								</p>
+							)}
 							<div className=" flex  justify-between items-center">
 								Longitude :{' '}
 								{isEditable ? (
@@ -174,6 +169,11 @@ function AcceptRequestModal({ request, onClose }) {
 									formData.longitude
 								)}
 							</div>
+							{errors[1] && (
+								<p className="text-red-500 text-sm text-center">
+									Enter valid longitude
+								</p>
+							)}
 							<div className=" flex  justify-between items-center">
 								Email: (Upon Accept)
 							</div>{' '}
@@ -219,21 +219,21 @@ function AcceptRequestModal({ request, onClose }) {
 									Accept
 								</Button>
 							</div>
-
 							<div className="flex space-x-4">
-								<Button
-									className="bg-white text-gray-900 border border-[#F4743B]"
-									onClick={handleEdit}
-								>
-									{!isEditable ? (
-										<>
-											<i className="fas fa-edit mr-1"></i> Edit
-										</>
-									) : (
-										'Save'
-									)}
-								</Button>
-
+								{showEditButton && (
+									<Button
+										className="bg-white text-gray-900 border border-[#F4743B]"
+										onClick={handleSubmit}
+									>
+										{!isEditable ? (
+											<>
+												<i className="fas fa-edit mr-1"></i> Edit
+											</>
+										) : (
+											'Save'
+										)}
+									</Button>
+								)}
 								<Button
 									className="bg-white text-gray-900 border border-[#F4743B]"
 									onClick={onClose}
@@ -252,6 +252,7 @@ function AcceptRequestModal({ request, onClose }) {
 AcceptRequestModal.propTypes = {
 	request: PropTypes.object.isRequired,
 	onClose: PropTypes.func.isRequired,
+	showEditButton: PropTypes.bool,
 };
 
 export default AcceptRequestModal;

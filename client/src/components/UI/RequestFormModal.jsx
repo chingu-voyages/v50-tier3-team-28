@@ -174,6 +174,11 @@ export const RequestFormModal = ({ showModal, setShowModal }) => {
 															className={customInputStyles}
 														/>
 													</div>
+													{errors[1] && (
+														<p className="text-red-500 text-sm">
+															Enter valid latitude
+														</p>
+													)}
 												</div>
 												<div className="sm:col-span-3">
 													<label
@@ -192,13 +197,13 @@ export const RequestFormModal = ({ showModal, setShowModal }) => {
 															className={customInputStyles}
 														/>
 													</div>
+													{errors[1] && (
+														<p className="text-red-500 text-sm">
+															Enter valid longitude
+														</p>
+													)}
 												</div>
 											</div>
-											{errors.location && (
-												<p className="text-red-500 text-sm">
-													{errors.location}
-												</p>
-											)}
 											<div className="grid grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-6 mt-2">
 												<div className="sm:col-span-3">
 													<label htmlFor="city" className={customLabelStyles}>

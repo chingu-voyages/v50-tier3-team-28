@@ -17,11 +17,12 @@ const tableCustomStyles = {
 };
 
 export const RequestComponent = ({ fixedHeader, fixedHeaderScrollHeight }) => {
-	const { getAccessTokenSilently } = useAuth0();
+	const { user, getAccessTokenSilently } = useAuth0();
 	const [requestData, setRequestData] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const [showModal, setShowModal] = useState(false);
 	const [selectedRequest, setSelectedRequest] = useState(null);
+	const [showEditButton, setShowEditButton] = useState(false);
 
 	const isDevelopment = process.env.NODE_ENV === 'development';
 	const apiUrl = isDevelopment
@@ -46,11 +47,16 @@ export const RequestComponent = ({ fixedHeader, fixedHeaderScrollHeight }) => {
 			}
 		};
 		fetchUserData();
-	}, [getAccessTokenSilently]);
+	}, [getAccessTokenSilently, requestData]);
 
 	const handleDetailsClick = (row) => {
 		setSelectedRequest(row);
 		setShowModal(true);
+		if (user.sub.split('|')[1] === row.beefinderId.split('|')[1]) {
+			setShowEditButton(true);
+		} else {
+			setShowEditButton(false);
+		}
 	};
 
 	const handleModalClose = () => {
@@ -74,6 +80,7 @@ export const RequestComponent = ({ fixedHeader, fixedHeaderScrollHeight }) => {
 				<AcceptRequestModal
 					request={selectedRequest}
 					onClose={handleModalClose}
+					showEditButton={showEditButton}
 				/>
 			)}
 		</>
