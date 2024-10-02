@@ -4,7 +4,7 @@ import beesTextLogo from "../../assets/imgs/bees_text_logo.png";
 
 function MainLandingHero() {
   return (
-    <section className="bg-footerTextColor flex items-center justify-center w-full mx-auto">
+    <section id="home" className="bg-footerTextColor flex items-center justify-center w-full mx-auto">
       <div className="relative w-4/5 flex flex-col items-center md:items-start md:justify-center md:flex-row">
         <div className="relative flex flex-col items-center md:items-start">
           <img
