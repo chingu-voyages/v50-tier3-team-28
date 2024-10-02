@@ -4,29 +4,27 @@ import beesTextLogo from "../../assets/imgs/bees_text_logo.png";
 
 function MainLandingHero() {
   return (
-    <section className="bg-footerTextColor flex items-center justify-center w-full mx-auto">
-      <div className="relative w-4/5 flex flex-col items-center md:items-start md:justify-center md:flex-row">
-        <div className="relative flex flex-col items-center md:items-start">
-          <img
-            src={saveTextLogo}
-            alt="Save"
-            className="z-10 mb-[-25px] md:mb-0 md:absolute md:top-[58px] md:left-[28%] lg:left-[24%] xl:left-[15%] md:translate-x-[-50%] w-1/2 md:w-auto dark:grayscale dark:invert"
-          />
+    <div className="h-[500px] relative md:h-[800px]">
+      <div className="  flex flex-col items-center justify-center">
+        <img
+          src={saveTextLogo}
+          alt="Save"
+          className="z-10 absolute top-[10%] left-0 scale-75 md:top-[10%] md:left-[2%] md:scale-100 lg:top-[10%] lg:left-[2%] xl:left-[6%] dark:grayscale dark:invert"
+        />
 
-          <img
-            src={hiveLogo}
-            alt="Hive"
-            className="relative z-20 scale-125 m-8 h-[18rem] md:h-[29rem] md:scale-100 lg:h-[31.5rem] xl:h-[34rem] xl:ml-[-80px]"
-          />
+        <img
+          src={hiveLogo}
+          alt="Hive"
+          className="z-20 absolute top-[6%] left-0 scale-100 md:top-[0%] md:left-[3%] md:scale-100 lg:top-[0%] lg:left-[3%] xl:left-[8%]"
+        />
 
-          <img
-            src={beesTextLogo}
-            alt="Bees"
-            className="relative z-30 mt-[-20px] md:mt-0 md:absolute md:bottom-[120px] md:left-[63%] lg:left-[73%] xl:left-[82%] md:translate-x-[-50%] w-1/2 md:w-auto dark:grayscale dark:invert"
-          />
-        </div>
+        <img
+          src={beesTextLogo}
+          alt="Bees"
+          className="z-30 absolute top-[68%] left-0 scale-75 md:top-[67%] md:left-[26%] md:scale-100 lg:top-[67%] lg:left-[30%] xl:left-[40%] dark:grayscale dark:invert"
+        />
       </div>
-    </section >
+    </div>
   );
 }
 

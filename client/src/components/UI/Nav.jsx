@@ -21,9 +21,9 @@ export const Nav = ({ action, onClickHandler }) => {
       <nav className={`${isNavMenuOpen ? "" : "hidden md:block"}`}>
         <ul
           className={`${isNavMenuOpen
-            ? "flex flex-col items-center justify-center gap-6 absolute top-0 left-0 w-full h-full bg-neutral-500 z-40"
+            ? "flex flex-col items-center justify-center gap-6 absolute top-0 left-0 w-full h-dvh bg-neutral-500 z-40"
             : "flex flex-col space-y-6 p-4 md:p-0 mt-14 md:flex-row md:items-center md:space-x-8 md:space-y-0"
-            }`}>
+            }`} onClick={() => onChangeToggleClassHandler()}>
           <li>
             <AnchorLink
               href="#"

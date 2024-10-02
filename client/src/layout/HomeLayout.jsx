@@ -43,18 +43,15 @@ const HomeLayout = () => {
 
   return (
     <>
-      <section className="bg-[#9BC25B]">
-        <section className="bg-[#9BC25B] h-screen flex flex-col justify-between md:max-w-7xl md:mx-auto">
+      <section className="relative bg-[#9BC25B] h-[100%]">
+        <section className=" bg-[#9BC25B] flex flex-col justify-between md:justify-evenly md:gap-4 md:max-w-7xl md:mx-auto">
           <Header action={action} onClickHandler={onClickHandler} />
-          {/* The following component (absolute/relative positions) is causing a design issue */}
-          {/* TODO: Fix the positioning issue in the following component */}
-          {/* <MainHeroLanding /> */}
+          <MainHeroLanding />
           <MainHeroLandingSurvey />
         </section>
       </section>
 
-      {/* TODO: Test and remove pt-[25vh], if it is not needed, before submitting the project */}
-      <main className="flex flex-col justify-between pt-[25vh] md:pt-[2vh] dark:bg-black dark:text-white">
+      <main className="flex flex-col justify-between dark:bg-black dark:text-white">
         <section className="md:max-w-7xl md:mx-auto">
           <ProblemContainter />
           <SolutionsHeader />
