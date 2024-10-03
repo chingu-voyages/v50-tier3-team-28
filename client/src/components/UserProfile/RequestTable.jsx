@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { useAuth0 } from '@auth0/auth0-react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import AcceptRequestModal from '../UI/AcceptRequestModal';
+import AcceptRequestModal from './AcceptRequestModal';
 
 import columns from './requestTableColumns';
 // import CancelRequest from '../UI/CancelRequest';

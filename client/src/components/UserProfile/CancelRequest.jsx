@@ -31,7 +31,7 @@ const CancelRequest = ({ requestId }) => {
 	return (
 		<button
 			onClick={handleCancel}
-			className="font-bold uppercase text-sm px-6 py-2 rounded shadow hover:shadow-lg outline-none focus:outline-none ease-linear transition-all duration-150 bg-white text-gray-900 border border-[#F4743B]"
+			className="uppercase text-sm px-6 py-2 rounded shadow hover:shadow-lg outline-none focus:outline-none ease-linear transition-all duration-150 bg-white text-gray-900 border border-[#F4743B]"
 		>
 			Cancel Request
 		</button>
