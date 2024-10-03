@@ -50,12 +50,7 @@ export const RequestComponent = ({ fixedHeader, fixedHeaderScrollHeight }) => {
 	}, [getAccessTokenSilently, requestData, apiUrl]);
 
 	const handleDetailsClick = (row) => {
-		if (!row) return;
-		const requestWithAcceptanceState = {
-			...row,
-			isAccepted: row.isAccepted ?? null,
-		};
-		setSelectedRequest(requestWithAcceptanceState);
+		setSelectedRequest(row);
 		setShowModal(true);
 	};
 
@@ -79,7 +74,6 @@ export const RequestComponent = ({ fixedHeader, fixedHeaderScrollHeight }) => {
 			<DataTable
 				columns={columns({
 					handleDetailsClick,
-					// handleCancelRequest,
 					selectedRequest,
 					user,
 				})}

@@ -42,32 +42,30 @@ const HomeLayout = () => {
   }, [isAuthenticated]);
 
   return (
-    <section>
-      {/* The following section tailwind class - margin-bottom is not changing properly, when dark mode applies on the app */}
-      {/* <section className="bg-[#9BC25B] mb-[22rem] sm:mb-[24rem] md:mb-[6rem] lg:mb-[6rem] xl:mb-[1rem]"> */}
-      <section className="bg-[#9BC25B]">
-        <section className="max-w-7xl mx-auto max-h-screen">
+    <>
+      <section className="relative bg-[#9BC25B] h-[100%]">
+        <section className=" bg-[#9BC25B] flex flex-col justify-between md:justify-evenly md:gap-4 md:max-w-7xl md:mx-auto">
           <Header action={action} onClickHandler={onClickHandler} />
           <MainHeroLanding />
           <MainHeroLandingSurvey />
         </section>
       </section>
 
-      <main className="dark:bg-black dark:text-white">
-        <section className="max-w-7xl mx-auto">
+      <main className="flex flex-col justify-between dark:bg-black dark:text-white">
+        <section className="md:max-w-7xl md:mx-auto">
           <ProblemContainter />
           <SolutionsHeader />
         </section>
         <section className="flex justify-center p-2">
           <Map />
         </section>
-        <section className="max-w-7xl mx-auto">
+        <section className="md:max-w-7xl md:mx-auto">
           <SolutionsContainer />
         </section>
       </main>
 
       <Footer />
-    </section>
+    </>
   );
 };
 
