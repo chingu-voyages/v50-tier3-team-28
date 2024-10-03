@@ -8,7 +8,7 @@ export const Header = ({ action, onClickHandler }) => {
     <header>
       <section className="flex items-start justify-between mx-auto">
         <AnchorLink
-          href="#"
+          href="#home"
           className="flex items-center justify-center -ml-8 text-white text-2xl font-bold">
           <img
             src={navBeeLogo}

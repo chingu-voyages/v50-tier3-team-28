@@ -4,6 +4,7 @@ import beesTextLogo from "../../assets/imgs/bees_text_logo.png";
 
 function MainLandingHero() {
   return (
+
     <div className="h-[500px] relative md:h-[800px]">
       <div className="  flex flex-col items-center justify-center">
         <img
