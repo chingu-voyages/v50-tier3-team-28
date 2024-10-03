@@ -11,12 +11,7 @@ export const Nav = ({ action, onClickHandler }) => {
   const burgerMenuContainer = document.querySelector(".burger-menu-container");
 
   const onChangeToggleClassHandler = () => {
-    setIsNavMenuOpen(true);
-    burgerMenuContainer?.classList.toggle("change");
-  };
-
-  const onClickCloseNavBarMenuHandler = () => {
-    setIsNavMenuOpen(false);
+    setIsNavMenuOpen(!isNavMenuOpen);
     burgerMenuContainer?.classList.toggle("change");
   };
 
@@ -28,7 +23,7 @@ export const Nav = ({ action, onClickHandler }) => {
           className={`${isNavMenuOpen
             ? "flex flex-col items-center justify-center gap-6 absolute top-0 left-0 w-full h-dvh bg-neutral-500 z-40"
             : "flex flex-col space-y-6 p-4 md:p-0 mt-14 md:flex-row md:items-center md:space-x-8 md:space-y-0"
-            }`} onClick={() => onClickCloseNavBarMenuHandler()}>
+            }`}>
           <li>
             <AnchorLink
               href="#"
