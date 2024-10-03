@@ -7,11 +7,12 @@ import axios from 'axios';
 import AcceptRequestModal from '../UI/AcceptRequestModal';
 
 import columns from './requestTableColumns';
+// import CancelRequest from '../UI/CancelRequest';
 
 const tableCustomStyles = {
 	headRow: {
 		style: {
-			backgroundColor: '#F8F8F8',
+			backgroundColor: '#f0f0f2',
 		},
 	},
 };
@@ -47,7 +48,7 @@ export const RequestComponent = ({ fixedHeader, fixedHeaderScrollHeight }) => {
 			}
 		};
 		fetchUserData();
-	}, [getAccessTokenSilently, requestData]);
+	}, [getAccessTokenSilently, requestData, apiUrl]);
 
 	const handleDetailsClick = (row) => {
 		setSelectedRequest(row);
@@ -67,10 +68,15 @@ export const RequestComponent = ({ fixedHeader, fixedHeaderScrollHeight }) => {
 	return (
 		<>
 			<DataTable
-				columns={columns({ handleDetailsClick, selectedRequest })}
+				columns={columns({
+					handleDetailsClick,
+					// handleCancelRequest,
+					selectedRequest,
+				})}
 				data={requestData}
 				fixedHeader={fixedHeader}
 				// fixedHeaderScrollHeight={fixedHeaderScrollHeight}
+				highlightOnHover
 				customStyles={tableCustomStyles}
 				pagination
 				progressPending={loading}

@@ -2,6 +2,8 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import axios from 'axios';
+import CancelRequest from '../UI/CancelRequest';
+
 const Button = ({ className, onClick, children }) => (
 	<button
 		className={`font-bold uppercase text-sm px-6 py-2 rounded shadow hover:shadow-lg outline-none focus:outline-none ease-linear transition-all duration-150 ${className}`}
@@ -67,15 +69,11 @@ function AcceptRequestModal({ request, onClose, showEditButton }) {
 				},
 			};
 			const accessToken = await getAccessTokenSilently();
-			const response = await axios.put(
-				`${apiUrl}/requests/${request.id}`,
-				validationData,
-				{
-					headers: {
-						Authorization: `Bearer ${accessToken}`,
-					},
-				}
-			);
+			await axios.put(`${apiUrl}/requests/${request.id}`, validationData, {
+				headers: {
+					Authorization: `Bearer ${accessToken}`,
+				},
+			});
 		} catch (error) {
 			let validationErrors = {};
 			if (error) {
@@ -234,12 +232,16 @@ function AcceptRequestModal({ request, onClose, showEditButton }) {
 										)}
 									</Button>
 								)}
-								<Button
+								<CancelRequest
+									requestId={request.id}
+									// onClick={handleCancelRequest}
+								/>
+								{/* <Button
 									className="bg-white text-gray-900 border border-[#F4743B]"
-									onClick={onClose}
+									onClick={handleCancelRequest}
 								>
-									Cancel
-								</Button>
+									Cancel Request
+								</Button> */}
 							</div>
 						</div>
 					</div>

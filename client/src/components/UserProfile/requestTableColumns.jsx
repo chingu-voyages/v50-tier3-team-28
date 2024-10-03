@@ -8,6 +8,7 @@ export default function requestColumns({
 		{
 			id: 'title',
 			name: 'Title',
+			width: '200px',
 			selector: (row) => row.title,
 		},
 		{
@@ -37,6 +38,7 @@ export default function requestColumns({
 		{
 			id: 'details',
 			name: 'Select',
+			width: '110px',
 			cell: (row) => (
 				<Button
 					className="font-normal border border-[#F4743B] hover:bg-[#F4743B] hover:text-white rounded-lg p-1 dark:text-white"
@@ -48,6 +50,7 @@ export default function requestColumns({
 		},
 		{
 			id: 'cancel',
+			width: '110px',
 			cell: (row) =>
 				selectedRequest?.id === row.id ? (
 					<i className="fas fa-edit mr-1 text-lg"></i>
@@ -61,10 +64,11 @@ export default function requestColumns({
 		},
 		{
 			id: 'completed',
+			width: '110px',
 			cell: (row) =>
 				selectedRequest?.id !== row.id && (
 					<Button
-						className="font-normal border border-green-500 hover:bg-green-300 rounded-lg p-1 dark:text-white"
+						className="font-normal border border-[#9BC25B] hover:bg-[#9BC25B] rounded-lg p-1 dark:text-white"
 						type="button"
 						text="Completed"
 					/>
