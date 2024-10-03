@@ -18,12 +18,11 @@ const tableCustomStyles = {
 };
 
 export const RequestComponent = ({ fixedHeader, fixedHeaderScrollHeight }) => {
-	const { user, getAccessTokenSilently } = useAuth0();
+	const { getAccessTokenSilently, user } = useAuth0();
 	const [requestData, setRequestData] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const [showModal, setShowModal] = useState(false);
 	const [selectedRequest, setSelectedRequest] = useState(null);
-	const [showEditButton, setShowEditButton] = useState(false);
 
 	const isDevelopment = process.env.NODE_ENV === 'development';
 	const apiUrl = isDevelopment
@@ -51,18 +50,28 @@ export const RequestComponent = ({ fixedHeader, fixedHeaderScrollHeight }) => {
 	}, [getAccessTokenSilently, requestData, apiUrl]);
 
 	const handleDetailsClick = (row) => {
-		setSelectedRequest(row);
+		if (!row) return;
+		const requestWithAcceptanceState = {
+			...row,
+			isAccepted: row.isAccepted ?? null,
+		};
+		setSelectedRequest(requestWithAcceptanceState);
 		setShowModal(true);
-		if (user.sub.split('|')[1] === row.beefinderId.split('|')[1]) {
-			setShowEditButton(true);
-		} else {
-			setShowEditButton(false);
-		}
 	};
 
 	const handleModalClose = () => {
 		setShowModal(false);
 		setSelectedRequest(null);
+	};
+
+	const handleRequestAcceptance = (id) => {
+		setRequestData((prevData) =>
+			prevData.map((request) =>
+				request.id === id
+					? { ...request, isAccepted: true, beekeeper: user.email }
+					: request
+			)
+		);
 	};
 
 	return (
@@ -72,6 +81,7 @@ export const RequestComponent = ({ fixedHeader, fixedHeaderScrollHeight }) => {
 					handleDetailsClick,
 					// handleCancelRequest,
 					selectedRequest,
+					user,
 				})}
 				data={requestData}
 				fixedHeader={fixedHeader}
@@ -82,11 +92,12 @@ export const RequestComponent = ({ fixedHeader, fixedHeaderScrollHeight }) => {
 				progressPending={loading}
 			/>
 
-			{showModal && (
+			{showModal && selectedRequest && (
 				<AcceptRequestModal
+					key={selectedRequest._id}
 					request={selectedRequest}
 					onClose={handleModalClose}
-					showEditButton={showEditButton}
+					onAccept={() => handleRequestAcceptance(selectedRequest.id)}
 				/>
 			)}
 		</>

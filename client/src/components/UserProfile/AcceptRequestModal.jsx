@@ -214,16 +214,13 @@ function AcceptRequestModal({ request, onClose }) {
 										)}
 									</button>
 								)}
-								<CancelRequest
-									requestId={request.id}
-									// onClick={handleCancelRequest}
-								/>
-								{/* <Button
-									className="bg-white text-gray-900 border border-[#F4743B]"
-									onClick={handleCancelRequest}
-								>
-									Cancel Request
-								</Button> */}
+								{(isRequestPostedByUser || isCurrentUserBeekeeper) &&
+									isRequestAccepted && (
+										<CancelRequest
+											requestId={request.id}
+											// onClick={handleCancelRequest}
+										/>
+									)}
 							</div>
 						</div>
 					</div>
