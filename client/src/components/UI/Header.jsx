@@ -5,7 +5,7 @@ import navBeeLogo from "../../assets/imgs/nav_bee_logo.png";
 
 export const Header = ({ action, onClickHandler }) => {
   return (
-    <header className="col-span-12 max-w-[80rem] bg-[#9BC25B]">
+    <header>
       <section className="flex items-start justify-between mx-auto">
         <AnchorLink
           href="#home"
