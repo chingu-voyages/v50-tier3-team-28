@@ -7,14 +7,7 @@ export const SolutionsHeader = () => {
         Solutions
       </h2>
       <p className="text-center">
-        Bees play a crucial role in our ecosystems, yet their populations are
-        dwindling at an alarming rate. To help save the bees, there are several
-        simple steps everyone can take. By creating bee-friendly environments,
-        we can provide essential resources like food, water, and shelter. Small
-        changes in our daily habits can make a big impact. Whether you have a
-        large garden or a small balcony, these efforts contribute to the overall
-        health of bee populations. Let's take action to protect these crucial
-        pollinators and ensure a balanced environment for future generations.
+        Bees play a crucial role in our ecosystems, yet their populations are dwindling at an alarming rate. To help save the bees, there are several simple steps everyone can take. By creating bee-friendly environments, we can provide essential resources like food, water, and shelter. Small changes in our daily habits can make a big impact. Whether you have a large garden or a small balcony, these efforts contribute to the overall health of bee populations. Let&#39;s take action to protect these crucial pollinators and ensure a balanced environment for future generations.
       </p>
       <AnchorLink
         href="#"
