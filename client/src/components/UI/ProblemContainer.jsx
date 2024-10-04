@@ -2,10 +2,10 @@ import Graph from "../Graph";
 import { DetailsSummary } from "./DetailsSummary";
 
 export const ProblemContainter = () => {
-  const customStyles = "pt-8 pr-8 pl-8 text-[#101828] text-18px font-semibold";
+  const customStyles = "text-[#101828] text-18px font-semibold";
 
   return (
-    <section className="flex flex-col">
+    <section className="flex flex-col md:min-h-[100%]">
       <section className="mt-4 pt-4 mb-4 pb-4 text-center">
         <h2 className="text-[#101828] text-22px font-bold underline dark:text-slate-300">
           Problem
