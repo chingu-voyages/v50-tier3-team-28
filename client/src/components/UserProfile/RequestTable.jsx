@@ -1,13 +1,11 @@
 import DataTable from 'react-data-table-component';
-// import tempRequestdata  from './tempRequestdata';
 import PropTypes from 'prop-types';
 import { useAuth0 } from '@auth0/auth0-react';
 import { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import AcceptRequestModal from './AcceptRequestModal';
-
+import RequestFormModal from '../UI/RequestFormModal';
 import columns from './requestTableColumns';
-// import CancelRequest from '../UI/CancelRequest';
 
 const tableCustomStyles = {
   headRow: {
@@ -23,6 +21,7 @@ export const RequestComponent = ({ fixedHeader, fixedHeaderScrollHeight }) => {
   const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const [selectedRequest, setSelectedRequest] = useState(null);
+  const [showRequestFormModal, setShowRequestFormModal] = useState(false);
 
   const isDevelopment = process.env.NODE_ENV === 'development';
   const apiUrl = isDevelopment
@@ -73,6 +72,7 @@ export const RequestComponent = ({ fixedHeader, fixedHeaderScrollHeight }) => {
 
   return (
     <>
+      <button onClick={() => setShowRequestFormModal(true)}>New Request</button>
       <DataTable
         columns={columns({
           handleDetailsClick,
@@ -81,7 +81,6 @@ export const RequestComponent = ({ fixedHeader, fixedHeaderScrollHeight }) => {
         })}
         data={requestData}
         fixedHeader={fixedHeader}
-        // fixedHeaderScrollHeight={fixedHeaderScrollHeight}
         highlightOnHover
         customStyles={tableCustomStyles}
         pagination
@@ -96,9 +95,17 @@ export const RequestComponent = ({ fixedHeader, fixedHeaderScrollHeight }) => {
           onAccept={() => handleRequestAcceptance(selectedRequest.id)}
         />
       )}
+      {showRequestFormModal && (
+        <RequestFormModal
+          showModal={showRequestFormModal}
+          setShowModal={setShowRequestFormModal}
+          fetchUserData={fetchUserData} // Pass the fetchUserData function
+        />
+      )}
     </>
   );
 };
+
 RequestComponent.propTypes = {
   fixedHeader: PropTypes.bool,
   fixedHeaderScrollHeight: PropTypes.string,
