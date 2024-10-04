@@ -39,7 +39,7 @@ export default function requestColumns({ handleDetailsClick, user }) {
 			width: '110px',
 			cell: (row) => (
 				<Button
-					className="font-normal border border-[#F4743B] hover:bg-[#F4743B] hover:text-white rounded-lg p-1 dark:text-white"
+					className="font-normal border border-[#F4743B] hover:bg-[#F4743B] hover:text-white rounded-lg p-1"
 					type="button"
 					text="Details"
 					onClick={() => handleDetailsClick(row)}
@@ -52,7 +52,7 @@ export default function requestColumns({ handleDetailsClick, user }) {
 			cell: (row) =>
 				row.isAccepted && row.beekeeper?.email === user.email ? (
 					<Button
-						className="font-normal border border-[#F4743B] hover:bg-[#F4743B] hover:text-white rounded-lg p-1 dark:text-white"
+						className="font-normal border border-[#F4743B] hover:bg-[#F4743B] hover:text-white rounded-lg p-1"
 						type="button"
 						text="Cancel"
 					/>
@@ -64,7 +64,7 @@ export default function requestColumns({ handleDetailsClick, user }) {
 		// 	cell: (row) =>
 		// 		selectedRequest?.id !== row.id && (
 		// 			<Button
-		// 				className="font-normal border border-[#9BC25B] hover:bg-[#9BC25B] rounded-lg p-1 dark:text-white"
+		// 				className="font-normal border border-[#9BC25B] hover:bg-[#9BC25B] rounded-lg p-1"
 		// 				type="button"
 		// 				text="Completed"
 		// 			/>
