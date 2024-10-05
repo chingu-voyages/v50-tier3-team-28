@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import { useAuth0 } from '@auth0/auth0-react';
 import axios from 'axios';
 
-const CancelRequest = ({ requestId }) => {
+const CancelRequest = ({ requestId, onCancel }) => {
 	const { getAccessTokenSilently } = useAuth0();
 	const isDevelopment = process.env.NODE_ENV === 'development';
 	const apiUrl = isDevelopment
 		? 'http://localhost:3003/api'
 		: 'https://be-v50-tier3-team-28.onrender.com/api';
-	const handleCancel = async () => {
+	const handleCancelRequest = async () => {
 		// console.log('requestId', requestId);
 
 		try {
@@ -25,9 +25,9 @@ const CancelRequest = ({ requestId }) => {
 					},
 				}
 			);
-			console.log('Cancelled request successfully:', response.data);
+			console.log('Cancelled request successfully:', response.data.request);
 
-			// onCancel(response.data.request);
+			onCancel(response.data.request);
 		} catch (error) {
 			console.error('Failed to cancel the request:', error);
 		}
@@ -42,7 +42,7 @@ const CancelRequest = ({ requestId }) => {
 
 	return (
 		<button
-			onClick={handleCancel}
+			onClick={handleCancelRequest}
 			className="px-6 py-2 rounded shadow hover:shadow-lg outline-none focus:outline-none ease-linear transition-all duration-150 bg-white text-gray-900 border border-[#F4743B]"
 		>
 			Cancel Request
@@ -52,7 +52,7 @@ const CancelRequest = ({ requestId }) => {
 
 CancelRequest.propTypes = {
 	requestId: PropTypes.string.isRequired,
-	handleCancel: PropTypes.func,
+	onCancel: PropTypes.func,
 };
 
 export default CancelRequest;

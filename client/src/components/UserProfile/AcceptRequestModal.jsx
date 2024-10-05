@@ -83,11 +83,11 @@ function AcceptRequestModal({ request, onClose }) {
 	};
 	const handleCancelRequest = (canceledRequest) => {
 		console.log('canceledRequest', canceledRequest);
-
-		// setRequestData(requestData.filter((request) => request.id !== canceledRequestId));
-		// setAcceptedRequest((prevRequest) => ({
-		// 	...prevRequest,
-		// }));
+		setAcceptedRequest((prevRequest) => ({
+			...prevRequest,
+			isAccepted: false,
+			beekeeperId: null,
+		}));
 	};
 	const isRequestPostedByUser = request?.beefinderId === user?.sub;
 	const isRequestAccepted = acceptedRequest?.isAccepted;
