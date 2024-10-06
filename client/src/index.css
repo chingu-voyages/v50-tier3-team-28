@@ -62,6 +62,23 @@ body {
   transform: translate(0, -11px) rotate(45deg);
 }
 
+summary {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  transition: all .03s ease-in-out;
+}
+
+summary::after {
+  display: inline-flex;
+  margin-left: auto;
+  content: url("./assets/images/detailsSummaryButton/orangeButtonPlus.svg");
+}
+
+details[open] > summary::after {
+  content: url("./assets/images/detailsSummaryButton/orangeButtonMinus.svg");  
+}
+
 @font-face {
   font-family: BlackOpsOneFont;
   src: url("../src/assets/fonts/Black_Ops_One/BlackOpsOne-Regular.ttf");
