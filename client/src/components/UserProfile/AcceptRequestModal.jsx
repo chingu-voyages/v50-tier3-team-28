@@ -20,7 +20,7 @@ function AcceptRequestModal({ request, onClose }) {
 		location: request?.location?.city || '',
 		latitude: request?.location?.coordinates[0] || '',
 		longitude: request?.location?.coordinates[1] || '',
-		contactNumber: request?.beefinder.contactNumber || '',
+		contactNumber: request?.contactNumber || '',
 		description: request?.description || '',
 		image: request?.image || '',
 	});
@@ -38,6 +38,7 @@ function AcceptRequestModal({ request, onClose }) {
 			const { longitude, latitude, location, ...restFormData } = formData;
 			const validationData = {
 				...restFormData,
+				contactNumber: formData.contactNumber,
 				location: {
 					type: 'Point',
 					coordinates: [parseFloat(latitude), parseFloat(longitude)],
@@ -46,11 +47,16 @@ function AcceptRequestModal({ request, onClose }) {
 				},
 			};
 			const accessToken = await getAccessTokenSilently();
-			await axios.put(`${apiUrl}/requests/${request.id}`, validationData, {
-				headers: {
-					Authorization: `Bearer ${accessToken}`,
-				},
-			});
+			const response = await axios.put(
+				`${apiUrl}/requests/${request.id}`,
+				validationData,
+				{
+					headers: {
+						Authorization: `Bearer ${accessToken}`,
+					},
+				}
+			);
+			console.log('response', response.data.request);
 		} catch (error) {
 			let validationErrors = {};
 			if (error) {
@@ -86,10 +92,11 @@ function AcceptRequestModal({ request, onClose }) {
 		setAcceptedRequest((prevRequest) => ({
 			...prevRequest,
 			isAccepted: false,
+			isActive: true,
 			beekeeperId: null,
 		}));
 	};
-	const isRequestPostedByUser = request?.beefinderId === user?.sub;
+	const isRequestPostedByUser = acceptedRequest?.beefinderId === user?.sub;
 	const isRequestAccepted = acceptedRequest?.isAccepted;
 	const isCurrentUserBeekeeper = acceptedRequest?.beekeeperId === user?.sub;
 
@@ -181,21 +188,36 @@ function AcceptRequestModal({ request, onClose }) {
 									Enter valid longitude
 								</p>
 							)}
-							<div className=" flex  justify-between items-center">
+							<div className="flex justify-between items-center">
+								Email:{' '}
 								{isRequestAccepted ? (
 									<>
-										Email:{' '}
 										{acceptedRequest?.beefinder?.email || '(No email provided)'}{' '}
-										<br />
-										Contact No.:{' '}
-										{acceptedRequest?.contactNumber ||
-											'(No contact number provided)'}
 									</>
 								) : (
+									'(Upon Accept)'
+								)}
+							</div>
+
+							<div className="flex justify-between items-center">
+								Contact Number :{' '}
+								{isRequestAccepted ? (
 									<>
-										Email: (Upon Accept) <br />
-										Contact No.: (Upon Accept)
+										{isEditable ? (
+											<input
+												type="text"
+												name="contactNumber"
+												value={formData.contactNumber}
+												onChange={handleInputChange}
+												className={customInputStyles}
+											/>
+										) : (
+											acceptedRequest?.contactNumber ||
+											'(No contact number provided)'
+										)}
 									</>
+								) : (
+									'(Upon Accept)'
 								)}
 							</div>
 						</div>
@@ -221,13 +243,12 @@ function AcceptRequestModal({ request, onClose }) {
 										)}
 									</button>
 								)}
-								{(isRequestPostedByUser || isCurrentUserBeekeeper) &&
-									isRequestAccepted && (
-										<CancelRequest
-											requestId={request.id}
-											onCancel={handleCancelRequest}
-										/>
-									)}
+								{isCurrentUserBeekeeper && isRequestAccepted && (
+									<CancelRequest
+										requestId={request.id}
+										onCancel={handleCancelRequest}
+									/>
+								)}
 							</div>
 						</div>
 					</div>
