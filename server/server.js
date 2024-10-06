@@ -52,14 +52,6 @@ app.use(
 //   })
 // );
 
-app.use(
-  cors({
-    origin: 'http://localhost:5173',
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true,
-  })
-);
-
 app.use('/api/dashboard', dashboardRoutes);
 app.use('/api/user', userRoutes);
 app.use('/api/requests', requestRoutes);
