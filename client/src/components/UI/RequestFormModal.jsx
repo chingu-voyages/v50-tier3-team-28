@@ -18,7 +18,7 @@ export const RequestFormModal = ({ showModal, setShowModal }) => {
 		longitude: '',
 		city: '',
 		country: '',
-		contactNumber: '', //removed to fix "component is changing an uncontrolled input to be controlled" warning
+		contactNumber: '',
 		image: '',
 		isActive: true,
 		isAccepted: false,
