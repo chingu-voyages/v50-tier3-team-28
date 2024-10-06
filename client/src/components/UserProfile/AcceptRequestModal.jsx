@@ -6,6 +6,11 @@ import { useAuth0 } from "@auth0/auth0-react";
 function AcceptRequestModal({ request, onClose }) {
   const { user } = useAuth0();
   const [acceptedRequest, setAcceptedRequest] = useState(request);
+  const [isDescriptionExpanded, setIsDescriptionExpanded] = useState(false);
+
+  const toggleDescription = () => {
+    setIsDescriptionExpanded(!isDescriptionExpanded);
+  };
 
   const handleAcceptSuccess = (updatedRequest) => {
     setAcceptedRequest((prevRequest) => ({
@@ -26,10 +31,41 @@ function AcceptRequestModal({ request, onClose }) {
   const isRequestAccepted = acceptedRequest?.isAccepted;
   const isCurrentUserBeekeeper = acceptedRequest?.beekeeperId === user?.sub;
 
+  const renderField = (label, value) => (
+    <p>
+      <span className="font-bold text-base mr-1">{label}:</span>
+      <span className="text-sm">{value}</span>
+    </p>
+  );
+
+  const renderContactFields = () => {
+    if (isRequestAccepted) {
+      return (
+        <>
+          {renderField(
+            "Email",
+            acceptedRequest?.beefinder?.email || "(No email provided)"
+          )}
+          {renderField(
+            "Contact No.",
+            acceptedRequest?.contactNumber || "(No contact number provided)"
+          )}
+        </>
+      );
+    } else {
+      return (
+        <>
+          {renderField("Email", "(Upon Accept)")}
+          {renderField("Contact No.", "(Upon Accept)")}
+        </>
+      );
+    }
+  };
+
   return (
     <div className="flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 bg-gray-500 bg-opacity-75 transition-opacity">
-      <div className="relative p-8 w-full max-w-lg max-h-full">
-        <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+      <div className="p-8 w-full max-w-lg max-h-full">
+        <div className="border-0 rounded-lg shadow-lg flex flex-col w-full bg-white outline-none focus:outline-none">
           <div className="flex items-start justify-between p-5 border-b border-solid border-gray-300 rounded-t">
             <h3 className="text-xl font-semibold">Request Details</h3>
             <button
@@ -42,28 +78,38 @@ function AcceptRequestModal({ request, onClose }) {
           </div>
 
           <div className="p-8 flex flex-col items-start">
-            <p className="text-gray-700 text-lg mb-6 text-left">
-              Title: {acceptedRequest?.title} <br />
-              Location: {acceptedRequest?.location?.city},{" "}
-              {acceptedRequest?.location?.country} <br />
-              Latitude: {acceptedRequest?.location?.coordinates[0]} <br />
-              Longitude: {acceptedRequest?.location?.coordinates[1]} <br />
-              {isRequestAccepted ? (
-                <>
-                  Email:{" "}
-                  {acceptedRequest?.beefinder?.email || "(No email provided)"}{" "}
-                  <br />
-                  Contact No.:{" "}
-                  {acceptedRequest?.contactNumber ||
-                    "(No contact number provided)"}
-                </>
-              ) : (
-                <>
-                  Email: (Upon Accept) <br />
-                  Contact No.: (Upon Accept)
-                </>
+            <div className="text-gray-700 text-lg mb-6 text-left">
+              {renderField("Title", acceptedRequest?.title)}
+              {renderField("Location", acceptedRequest?.location?.city)}
+
+              <p>
+                <span className="font-bold text-base">Description:</span>
+                <span className="text-sm">
+                  {isDescriptionExpanded
+                    ? acceptedRequest?.description
+                    : `${acceptedRequest?.description?.slice(0, 200)}
+                    ${acceptedRequest?.description?.length > 200 ? "..." : ""}`}
+                </span>
+                {acceptedRequest?.description?.length > 200 && (
+                  <button
+                    onClick={toggleDescription}
+                    className="text-blue-500 underline ml-2 text-xs">
+                    {isDescriptionExpanded ? "Show Less" : "Show More"}
+                  </button>
+                )}
+              </p>
+
+              {renderField(
+                "Latitude",
+                acceptedRequest?.location?.coordinates[0]
               )}
-            </p>
+              {renderField(
+                "Longitude",
+                acceptedRequest?.location?.coordinates[1]
+              )}
+
+              {renderContactFields()}
+            </div>
 
             <div className="flex justify-between w-full">
               <AcceptRequestCall
