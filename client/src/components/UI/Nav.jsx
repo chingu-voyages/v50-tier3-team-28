@@ -26,7 +26,7 @@ export const Nav = ({ action, onClickHandler }) => {
             }`}>
           <li>
             <AnchorLink
-              href="#"
+              href="/"
               className="text-xl underline text-[#F4743B] p-2.5 hover:rounded-lg focus:rounded-lg hover:bg-neutral-300 focus:bg-neutral-300 hover:text-black focus:text-black dark:hover:bg-neutral-600 dark:focus:bg-neutral-600 dark:hover:text-white dark:focus:text-white"
               text="Home"
             />
