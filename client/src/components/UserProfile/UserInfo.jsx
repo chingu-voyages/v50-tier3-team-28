@@ -39,10 +39,10 @@ export const UserInfo = ({ email, contactNumber, onClickHandler }) => {
   };
 
   return (
-    <section className="relative flex flex-col justify-around items-start h-64 md:items-start md:pl-6">
+    <section className="relative flex flex-col justify-around items-start pl-4 h-64 md:items-start md:pl-6">
       <section className="absolute top-[2rem] right-[2rem]">
         <Button onClickHandler={onClickHandler}>
-          <svg className="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+          <svg className="w-6 h-6 border-2 border-transparent rounded-2xl hover:border-black focus:border-black dark:hover:border-white dark:focus:border-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
             <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
           </svg>
         </Button>
@@ -72,8 +72,8 @@ export const UserInfo = ({ email, contactNumber, onClickHandler }) => {
       </section>
 
       <section className="flex self-center gap-4 md:gap-6 md:justify-around">
-        <Button className="font-normal text-white bg-[#F4743B] hover:bg-green-300 rounded-lg p-2 -mt-4 dark:text-black" type="button" text="Delete Account" onClickHandler={onClickDeleteUserAccount} />
-        <Button className="font-normal text-white w-32 bg-[#F4743B] hover:bg-green-300 rounded-lg p-2 -mt-4 dark:text-black" type="button" text={(isNumber && !isEditable) ? "Edit" : "Update"} onClickHandler={onClickEditUserContactNumberHandler} />
+        <Button className="font-normal text-black bg-navSignupButton hover:bg-green-300 focus:bg-green-300 rounded-lg p-2 -mt-4 dark:hover:bg-green-600 dark:focus:bg-green-600 dark:text-white" type="button" text="Delete Account" onClickHandler={onClickDeleteUserAccount} />
+        <Button className="font-normal text-black w-32 bg-navSignupButton hover:bg-green-300 focus:bg-green-300 rounded-lg p-2 -mt-4 dark:hover:bg-green-600 dark:focus:bg-green-600 dark:text-white" type="button" text={(isNumber && !isEditable) ? "Edit" : "Update"} onClickHandler={onClickEditUserContactNumberHandler} />
         {/* {showModal && (
           <RequestFormModal  showModal={showModal} setShowModal={setShowModal} />
         )} */}
