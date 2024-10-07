@@ -61,7 +61,6 @@ export const RequestComponent = ({ fixedHeader, fixedHeaderScrollHeight }) => {
 		fetchUserData();
 	};
 	const handleDeleteRequest = (id) => {
-		setRequestUpdated(true);
 		console.log('handleDeleteRequest', id);
 	};
 
@@ -93,7 +92,6 @@ export const RequestComponent = ({ fixedHeader, fixedHeaderScrollHeight }) => {
 				pagination
 				progressPending={loading}
 			/>
-
 			{showModal && selectedRequest && (
 				<AcceptRequestModal
 					key={selectedRequest._id}
