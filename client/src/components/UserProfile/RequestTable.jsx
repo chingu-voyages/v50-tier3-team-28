@@ -53,13 +53,16 @@ export const RequestComponent = ({ fixedHeader, fixedHeaderScrollHeight }) => {
 	const handleDetailsClick = (row) => {
 		setSelectedRequest(row);
 		setShowModal(true);
-		fetchUserData();
 	};
 
 	const handleModalClose = () => {
 		setShowModal(false);
 		setSelectedRequest(null);
 		fetchUserData();
+	};
+	const handleDeleteRequest = (id) => {
+		setRequestUpdated(true);
+		console.log('handleDeleteRequest', id);
 	};
 
 	const handleRequestAcceptance = (id) => {
@@ -70,7 +73,7 @@ export const RequestComponent = ({ fixedHeader, fixedHeaderScrollHeight }) => {
 					: request
 			)
 		);
-		fetchUserData(); // Fetch the latest data after accepting a request
+		// fetchUserData(); // Fetch the latest data after accepting a request
 	};
 
 	return (
@@ -78,6 +81,7 @@ export const RequestComponent = ({ fixedHeader, fixedHeaderScrollHeight }) => {
 			<DataTable
 				columns={columns({
 					handleDetailsClick,
+					handleDeleteRequest,
 					selectedRequest,
 					user,
 				})}

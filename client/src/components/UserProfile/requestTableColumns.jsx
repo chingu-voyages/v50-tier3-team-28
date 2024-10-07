@@ -1,7 +1,12 @@
 import { Button } from '../UI/Button';
 import PropTypes from 'prop-types';
+import DeleteRequest from './DeleteRequest';
 
-export default function requestColumns({ handleDetailsClick, user }) {
+export default function requestColumns({
+	handleDetailsClick,
+	handleDeleteRequest,
+	user,
+}) {
 	return [
 		{
 			id: 'title',
@@ -58,18 +63,14 @@ export default function requestColumns({ handleDetailsClick, user }) {
 					/>
 				) : null,
 		},
-		// {
-		// 	id: 'completed',
-		// 	width: '110px',
-		// 	cell: (row) =>
-		// 		selectedRequest?.id !== row.id && (
-		// 			<Button
-		// 				className="font-normal border border-[#9BC25B] hover:bg-[#9BC25B] rounded-lg p-1"
-		// 				type="button"
-		// 				text="Completed"
-		// 			/>
-		// 		),
-		// },
+		{
+			id: 'delete',
+			width: '50px',
+			cell: (row) =>
+				!row.isAccepted && row.beefinder?.email === user.email ? (
+					<DeleteRequest requestId={row.id} onDelete={handleDeleteRequest} />
+				) : null,
+		},
 	];
 }
 
