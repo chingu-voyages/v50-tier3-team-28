@@ -1,15 +1,19 @@
-const axios = require('axios');
+// const axios = require('axios');
 const User = require('../models/User');
 
 exports.getUserInfo = async (userId, token) => {
   const url = `https://${process.env.VITE_AUTH0_DOMAIN}/api/v2/users/${userId}`;
   try {
-    const response = await axios.get(url, {
+    const response = await fetch(url, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
     });
-    const userInfo = response.data;
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const userInfo = await response.json();
     await User.findOneAndUpdate(
       { userId: userInfo.user_id },
       {
@@ -36,41 +40,42 @@ exports.updateOrDeleteUserMetadata = async (userId, token, metadata) => {
       updatedMetadata[key] = metadata[key];
     }
   }
-
   try {
-    const response = await axios.patch(
-      url,
-      { user_metadata: updatedMetadata },
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json',
-        },
-      }
-    );
-    return response.data;
+    const response = await fetch(url, {
+      method: 'PATCH',
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ user_metadata: updatedMetadata }),
+    });
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(
+        errorData.message || `HTTP error! status: ${response.status}`
+      );
+    }
+    return await response.json();
   } catch (error) {
-    console.error(
-      'Error updating/deleting user metadata:',
-      error.response ? error.response.data : error.message
-    );
-    throw new Error(
-      error.response ? error.response.data.message : error.message
-    );
+    console.error('Error updating/deleting user metadata:', error);
+    throw error;
   }
 };
 
 exports.deleteUser = async (userId, token) => {
   const url = `https://${process.env.VITE_AUTH0_DOMAIN}/api/v2/users/${userId}`;
   try {
-    const response = await axios.delete(url, {
+    const response = await fetch(url, {
+      method: 'DELETE',
       headers: {
         Authorization: `Bearer ${token}`,
       },
     });
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
     await User.findOneAndDelete({ userId: userId });
-
-    return response.data;
+    return await response.json();
   } catch (error) {
     console.error('Error deleting user:', error);
     throw error;
