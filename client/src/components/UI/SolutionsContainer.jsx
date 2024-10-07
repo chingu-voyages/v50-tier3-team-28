@@ -11,28 +11,28 @@ export const SolutionsContainer = () => {
           <DetailsSummary open
             className={customStyles}
             title="Plant Bee-Friendly Flowers"
-            description="Grow a variety of plants that flower at different times of the year to provide bees with a constant source of food."
+            description="Growing native, bee-friendly plants provides bees with essential nectar and pollen, helping them thrive and boosting local biodiversity."
           />
           <DetailsSummary
             className={customStyles}
             title="Avoid Peticides"
-            description="Grow a variety of plants that flower at different times of the year to provide bees with a constant source of food."
+            description="Choosing natural alternatives to pesticides helps protect bees from harmful chemicals that can impair their health and disrupt ecosystems."
           />
-          <DetailsSummary className={customStyles} title="Create Habitats" description="Grow a variety of plants that flower at different times of the year to provide bees with a constant source of food." />
+          <DetailsSummary className={customStyles} title="Create Habitats" description="Set aside space for wildflowers and undisturbed areas in your garden to give bees a safe place to nest and forage." />
         </section>
 
         <section className="bg-[#D8E5C3] rounded-xl min-h-full px-3 py-6 flex flex-col gap-6 md:py-10 md:justify-stretch md:gap-8 md:w-5/12 dark:bg-[#3D4D22]">
           <DetailsSummary open
             className={customStyles}
             title="Provide Water"
-            description="Leave a shallow water source with landing spots, like pebbles or twigs, so bees can hydrate without drowning."
+            description="Place shallow water sources with small stones where bees can land and drink, giving them a much-needed rest during foraging."
           />
           <DetailsSummary
             className={customStyles}
             title="Support Local Beekeepers"
-            description="Grow a variety of plants that flower at different times of the year to provide bees with a constant source of food."
+            description="Buying honey and other products from local beekeepers helps sustain bee populations and promotes ethical beekeeping practices."
           />
-          <DetailsSummary className={customStyles} title="Create a Bee Bath" description="Leave a shallow water source with landing spots, like pebbles or twigs, so bees can hydrate without drowning." />
+          <DetailsSummary className={customStyles} title="Create a Bee Bath" description="Create a bee bath by filling a shallow dish with water and adding pebbles for bees to land on, offering them a safe place to rehydrate." />
         </section>
 
         <section className="md:w-3/12 min-h-full">
