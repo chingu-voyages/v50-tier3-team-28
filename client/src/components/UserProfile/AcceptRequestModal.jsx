@@ -6,7 +6,7 @@ import CancelRequest from './CancelRequest';
 import AcceptRequestCall from './AcceptRequestCall';
 
 const customInputStyles =
-	'my-0.5 ms-3 grow bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 p-2 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500';
+	'w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 p-2 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500';
 
 function AcceptRequestModal({ request, onClose }) {
 	const [isEditable, setIsEditable] = useState(false);
@@ -14,6 +14,11 @@ function AcceptRequestModal({ request, onClose }) {
 	const { getAccessTokenSilently } = useAuth0();
 	const { user } = useAuth0();
 	const [acceptedRequest, setAcceptedRequest] = useState(request);
+	const [isDescriptionExpanded, setIsDescriptionExpanded] = useState(false);
+
+	const toggleDescription = () => {
+		setIsDescriptionExpanded(!isDescriptionExpanded);
+	};
 
 	const [formData, setFormData] = useState({
 		title: request?.title || '',
@@ -99,11 +104,61 @@ function AcceptRequestModal({ request, onClose }) {
 	const isRequestPostedByUser = acceptedRequest?.beefinderId === user?.sub;
 	const isRequestAccepted = acceptedRequest?.isAccepted;
 	const isCurrentUserBeekeeper = acceptedRequest?.beekeeperId === user?.sub;
-
+	const renderField = ({
+		label,
+		name,
+		value,
+		onChange,
+		isEditable,
+		error,
+		customInputStyles,
+		errorMessage,
+	}) => (
+		<div className="flex items-center text-gray-700 mb-1 text-left">
+			<span className="font-bold text-base mr-1">{label}:</span>
+			{isEditable ? (
+				<input
+					type="text"
+					name={name}
+					value={value}
+					onChange={onChange}
+					className={customInputStyles}
+				/>
+			) : (
+				<span className="text-sm">{value}</span>
+			)}
+			{error && (
+				<p className="text-red-500 text-sm text-center">{errorMessage}</p>
+			)}
+		</div>
+	);
+	// const renderContactFields = () => {
+	// 	if (isRequestAccepted) {
+	// 		return (
+	// 			<>
+	// 				{renderField(
+	// 					'Email',
+	// 					acceptedRequest?.beefinder?.email || '(No email provided)'
+	// 				)}
+	// 				{renderField(
+	// 					'Contact No.',
+	// 					acceptedRequest?.contactNumber || '(No contact number provided)'
+	// 				)}
+	// 			</>
+	// 		);
+	// 	} else {
+	// 		return (
+	// 			<>
+	// 				{renderField('Email', '(Upon Accept)')}
+	// 				{renderField('Contact No.', '(Upon Accept)')}
+	// 			</>
+	// 		);
+	// 	}
+	// };
 	return (
 		<div className="flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 bg-gray-500 bg-opacity-75 transition-opacity">
-			<div className="relative p-8 w-full max-w-lg max-h-full">
-				<div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+			<div className="p-8 w-full max-w-lg max-h-full">
+				<div className="border-0 rounded-lg shadow-lg flex flex-col w-full bg-white outline-none focus:outline-none">
 					<div className="flex items-start justify-between p-5 border-b border-solid border-gray-300 rounded-t">
 						<h3 className="text-xl font-semibold">Request Details</h3>
 						<button
@@ -115,114 +170,123 @@ function AcceptRequestModal({ request, onClose }) {
 							</span>
 						</button>
 					</div>
-					<div className="p-8 flex flex-col ">
-						<div className="text-gray-700 text-lg mb-6 text-left">
-							<div className=" flex  justify-between items-center">
-								Title :{' '}
-								{isEditable ? (
-									<input
-										type="text"
-										name="title"
-										value={formData.title}
-										onChange={handleInputChange}
-										className={customInputStyles}
-									/>
-								) : (
-									formData.title
-								)}
-							</div>
-							{errors.title && (
-								<p className="text-red-500 text-sm text-center">
-									{errors.title}
-								</p>
-							)}
-							<div className=" flex  justify-between items-center">
-								Location :{' '}
-								{isEditable ? (
-									<input
-										type="text"
-										name="location"
-										value={formData.location}
-										onChange={handleInputChange}
-										className={customInputStyles}
-									/>
-								) : (
-									`${formData.location}`
-								)}
-							</div>
-							<div className=" flex  justify-between items-center">
-								Latitude :{' '}
-								{isEditable ? (
-									<input
-										type="text"
-										name="latitude"
-										value={formData.latitude}
-										onChange={handleInputChange}
-										className={customInputStyles}
-									/>
-								) : (
-									formData.latitude
-								)}
-							</div>
-							{errors[0] && (
-								<p className="text-red-500 text-sm text-center">
-									Enter valid latitude
-								</p>
-							)}
-							<div className=" flex  justify-between items-center">
-								Longitude :{' '}
-								{isEditable ? (
-									<input
-										type="text"
-										name="longitude"
-										value={formData.longitude}
-										onChange={handleInputChange}
-										className={customInputStyles}
-									/>
-								) : (
-									formData.longitude
-								)}
-							</div>
-							{errors[1] && (
-								<p className="text-red-500 text-sm text-center">
-									Enter valid longitude
-								</p>
-							)}
-							<div className="flex justify-between items-center">
-								Email:{' '}
-								{isRequestAccepted ? (
-									<>
-										{acceptedRequest?.beefinder?.email || '(No email provided)'}{' '}
-									</>
-								) : (
-									'(Upon Accept)'
-								)}
-							</div>
 
-							<div className="flex justify-between items-center">
-								Contact Number :{' '}
-								{isRequestAccepted ? (
+					<div className="p-8 flex flex-col ">
+						<div className="text-gray-700 mb-6 text-left">
+							{renderField({
+								label: 'Title',
+								name: 'title',
+								value: formData.title,
+								onChange: handleInputChange,
+								isEditable: isEditable,
+								error: errors.title,
+								errorMessage: 'errors.title',
+								customInputStyles: customInputStyles,
+							})}
+							{renderField({
+								label: 'Location',
+								name: 'location',
+								value: formData.location,
+								onChange: handleInputChange,
+								isEditable: isEditable,
+								error: errors.location,
+								errorMessage: 'errors.location',
+								customInputStyles: customInputStyles,
+							})}
+							<div className=" text-gray-700 mb-1 text-left">
+								<span className="font-bold text-base mr-1">Description: </span>
+								{isEditable ? (
+									<textarea
+										name="description"
+										value={formData.description}
+										onChange={handleInputChange}
+										className={customInputStyles + ' w-full h-28'}
+									/>
+								) : (
 									<>
-										{isEditable ? (
-											<input
-												type="text"
-												name="contactNumber"
-												value={formData.contactNumber}
-												onChange={handleInputChange}
-												className={customInputStyles}
-											/>
-										) : (
-											acceptedRequest?.contactNumber ||
-											'(No contact number provided)'
+										<span className="text-sm">
+											{isDescriptionExpanded
+												? acceptedRequest?.description
+												: `${acceptedRequest?.description?.slice(0, 200)}${
+														acceptedRequest?.description?.length > 200
+															? '...'
+															: ''
+												  }`}
+										</span>
+										{acceptedRequest?.description?.length > 200 && (
+											<button
+												onClick={toggleDescription}
+												className="text-blue-500 underline ml-2 text-xs"
+											>
+												{isDescriptionExpanded ? 'Show Less' : 'Show More'}
+											</button>
 										)}
 									</>
-								) : (
-									'(Upon Accept)'
 								)}
 							</div>
-						</div>
 
-						<div className="flex justify-between w-full">
+							{renderField({
+								label: 'Latitude',
+								name: 'latitude',
+								value: formData.latitude,
+								onChange: handleInputChange,
+								isEditable: isEditable,
+								error: errors[0],
+								errorMessage: 'Enter valid latitude',
+								customInputStyles: customInputStyles,
+							})}
+							{renderField({
+								label: 'Longitude',
+								name: 'longitude',
+								value: formData.longitude,
+								onChange: handleInputChange,
+								isEditable: isEditable,
+								error: errors[1],
+								errorMessage: 'Enter valid longitude',
+								customInputStyles: customInputStyles,
+							})}
+
+							<div className="text-gray-700 mb-1 text-left">
+								<span className="font-bold text-base mr-1">Email :</span>
+								<span className="text-sm">
+									{isRequestAccepted ? (
+										<>
+											{acceptedRequest?.beefinder?.email ||
+												'(No email provided)'}{' '}
+										</>
+									) : (
+										'(Upon Accept)'
+									)}
+								</span>
+							</div>
+
+							<div className="text-gray-700 mb-1 text-left">
+								<span className="font-bold text-base mr-1">
+									Contact Number :
+								</span>
+								<span className="text-sm">
+									{isRequestAccepted ? (
+										<>
+											{isEditable ? (
+												<input
+													type="text"
+													name="contactNumber"
+													value={formData.contactNumber}
+													onChange={handleInputChange}
+													className={customInputStyles}
+												/>
+											) : (
+												acceptedRequest?.contactNumber ||
+												'(No contact number provided)'
+											)}
+										</>
+									) : (
+										'(Upon Accept)'
+									)}
+								</span>
+							</div>
+						</div>
+						<div className="flex justify-between w-full mb-4">
 							<AcceptRequestCall
 								selectedRequest={acceptedRequest}
 								onSuccess={handleAcceptSuccess}
