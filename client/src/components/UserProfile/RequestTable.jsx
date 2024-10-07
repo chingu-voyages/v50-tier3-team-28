@@ -61,7 +61,8 @@ export const RequestComponent = ({ fixedHeader, fixedHeaderScrollHeight }) => {
 		fetchUserData();
 	};
 	const handleDeleteRequest = (id) => {
-		console.log('handleDeleteRequest', id);
+		// console.log('handleDeleteRequest', id);
+		fetchUserData(); //temorarily added for testing
 	};
 
 	const handleRequestAcceptance = (id) => {
