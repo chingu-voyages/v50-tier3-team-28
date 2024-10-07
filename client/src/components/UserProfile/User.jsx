@@ -4,9 +4,7 @@ import { Image } from "../UI/Image";
 import { AnchorLink } from "../UI/AnchorLink";
 import { UserInfo } from "./UserInfo";
 
-// There is no user contact number on BE, right now
-// export const User = ({ email, picture, contactNumber }) => {
-export const User = ({ email, picture }) => {
+export const User = ({ email, gravatar, contactNumber }) => {
   const [isUserInfoModalOpen, setIsUserInfoModalOpen] = useState(false);
 
   const onChangeToggleUserInfoModalHandler = (updateState) => {
@@ -19,19 +17,14 @@ export const User = ({ email, picture }) => {
         <p>{email}</p>
       </section>
 
-      <section className="w-20 h-20 rounded-full overflow-hidden">
-        <AnchorLink className="relative" onClick={() => onChangeToggleUserInfoModalHandler(true)}>
-          <Image src={picture} alt="User's Image" className="object-cover object-center h-20" />
+      <section className="relative w-20 h-20 rounded-full overflow-hidden">
+        <AnchorLink className="" onClick={() => onChangeToggleUserInfoModalHandler(true)}>
+          <Image src={gravatar} alt="User's Image" className="object-cover object-center h-20" />
         </AnchorLink>
       </section>
 
-      {isUserInfoModalOpen && <section className={`${isUserInfoModalOpen ? "bg-gray-300 border border-gray-200 rounded-lg absolute top-[19rem] right-0 w-full md:max-w-lg xl:right-[25%] dark:bg-black dark:border-white z-[1000] " : "hidden"}`}>
-        <section className="relative p-4">
-          <UserInfo email={email} onClickHandler={() => onChangeToggleUserInfoModalHandler(false)} />
-
-          {/* since there is no user contact number on BE, right now */}
-          {/* <UserInfo email={email} contactNumber={contactNumber} onClickHandler={() => onChangeToggleUserInfoModalHandler(false)} /> */}
-        </section>
+      {isUserInfoModalOpen && <section className={`${isUserInfoModalOpen ? "absolute bg-gray-300 border border-hsl(0, 0%, 50%)-200 rounded-lg top-[19rem] right-0 w-full md:max-h-80 md:max-w-lg md:border-2 md:border-red-500 md:top-[17rem] md:right-auto dark:bg-black dark:border-white z-[60]" : "hidden"}`}>
+        <UserInfo email={email} contactNumber={contactNumber} onClickHandler={() => onChangeToggleUserInfoModalHandler(false)} />
       </section>}
     </section>
   );
@@ -39,6 +32,6 @@ export const User = ({ email, picture }) => {
 
 User.propTypes = {
   email: PropTypes.string,
-  picture: PropTypes.string,
+  gravatar: PropTypes.string,
   contactNumber: PropTypes.string,
 };
