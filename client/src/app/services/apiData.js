@@ -55,7 +55,7 @@ export const dashboardApi = createApi({
                 url: "requests",
                 method: "PUT",
                 body,
-            }),
+            }), 
         }),
         deleteRequest: builder.mutation({
             query: (id) => ({
