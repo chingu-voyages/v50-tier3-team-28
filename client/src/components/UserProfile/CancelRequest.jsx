@@ -1,58 +1,47 @@
 // CancelRequest.js
 import PropTypes from 'prop-types';
 import { useAuth0 } from '@auth0/auth0-react';
-import axios from 'axios';
 
-const CancelRequest = ({ requestId, onCancel }) => {
-	const { getAccessTokenSilently } = useAuth0();
-	const isDevelopment = process.env.NODE_ENV === 'development';
-	const apiUrl = isDevelopment
-		? 'http://localhost:3003/api'
-		: 'https://be-v50-tier3-team-28.onrender.com/api';
-	const handleCancelRequest = async () => {
-		// console.log('requestId', requestId);
+const CancelRequest = ({ request, onCancel }) => {
+  const { getAccessTokenSilently } = useAuth0();
+  const isDevelopment = process.env.NODE_ENV === 'development';
+  const apiUrl = isDevelopment
+    ? 'http://localhost:3003/api'
+    : 'https://be-v50-tier3-team-28.onrender.com/api';
+  const handleCancelRequest = async () => {
+    try {
+      const accessToken = await getAccessTokenSilently();
+      const response = await fetch(`${apiUrl}/requests/${request.id}/cancel`, {
+        method: 'PATCH',
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
 
-		try {
-			const accessToken = await getAccessTokenSilently();
-			// console.log('accessToken', accessToken);
+      if (!response.ok) {
+        throw new Error('Failed to cancel the request');
+      }
+      console.log('Cancelled request successfully');
+      const data = await response.json();
+      onCancel(data);
+    } catch (error) {
+      console.error('Failed to cancel the request:', error);
+    }
+  };
 
-			const response = await axios.patch(
-				`${apiUrl}/requests/${requestId}/cancel`,
-				{},
-				{
-					headers: {
-						Authorization: `Bearer ${accessToken}`,
-					},
-				}
-			);
-			console.log('Cancelled request successfully:', response.data.request);
-
-			onCancel(response.data.request);
-		} catch (error) {
-			console.error('Failed to cancel the request:', error);
-		}
-		console.log(requestId);
-
-		// if (confirm('Are you sure you want to cancel this request?')) {
-		// 	console.log('User would like to cancel the request.');
-		// } else {
-		// 	console.log('User do not want to cancel the request.');
-		// }
-	};
-
-	return (
-		<button
-			onClick={handleCancelRequest}
-			className="px-6 py-2 rounded shadow hover:shadow-lg outline-none focus:outline-none ease-linear transition-all duration-150 bg-white text-gray-900 border border-[#F4743B]"
-		>
-			Cancel Request
-		</button>
-	);
+  return (
+    <button
+      onClick={handleCancelRequest}
+      className="border border-[#F4743B] px-3 py-2 uppercase text-sm rounded shadow hover:shadow-lg outline-none focus:outline-none ease-linear transition-all duration-150"
+    >
+      Cancel
+    </button>
+  );
 };
 
 CancelRequest.propTypes = {
-	requestId: PropTypes.string.isRequired,
-	onCancel: PropTypes.func,
+  request: PropTypes.object.isRequired,
+  onCancel: PropTypes.func,
 };
 
 export default CancelRequest;
