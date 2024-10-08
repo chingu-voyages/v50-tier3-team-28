@@ -50,7 +50,7 @@ export const RequestFormModal = ({ showModal, setShowModal }) => {
 		if (showModal) {
 			fetchUserData();
 		}
-	}, [getAccessTokenSilently, showModal]);
+	}, [getAccessTokenSilently, showModal, apiUrl]);
 
 	const handleChange = (e) => {
 		const { name, value } = e.target;
