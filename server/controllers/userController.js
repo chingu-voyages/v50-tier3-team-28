@@ -4,6 +4,7 @@ const {
 } = require('../services/userService');
 const { validateMetadata } = require('../validators/metadataValidator');
 const User = require('../models/User');
+const Request = require('../models/Request');
 
 exports.updateOrDeleteMetadata = async (req, res) => {
   const userId = req.auth.sub;
@@ -86,3 +87,33 @@ exports.deleteUserfromDb = async (req, res) => {
 //     res.status(500).json({ message: 'Internal server error' });
 //   }
 // };
+exports.getUserRequestCounts = async (req, res) => {
+  try {
+    const userId = req.auth.sub;
+
+    // Count requests where the user is a beefinder
+    const beeHivesFound = await Request.countDocuments({
+      beefinderId: userId,
+    });
+
+    // Count requests where the user is a beekeeper and the request is completed
+    const beeHivesSaved = await Request.countDocuments({
+      beekeeperId: userId,
+      isCompleted: true,
+    });
+
+    res.send({
+      success: true,
+      message: 'Request counts retrieved successfully',
+      beeHivesFound,
+      beeHivesSaved,
+    });
+  } catch (error) {
+    console.error('Error retrieving request counts:', error);
+    res.status(400).send({
+      success: false,
+      message: 'Failed to retrieve request counts',
+      error,
+    });
+  }
+};
