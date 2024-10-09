@@ -2,15 +2,25 @@ import { useEffect, useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 // import { useNavigate } from 'react-router-dom';
 import { Header } from '../../components/UI/Header';
-import { UserProfileContainer } from '../../components/UserProfile/UserProfileContainer';
 import { Map } from '../../components/Map';
 import Footer from '../../components/Footer/Footer';
+import { UserProfileNew } from "../../components/UserProfile/UserProfileNew";
 
 const Dashboard = () => {
   const { isAuthenticated, getAccessTokenSilently } = useAuth0();
-  const [protectedData, setProtectedData] = useState('');
+  const [protectedData, setProtectedData] = useState({});
+  // const [protectedData, setProtectedData] = useState('');
+
   // const [action, setAction] = useState('Sign Up');
   // const navigate = useNavigate();
+
+  // IMP: Pass data from child component to parent (this) component
+  const [dataFromChild, setDataFromChild] = useState("");
+
+  function handleDataFromChild(data) {
+    setDataFromChild(data);
+  }
+
   const { logout } = useAuth0();
 
   const [action, setAction] = useState('');
@@ -24,6 +34,63 @@ const Dashboard = () => {
   const onClickHandler = () => {
     // logout({ logoutParams: { returnTo: window.location.origin } });
     logout({ logoutParams: { returnTo: returnToUri } });
+  };
+
+  const handleAddOrUpdateUserContactNumber = async () => {
+    try {
+      const token = await getAccessTokenSilently();
+
+      const response = await fetch(
+        `${apiUrl}/user/metadata`,
+        {
+          method: 'PATCH',
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            // metadata: { contactNumber: tempContactNumber },
+            // metadata: { contactNumber: userContactNumberFromUserInfoComponent },
+            metadata: { contactNumber: dataFromChild },
+          }),
+        });
+
+      if (response.ok) {
+        console.log('Contact number added/updated successfully');
+      } else {
+        const errorData = await response.json();
+        console.error('Failed to add/update contact number', errorData);
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+
+  const handleDeleteUserContactNumber = async () => {
+    try {
+      const token = await getAccessTokenSilently();
+      const response = await fetch(
+        `${apiUrl}/user/metadata`,
+        {
+          method: 'PATCH',
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            metadata: { contactNumber: '' }, // Setting to an empty string to delete
+          }),
+        });
+
+      if (response.ok) {
+        console.log('Contact number deleted successfully');
+      } else {
+        const errorData = await response.json();
+        console.error('Failed to delete contact number', errorData);
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
   };
 
   useEffect(() => {
@@ -68,7 +135,13 @@ const Dashboard = () => {
 
       <main className='dark:bg-black dark:text-white border-2 border-transparent'>
         <section className='max-w-7xl mx-auto'>
-          <UserProfileContainer data={protectedData} />
+          <UserProfileNew data={protectedData} sendDataToParent={handleDataFromChild} />
+        </section>
+
+        {/* TODO: Following section will be deleted once BE logic is fixed */}
+        <section>
+          <p>User contact number from UserProfileNew COMPONENT : {dataFromChild} </p>
+          {/* <p> {JSON.stringify(protectedData)} </p> */}
         </section>
 
         <section className='flex justify-center p-2'>
