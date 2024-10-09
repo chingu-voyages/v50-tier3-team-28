@@ -7,7 +7,7 @@ const requestValidateSchema = Joi.object({
     .required()
     .regex(/^(?!\s*$)[A-Za-z][\w\s.,!'’-]*$/, 'valid title')
     .messages({
-      "string.empty": `Title cannot be empty`,
+      'string.empty': `Title cannot be empty`,
       // 'string.min': 'Title should be at least 5 characters long',
       'string.pattern.name':
         'Title must contain valid characters and not be empty or just spaces.',
@@ -18,20 +18,19 @@ const requestValidateSchema = Joi.object({
     .required()
     .regex(/^(?!\s*$).+$/, 'valid description')
     .messages({
-      "string.empty": `Description cannot be empty`,
+      'string.empty': `Description cannot be empty`,
       'string.pattern.name':
         'Description must contain valid characters and not be empty or just spaces.',
-       'string.min': 'Please enter more details.',
+      'string.min': 'Please enter more details.',
     }),
-  image: Joi.string().uri().optional().allow(null, '')
-    .messages({
+  image: Joi.string().uri().optional().allow(null, '').messages({
     'string.uri': 'Enter valid URL',
   }),
   contactNumber: Joi.string()
-    .pattern(/^\+?[1-9]\d{1,14}$/,  'valid contact number')
+    .pattern(/^\+?[1-9]\d{1,14}$/, 'valid contact number')
     .required()
     .messages({
-      "string.empty": `Contact number cannot be empty`,
+      'string.empty': `Contact number cannot be empty`,
       'string.pattern.name': 'Enter valid contact number.',
     }),
   isActive: Joi.boolean(),
@@ -47,11 +46,12 @@ const requestValidateSchema = Joi.object({
     coordinates: Joi.array().items(Joi.number()).length(2).required(),
     city: Joi.string().optional().allow(null, ''),
     country: Joi.string().optional().allow(null, ''),
-  }).required()
+  })
+    .required()
     .messages({
-      "string.empty": `Contact number cannot be empty`,
-      'any.required': 'Coordinates numbers are required.'
-  }),
+      'string.empty': `Contact number cannot be empty`,
+      'any.required': 'Coordinates numbers are required.',
+    }),
 });
 const validateRequest = (request) => {
   const { error, value } = requestValidateSchema.validate(request, {
@@ -67,7 +67,7 @@ const validateRequest = (request) => {
       details: errorDetails,
     };
   }
-  console.log("request validated successfully");
+  console.log('request validated successfully');
   return value;
 };
 

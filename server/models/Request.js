@@ -14,7 +14,7 @@ const requestSchema = new mongoose.Schema(
       type: String,
     },
     contactNumber: {
-      required: true,
+      required: false, //was true
       type: String,
     },
     isActive: {
