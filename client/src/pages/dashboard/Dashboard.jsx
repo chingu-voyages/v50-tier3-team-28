@@ -22,15 +22,12 @@ const Dashboard = () => {
 
   const [action, setAction] = useState('');
 
-  const returnToUri = import.meta.env.VITE_AUTH0_RETURN_TO_URI;
-
   const isDevelopment = import.meta.env.VITE_NODE_ENV === 'development';
 
   const apiUrl = isDevelopment ? 'http://localhost:3003/api' : 'https://be-v50-tier3-team-28.onrender.com/api';
 
   const onClickHandler = () => {
-    // logout({ logoutParams: { returnTo: window.location.origin } });
-    logout({ logoutParams: { returnTo: returnToUri } });
+    logout({ logoutParams: { returnTo: window.location.origin } });
   };
 
   function handleUpdateUserContactNumber(data) {

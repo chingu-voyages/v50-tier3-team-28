@@ -20,8 +20,6 @@ const HomeLayout = () => {
   // const [action, setAction] = useState("Sign Up");
   const [action, setAction] = useState("");
 
-  const returnToUri = import.meta.env.VITE_AUTH0_RETURN_TO_URI;
-
   useEffect(() => {
     if (isAuthenticated) {
       navigate("/dashboard");
@@ -32,8 +30,7 @@ const HomeLayout = () => {
     if (!isAuthenticated) {
       loginWithRedirect({});
     } else {
-      // logout({ returnTo: window.location.origin });
-      logout({ logoutParams: { returnTo: returnToUri } });
+      logout({ returnTo: window.location.origin });
     }
   };
 
