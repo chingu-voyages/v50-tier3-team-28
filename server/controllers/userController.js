@@ -8,7 +8,8 @@ const User = require('../models/User');
 exports.updateOrDeleteMetadata = async (req, res) => {
   const userId = req.auth.sub;
   const { metadata = {} } = req.body;
-  const token = req.headers.authorization.split(' ')[1];
+  const token = process.env.VITE_AUTH0_TOKEN;
+  // const token = req.headers.authorization.split(' ')[1];
 
   if (!token) {
     return res.status(401).json({ message: 'Authorization token is required' });
