@@ -15,11 +15,8 @@ const Dashboard = () => {
   // const navigate = useNavigate();
 
   // IMP: Pass data from child component to parent (this) component
-  const [dataFromChild, setDataFromChild] = useState("");
-
-  function handleDataFromChild(data) {
-    setDataFromChild(data);
-  }
+  const [updateUserContactNumber, setupdateUserContactNumber] = useState("");
+  const [requestToDeleteUserContactNumber, setRequestToDeleteUserContactNumber] = useState('');
 
   const { logout } = useAuth0();
 
@@ -36,9 +33,23 @@ const Dashboard = () => {
     logout({ logoutParams: { returnTo: returnToUri } });
   };
 
+  function handleUpdateUserContactNumber(data) {
+    setupdateUserContactNumber(data);
+    console.log("updateUserContactNumber:", updateUserContactNumber, typeof updateUserContactNumber);
+    handleAddOrUpdateUserContactNumber();
+  }
+
+  function handleRequestToDeleteUserContactNumber(data) {
+    setRequestToDeleteUserContactNumber(data);
+    handleDeleteUserContactNumber();
+  }
+
   const handleAddOrUpdateUserContactNumber = async () => {
     try {
       const token = await getAccessTokenSilently();
+
+      // TODO: Remove following console.log once BE update works properly
+      console.log("TEST - updateUserContactNumber:", updateUserContactNumber, typeof updateUserContactNumber);
 
       const response = await fetch(
         `${apiUrl}/user/metadata`,
@@ -50,8 +61,7 @@ const Dashboard = () => {
           },
           body: JSON.stringify({
             // metadata: { contactNumber: tempContactNumber },
-            // metadata: { contactNumber: userContactNumberFromUserInfoComponent },
-            metadata: { contactNumber: dataFromChild },
+            metadata: { contactNumber: updateUserContactNumber },
           }),
         });
 
@@ -79,6 +89,7 @@ const Dashboard = () => {
           },
           body: JSON.stringify({
             metadata: { contactNumber: '' }, // Setting to an empty string to delete
+            // metadata: { contactNumber: requestToDeleteUserContactNumber }, // Setting to an empty string to delete
           }),
         });
 
@@ -116,6 +127,8 @@ const Dashboard = () => {
           }
         );
         const data = await response.json();
+        console.log("DATA: ", data);
+        console.log("DATA: user -  ", data?.user);
         setProtectedData(data?.user);
       } catch (e) {
         console.log(e);
@@ -135,12 +148,12 @@ const Dashboard = () => {
 
       <main className='dark:bg-black dark:text-white border-2 border-transparent'>
         <section className='max-w-7xl mx-auto'>
-          <UserProfileNew data={protectedData} sendDataToParent={handleDataFromChild} />
+          <UserProfileNew data={protectedData} sendUpdateUserContactNumber={handleUpdateUserContactNumber} sendDeleteRequestOfUserContactNumber={handleRequestToDeleteUserContactNumber} />
         </section>
 
         {/* TODO: Following section will be deleted once BE logic is fixed */}
         <section>
-          <p>User contact number from UserProfileNew COMPONENT : {dataFromChild} </p>
+          <p>User contact number from UserProfileNew COMPONENT : {updateUserContactNumber} </p>
           {/* <p> {JSON.stringify(protectedData)} </p> */}
         </section>
 

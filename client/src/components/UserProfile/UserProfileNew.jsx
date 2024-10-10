@@ -6,7 +6,7 @@ import { Input } from "../UI/Input";
 import { AnchorLink } from "../UI/AnchorLink";
 import { UserRequest } from "./UserRequest";
 
-export const UserProfileNew = ({ data, sendDataToParent }) => {
+export const UserProfileNew = ({ data, sendUpdateUserContactNumber, sendDeleteRequestOfUserContactNumber }) => {
   const {
     name,
     email,
@@ -18,14 +18,20 @@ export const UserProfileNew = ({ data, sendDataToParent }) => {
   const { metadata: { contactNumber } = {} } = data;
 
   const [isEditable, setIsEditable] = useState(false);
-  const [isNumber, setIsNumber] = useState(true);
-  const [updateUserContactNumber, setUpdateUserContactNumber] = useState('');
-  // const [updateUserContactNumber, setUpdateUserContactNumber] = useState(contactNumber ? contactNumber : '');
+  // const [isNumber, setIsNumber] = useState(true);
 
   const [isUserInfoModalOpen, setIsUserInfoModalOpen] = useState(false);
 
+  const [deleteUserContactNumber, setDeleteUserContactNumber] = useState('');
+  const [userContactNumber, setUserContactNumber] = useState(contactNumber ? contactNumber : '');
+
+  // TODO: Test this with BE data with registered (test) contact number, if it shows under Email - code on line nr: 105
+  const [updateUserContactNumber, setUpdateUserContactNumber] = useState('');
+
   const onChangeToggleUserInfoModalHandler = (updateState) => {
     setIsUserInfoModalOpen(updateState);
+    setUserContactNumber(userContactNumber);
+    setIsEditable(false);
   };
 
   const onChangeUserContactNumberHandler = (e) => {
@@ -36,6 +42,8 @@ export const UserProfileNew = ({ data, sendDataToParent }) => {
   const onClickDeleteUserContactNumber = () => {
     if (confirm('Are you sure you want to delete your account from the database?')) {
       console.log('User would like to delete the account from the database.');
+      sendDeleteRequestOfUserContactNumber(deleteUserContactNumber);
+      setDeleteUserContactNumber('');
       setUpdateUserContactNumber("");
     } else {
       console.log('User do not want to delete the account.');
@@ -43,18 +51,21 @@ export const UserProfileNew = ({ data, sendDataToParent }) => {
     }
   };
 
-  const onClickUpdateUserContactNumber = () => {
-    setIsEditable(!isEditable);
+  const onClickEditUserContactNumber = () => {
+    setIsEditable(true);
+  };
 
+  const onClickUpdateUserContactNumber = () => {
     if (isNaN(updateUserContactNumber)) {
       alert("Please enter a contact number.");
       setUpdateUserContactNumber("");
-      setIsNumber(true);
+      // setIsNumber(true);
     }
     else {
-      setIsNumber(!isNumber);
+      // setIsNumber(false);
       setUpdateUserContactNumber(updateUserContactNumber);
-      sendDataToParent(updateUserContactNumber);
+      sendUpdateUserContactNumber(updateUserContactNumber);
+      setIsEditable(false);
     }
   };
 
@@ -93,16 +104,15 @@ export const UserProfileNew = ({ data, sendDataToParent }) => {
 
               <section>
                 <p>Email: {email} </p>
-                {/* TODO: remove the following test contact number */}
-                <p>Contact number/updateUserContactNumber: {updateUserContactNumber}</p>
-                {(isNumber && !isEditable) ? <p>Contact number: <span className=""> {updateUserContactNumber} </span></p> : <Input
+
+                {isEditable ? <Input
                   className="border-2 border-blue-300 md:w-56 pl-1"
                   type="text"
                   label="Contact number: "
                   placeholder="update contact number..."
                   value={updateUserContactNumber}
                   onChange={onChangeUserContactNumberHandler}
-                />}
+                /> : <p>Contact number: {userContactNumber ? userContactNumber : updateUserContactNumber}</p>}
               </section>
 
               <section>
@@ -113,8 +123,9 @@ export const UserProfileNew = ({ data, sendDataToParent }) => {
 
               <section className="flex self-center gap-4 md:gap-6 md:justify-around">
                 <Button className="font-normal text-black bg-navSignupButton md:w-56 hover:bg-green-300 focus:bg-green-300 rounded-lg p-2 -mt-4 dark:hover:bg-green-600 dark:focus:bg-green-600 dark:text-white" type="button" text="Delete Contact Number" onClickHandler={onClickDeleteUserContactNumber} />
-                <Button className="font-normal text-black bg-navSignupButton md:w-56 hover:bg-green-300 focus:bg-green-300 rounded-lg p-2 -mt-4 dark:hover:bg-green-600 dark:focus:bg-green-600 dark:text-white" type="button" text={(isNumber && !isEditable) ? "Edit Contact Number" : "Update Contact Number"} onClickHandler={onClickUpdateUserContactNumber} />
-
+                {
+                  (!isEditable) ? <Button className="font-normal text-black bg-navSignupButton md:w-56 hover:bg-green-300 focus:bg-green-300 rounded-lg p-2 -mt-4 dark:hover:bg-green-600 dark:focus:bg-green-600 dark:text-white" type="button" text="Edit Contact Number" onClickHandler={onClickEditUserContactNumber} /> : <Button className="font-normal text-black bg-navSignupButton md:w-56 hover:bg-green-300 focus:bg-green-300 rounded-lg p-2 -mt-4 dark:hover:bg-green-600 dark:focus:bg-green-600 dark:text-white" type="button" text="Update Contact Number" onClickHandler={onClickUpdateUserContactNumber} />
+                }
               </section>
             </section>
           </section>}
@@ -130,5 +141,6 @@ export const UserProfileNew = ({ data, sendDataToParent }) => {
 
 UserProfileNew.propTypes = {
   data: PropTypes.object,
-  sendDataToParent: PropTypes.func,
+  sendUpdateUserContactNumber: PropTypes.func,
+  sendDeleteRequestOfUserContactNumber: PropTypes.func
 };
