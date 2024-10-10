@@ -71,7 +71,6 @@ export default function requestColumns({
       id: 'delete',
       width: '50px',
       cell: (row) =>
-        (row.isCompleted || !row.isAccepted) &&
         row.beefinder?.email === user.email ? (
           <DeleteRequest requestId={row.id} onDelete={handleDeleteRequest} />
         ) : null,
