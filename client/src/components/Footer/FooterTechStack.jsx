@@ -14,26 +14,30 @@ function FooterTechStack({ techstack }) {
       </h2>
 
       <div className="grid grid-cols-2 gap-4 w-full">
-    {techstack.map((tech, index) => (
-      <div
-        key={index}
-        className={`flex justify-between items-center px-4 object-contain ${
-          index === techstack.length - 1 ? 'col-span-2' : ''
-        }`}
-      >
-        <a
-          href="#"
-          className="group"
-          onClick={(e) => handleClick(e, tech.url)}>
-          <img
-            src={tech.image}
-            alt={tech.name}
-            className="w-24 xl:w-32 h-24 xl:h-32 object-contain mr-2 xl:mr-4"
-          />
-        </a>
+        {techstack.map((tech, index) => (
+          <div
+            key={index}
+            className={`flex justify-center items-center px-4 ${
+              tech.name === "tailwindcss" ? "col-span-2" : ""
+            }`}>
+            <a
+              href="#"
+              className="group"
+              onClick={e => handleClick(e, tech.url)}>
+              <img
+                src={tech.image}
+                alt={tech.name}
+                className={`object-contain ${
+                  tech.name === "tailwindcss"
+                    ? "w-96 mt-10"
+                    : "w-24 xl:w-32 h-24 xl:h-32 mr-2 xl:mr-4 mt-1"
+                }`}
+              />
+            </a>
+          </div>
+        ))}
       </div>
-    ))}
-  </div>
+
       {modalIndex && (
         <ModalResourceLink url={modalIndex} handleClick={setModalIndex} />
       )}
