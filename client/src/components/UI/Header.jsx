@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import { Nav } from '../UI/Nav';
 import navBeeLogo from '../../assets/imgs/nav_bee_logo.png';
 import React from 'react';
-// import { Link } from 'react-router-dom';
-import navBeeLogo from '../../assets/imgs/nav_bee_logo.png';
+// // import { Link } from 'react-router-dom';
+// import navBeeLogo from '../../assets/imgs/nav_bee_logo.png';
 
 export const Header = ({ action, onClickHandler, isAuthenticated }) => {
   return (
